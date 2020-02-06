@@ -1,0 +1,9 @@
+Сборка Release, с такими измененными параметрами:
+
+Preprocessor macros - ADHOC-1
+enadle testability - Yes
+Enable Foundation Assertions - Yes
+treat missing baselines as test failures - Yes 
+optimization level - None
+
+Сделана для тестирования проекта
