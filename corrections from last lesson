@@ -1,0 +1,17 @@
+1)	Реализовать setupLogger
+Смотри AppDelegate функцию setupLogger, которая вызвается в application.
+
+2)	Запустить спиннер на launch screen
+Создал файл с классом LaunchScreenViewController и попытался добавить его как класс в LaunchScreen.storyboard. Появилась ошибка компиляции “Launch screens may not set custom classnames”. Забил на этот пункт.
+
+3)	Переделать флаг
+Функционал рисования флажка перенесен в класс ColorCellView.
+
+4)	Избавиться от индексов массива в виде цифр в функции parse
+Создан файл ColorComponentsList и одноименный enum. В enum rawValue является индексом нужного элемента в массиве, возвращаемом colorComponents.
+
+5)	Убрать числовые коэффиценты в ColorCellView
+Созданы переменные, отвечающие за сдвиги.
+
+6)	Исправить логику ошибки в методе add
+При попытке добавить note с существующим uid происходит перезаписывание, после чего выбрасывается ошибка addExistingNoteException. В методе loadFromFile при вылавливании этой ошибки она записывается в лог DDLogError.
