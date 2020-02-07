@@ -12,19 +12,17 @@ import UIKit
 class ColorCellView: UIView {
     
     @IBInspectable var isSelected: Bool = false
-    var shapePosition: CGPoint = .zero
-    var shapeSize: CGFloat = 30
-    var borderWidth: CGFloat = 2
-    
+    @IBInspectable var borderWidth: CGFloat = 2
+
     override func draw(_ rect: CGRect) {
+
         super.draw(rect)
         layer.borderWidth = borderWidth
         if isSelected {
             let xShift = 3 * rect.width / 5
             let yShift: CGFloat = 5
-            shapePosition = CGPoint(x: rect.minX + xShift, y: yShift)
-            shapeSize = rect.width / 4
-            let path = makeFlagPath(in: CGRect(origin: shapePosition,
+            let shapeSize: CGFloat = rect.width / 4
+            let path = makeFlagPath(in: CGRect(origin: CGPoint(x: rect.minX + xShift, y: yShift),
                                     size: CGSize(width: shapeSize,
                                                  height: shapeSize)))
             path.stroke()
@@ -41,7 +39,7 @@ class ColorCellView: UIView {
             radius: rect.maxRadiusOfCircle,
             startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true
         )
-        let shift = shapeSize / 4
+        let shift = rect.width / 4
         path.move(to: CGPoint(x: rect.midX - shift, y: rect.midY))
         path.addLine(to: CGPoint(x: rect.midX, y: rect.midY + shift))
         path.addLine(to: CGPoint(x: rect.midX + shift, y: rect.midY - shift))

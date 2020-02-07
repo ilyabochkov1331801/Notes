@@ -30,13 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    public let fileLogger: DDFileLogger = DDFileLogger()
     
     private func setupLogger() {
-        DDLog.add(DDTTYLogger.sharedInstance!)
-        fileLogger.rollingFrequency = TimeInterval(60*60*24)
+        DDLog.add(DDOSLogger.sharedInstance) // Uses os_log
+
+        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
+        fileLogger.rollingFrequency = 60 * 60 * 24 // 24 hours
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
-        DDLog.add(fileLogger, with: .info)
+        DDLog.add(fileLogger)
     }
 
 }

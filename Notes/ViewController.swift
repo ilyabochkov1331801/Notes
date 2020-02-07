@@ -36,7 +36,6 @@ class ViewController: UIViewController {
                                                selector: #selector(updateContentView(notification: )),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
-        print(colorCells.count)
     }
     
     
