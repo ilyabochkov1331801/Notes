@@ -44,11 +44,12 @@ class ViewController: UIViewController {
         let touchLocation = sender.location(in: stackOfColorCell)
         for (index, colorCell) in colorCells.enumerated() {
             if colorCell.isPointInView(point: touchLocation) {
-                if let indexOfSelected = selectedColor?.rawValue {
+                if let indexOfSelected = selectedColor?.rawValue,
+                    indexOfSelected != index {
                     colorCells[indexOfSelected].isSelected = false
                     colorCells[indexOfSelected].setNeedsDisplay()
                 }
-                colorCell.isSelected = true
+                colorCell.isSelected = !colorCell.isSelected
                 colorCell.setNeedsDisplay()
                 selectedColor = colorsIndex.init(rawValue: index)
             }
