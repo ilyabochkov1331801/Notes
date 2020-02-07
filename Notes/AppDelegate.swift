@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public let fileLogger: DDFileLogger = DDFileLogger()
     
     private func setupLogger() {
-        DDLog.add(DDTTYLogger.sharedInstance)
+        DDLog.add(DDTTYLogger.sharedInstance!)
         fileLogger.rollingFrequency = TimeInterval(60*60*24)
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.add(fileLogger, with: .info)

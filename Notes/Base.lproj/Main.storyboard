@@ -19,7 +19,7 @@
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="as6-AP-dh1">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="627"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="622"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EeM-ju-s2n">
                                                 <rect key="frame" x="8" y="50" width="327" height="133"/>
@@ -38,13 +38,13 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use destroy date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B86-Cm-HW0">
-                                                <rect key="frame" x="8" y="194" width="153" height="24"/>
+                                                <rect key="frame" x="8" y="194" width="152.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-zX-4lR">
-                                                <rect key="frame" x="183" y="191" width="51" height="31"/>
+                                                <rect key="frame" x="182.5" y="191" width="51" height="31"/>
                                             </switch>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gO0-6t-LXb">
                                                 <rect key="frame" x="11.5" y="230" width="320" height="216"/>
@@ -52,72 +52,64 @@
                                                     <constraint firstAttribute="height" constant="216" id="0He-tz-pXm"/>
                                                 </constraints>
                                             </datePicker>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APL-5A-T3u" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="469" width="70" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="APL-5A-T3u" secondAttribute="height" multiplier="1:1" id="lTs-SJ-O3F"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMj-QZ-b1o" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
-                                                <rect key="frame" x="91" y="469" width="70" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-y9-Cdr">
-                                                <rect key="frame" x="273" y="469" width="70" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41x-Hg-dJP" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
-                                                <rect key="frame" x="182" y="469" width="70" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="kIt-hq-tnw">
+                                                <rect key="frame" x="10" y="469" width="323" height="65"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APL-5A-T3u" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="65" id="ULQ-5U-ogp"/>
+                                                            <constraint firstAttribute="width" secondItem="APL-5A-T3u" secondAttribute="height" multiplier="1:1" id="lTs-SJ-O3F"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMj-QZ-b1o" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
+                                                        <rect key="frame" x="86" y="0.0" width="65" height="65"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41x-Hg-dJP" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
+                                                        <rect key="frame" x="172" y="0.0" width="65" height="65"/>
+                                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-y9-Cdr" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
+                                                        <rect key="frame" x="258" y="0.0" width="65" height="65"/>
+                                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="APL-5A-T3u" firstAttribute="top" secondItem="gO0-6t-LXb" secondAttribute="bottom" constant="23" id="4Mx-mY-KPw"/>
-                                            <constraint firstItem="V8l-y9-Cdr" firstAttribute="width" secondItem="APL-5A-T3u" secondAttribute="width" id="4gp-DI-Txs"/>
-                                            <constraint firstItem="V8l-y9-Cdr" firstAttribute="top" secondItem="gO0-6t-LXb" secondAttribute="bottom" constant="23" id="564-Eh-rtE"/>
                                             <constraint firstItem="gO0-6t-LXb" firstAttribute="centerX" secondItem="as6-AP-dh1" secondAttribute="centerX" id="5rR-Tz-jvX"/>
                                             <constraint firstItem="B86-Cm-HW0" firstAttribute="top" secondItem="EeM-ju-s2n" secondAttribute="bottom" constant="11" id="793-Sc-zI8"/>
-                                            <constraint firstItem="APL-5A-T3u" firstAttribute="width" secondItem="as6-AP-dh1" secondAttribute="width" multiplier="0.204082" id="8Ma-Gf-dE9"/>
                                             <constraint firstAttribute="trailing" secondItem="EeM-ju-s2n" secondAttribute="trailing" constant="8" id="D5R-0P-1lL"/>
                                             <constraint firstItem="B86-Cm-HW0" firstAttribute="leading" secondItem="as6-AP-dh1" secondAttribute="leading" constant="8" id="DSh-JX-DAw"/>
                                             <constraint firstItem="EeM-ju-s2n" firstAttribute="leading" secondItem="as6-AP-dh1" secondAttribute="leading" constant="8" id="DmX-aq-kdI"/>
+                                            <constraint firstItem="kIt-hq-tnw" firstAttribute="top" secondItem="gO0-6t-LXb" secondAttribute="bottom" constant="23" id="FHS-jr-fUg"/>
                                             <constraint firstItem="EeM-ju-s2n" firstAttribute="top" secondItem="5q1-nO-tlO" secondAttribute="bottom" constant="8" id="HXr-aQ-7Nm"/>
-                                            <constraint firstItem="yMj-QZ-b1o" firstAttribute="width" secondItem="APL-5A-T3u" secondAttribute="width" id="LVq-ZO-d7O"/>
-                                            <constraint firstItem="41x-Hg-dJP" firstAttribute="width" secondItem="APL-5A-T3u" secondAttribute="width" id="M5c-az-hhI"/>
+                                            <constraint firstAttribute="bottom" secondItem="kIt-hq-tnw" secondAttribute="bottom" constant="88" id="HnY-10-hat"/>
                                             <constraint firstItem="5q1-nO-tlO" firstAttribute="top" secondItem="as6-AP-dh1" secondAttribute="top" constant="8" id="Owv-UW-63D"/>
                                             <constraint firstItem="EeM-ju-s2n" firstAttribute="top" secondItem="5q1-nO-tlO" secondAttribute="bottom" constant="8" id="S7M-yL-taC"/>
-                                            <constraint firstAttribute="bottom" secondItem="yMj-QZ-b1o" secondAttribute="bottom" constant="88" id="UJl-Wr-cXP"/>
                                             <constraint firstItem="r9S-zX-4lR" firstAttribute="top" secondItem="EeM-ju-s2n" secondAttribute="bottom" constant="8" id="WL8-gw-UUW"/>
-                                            <constraint firstItem="APL-5A-T3u" firstAttribute="leading" secondItem="as6-AP-dh1" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="Wki-YE-g6K"/>
                                             <constraint firstAttribute="trailing" secondItem="5q1-nO-tlO" secondAttribute="trailing" constant="8" id="X7J-3A-jKW"/>
                                             <constraint firstItem="gO0-6t-LXb" firstAttribute="top" secondItem="B86-Cm-HW0" secondAttribute="bottom" constant="12" id="bhb-WX-5uc"/>
-                                            <constraint firstAttribute="bottom" secondItem="41x-Hg-dJP" secondAttribute="bottom" constant="88" id="cTl-MR-Llf"/>
-                                            <constraint firstItem="yMj-QZ-b1o" firstAttribute="top" secondItem="gO0-6t-LXb" secondAttribute="bottom" constant="23" id="cZY-tE-rsj"/>
-                                            <constraint firstItem="V8l-y9-Cdr" firstAttribute="height" secondItem="APL-5A-T3u" secondAttribute="height" id="dgm-Bb-oJj"/>
-                                            <constraint firstItem="yMj-QZ-b1o" firstAttribute="height" secondItem="APL-5A-T3u" secondAttribute="height" id="ftK-vQ-uPi"/>
-                                            <constraint firstAttribute="bottom" secondItem="V8l-y9-Cdr" secondAttribute="bottom" constant="88" id="gvc-ua-0So"/>
-                                            <constraint firstAttribute="bottom" secondItem="APL-5A-T3u" secondAttribute="bottom" constant="88" id="j4l-YE-Yqi"/>
                                             <constraint firstItem="5q1-nO-tlO" firstAttribute="leading" secondItem="as6-AP-dh1" secondAttribute="leading" constant="8" id="kPz-0Q-e5W"/>
-                                            <constraint firstItem="41x-Hg-dJP" firstAttribute="height" secondItem="APL-5A-T3u" secondAttribute="height" id="ob3-s5-W0R"/>
-                                            <constraint firstItem="41x-Hg-dJP" firstAttribute="leading" secondItem="yMj-QZ-b1o" secondAttribute="trailing" constant="21" id="opc-0x-SxB"/>
-                                            <constraint firstAttribute="trailing" secondItem="V8l-y9-Cdr" secondAttribute="trailing" id="pHM-gh-9C8"/>
+                                            <constraint firstItem="kIt-hq-tnw" firstAttribute="centerX" secondItem="as6-AP-dh1" secondAttribute="centerX" id="kog-gp-Mif"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="r9S-zX-4lR" secondAttribute="trailing" constant="111" id="rmY-Ee-k0i"/>
-                                            <constraint firstItem="41x-Hg-dJP" firstAttribute="top" secondItem="gO0-6t-LXb" secondAttribute="bottom" constant="23" id="t9M-sN-Syr"/>
                                             <constraint firstItem="r9S-zX-4lR" firstAttribute="leading" secondItem="B86-Cm-HW0" secondAttribute="trailing" constant="22" id="tb1-rH-BVk"/>
-                                            <constraint firstItem="yMj-QZ-b1o" firstAttribute="leading" secondItem="APL-5A-T3u" secondAttribute="trailing" constant="21" id="tzw-JX-dTG"/>
-                                            <constraint firstItem="V8l-y9-Cdr" firstAttribute="leading" secondItem="41x-Hg-dJP" secondAttribute="trailing" constant="21" id="zGt-OI-YNC"/>
                                         </constraints>
                                     </view>
                                 </subviews>
