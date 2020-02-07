@@ -15,16 +15,14 @@ class ColorCellView: UIView {
     @IBInspectable var borderWidth: CGFloat = 2
 
     override func draw(_ rect: CGRect) {
-
         super.draw(rect)
         layer.borderWidth = borderWidth
         if isSelected {
             let xShift = 3 * rect.width / 5
             let yShift: CGFloat = 5
-            let shapeSize: CGFloat = rect.width / 4
+            let sizeOfFlag: CGSize = CGSize(width: rect.width / 4, height: rect.width / 4)
             let path = makeFlagPath(in: CGRect(origin: CGPoint(x: rect.minX + xShift, y: yShift),
-                                    size: CGSize(width: shapeSize,
-                                                 height: shapeSize)))
+                                    size: sizeOfFlag))
             path.stroke()
         }
     }
