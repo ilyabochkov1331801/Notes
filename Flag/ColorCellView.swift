@@ -14,12 +14,14 @@ class ColorCellView: UIView {
     @IBInspectable var isSelected: Bool = false
     var shapePosition: CGPoint = .zero
     var shapeSize: CGFloat = 30
+    var borderWidth: CGFloat = 2
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        let xShift = 3 * rect.width / 5
-        let yShift: CGFloat = 5
+        layer.borderWidth = borderWidth
         if isSelected {
+            let xShift = 3 * rect.width / 5
+            let yShift: CGFloat = 5
             shapePosition = CGPoint(x: rect.minX + xShift, y: yShift)
             shapeSize = rect.width / 4
             let path = makeFlagPath(in: CGRect(origin: shapePosition,
@@ -27,6 +29,10 @@ class ColorCellView: UIView {
                                                  height: shapeSize)))
             path.stroke()
         }
+    }
+    
+    func isPointInView(point: CGPoint) -> Bool {
+        return point.x < frame.maxX && point.x > frame.minX && point.y < frame.maxY && point.y > frame.minY
     }
     
     private func makeFlagPath(in rect: CGRect) -> UIBezierPath {
