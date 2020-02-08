@@ -11,7 +11,11 @@ import UIKit
 @IBDesignable
 class ColorCellView: UIView {
     
-    @IBInspectable var isSelected: Bool = false
+    @IBInspectable var isSelected: Bool = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     @IBInspectable var borderWidth: CGFloat = 2
 
     override func draw(_ rect: CGRect) {

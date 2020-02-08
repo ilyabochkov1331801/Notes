@@ -90,9 +90,13 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-y9-Cdr" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
                                                         <rect key="frame" x="258" y="0.0" width="65" height="65"/>
                                                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <gestureRecognizers/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="NO"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="Isv-mq-PQP" appends="YES" id="GuL-80-v1K"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <gestureRecognizers/>
@@ -150,6 +154,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="colorPickerCell" destination="V8l-y9-Cdr" id="z5S-n2-Ibh"/>
                         <outlet property="contentView" destination="as6-AP-dh1" id="Uxt-G1-kPM"/>
                         <outlet property="datePickerHight" destination="0He-tz-pXm" id="LIx-fb-ro7"/>
                         <outlet property="scrollView" destination="wby-5h-Gfd" id="SPi-GP-PDi"/>
@@ -158,6 +163,7 @@
                         <outletCollection property="colorCells" destination="yMj-QZ-b1o" collectionClass="NSMutableArray" id="dCj-4S-xB2"/>
                         <outletCollection property="colorCells" destination="41x-Hg-dJP" collectionClass="NSMutableArray" id="RCS-af-YKl"/>
                         <outletCollection property="colorCells" destination="V8l-y9-Cdr" collectionClass="NSMutableArray" id="Lew-w7-I0f"/>
+                        <segue destination="5en-6t-DXZ" kind="show" identifier="goToColorPicker" id="JTo-ax-UdD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,8 +172,29 @@
                         <action selector="stackWithColorCellsTupped:" destination="BYZ-38-t0r" id="ZXv-4S-4Fa"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Isv-mq-PQP">
+                    <connections>
+                        <action selector="colorPickerCall:" destination="BYZ-38-t0r" id="v1f-B0-nSw"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="85.907046476761622"/>
+        </scene>
+        <!--Color Picker View Controller-->
+        <scene sceneID="Rle-wM-klJ">
+            <objects>
+                <viewController id="5en-6t-DXZ" customClass="ColorPickerViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BIf-3B-ZzI" customClass="ColorPickerView" customModule="Notes" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="nGf-ta-MIk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EiR-Xd-2E1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Vu-Sa-bHL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044" y="86"/>
         </scene>
     </scenes>
 </document>

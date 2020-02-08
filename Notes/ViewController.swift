@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var datePickerHight: NSLayoutConstraint!
     @IBOutlet weak var stackOfColorCell: UIStackView!
     @IBOutlet var colorCells: [ColorCellView]!
+    @IBOutlet weak var colorPickerCell: ColorCellView!
     var selectedColor: colorsIndex?
     
     enum colorsIndex: Int {
@@ -46,10 +47,8 @@ class ViewController: UIViewController {
                 if let indexOfSelected = selectedColor?.rawValue,
                     indexOfSelected != index {
                     colorCells[indexOfSelected].isSelected = false
-                    colorCells[indexOfSelected].setNeedsDisplay()
                 }
                 colorCell.isSelected = !colorCell.isSelected
-                colorCell.setNeedsDisplay()
                 selectedColor = colorsIndex.init(rawValue: index)
             }
         }
@@ -68,7 +67,15 @@ class ViewController: UIViewController {
         }
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let dvc = segue.destination as? ColorPickerViewController else { return }
+        dvc.color = colorPickerCell.backgroundColor
+    }
+    
+    @IBAction func colorPickerCall(_ sender: UILongPressGestureRecognizer) {
+        performSegue(withIdentifier: "goToColorPicker", sender: nil)
+    }
+    
     @objc func updateContentView(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Any],
             let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
