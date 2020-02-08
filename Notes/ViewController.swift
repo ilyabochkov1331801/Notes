@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var stackOfColorCell: UIStackView!
     @IBOutlet var colorCells: [ColorCellView]!
     @IBOutlet weak var colorPickerCell: ColorCellView!
+    @IBOutlet var colorPicker: UILongPressGestureRecognizer!
+    
     var selectedColor: colorsIndex?
     
     enum colorsIndex: Int {
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateContentView(notification: )),
                                                name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)
+                                               object: nil)        
     }
     
     
@@ -44,14 +46,18 @@ class ViewController: UIViewController {
         let touchLocation = sender.location(in: stackOfColorCell)
         for (index, colorCell) in colorCells.enumerated() {
             if colorCell.isPointInView(point: touchLocation) {
-                if let indexOfSelected = selectedColor?.rawValue,
-                    indexOfSelected != index {
-                    colorCells[indexOfSelected].isSelected = false
-                }
-                colorCell.isSelected = !colorCell.isSelected
-                selectedColor = colorsIndex.init(rawValue: index)
+               changeSelectColor(index: index, colorCell: colorCell)
             }
         }
+    }
+    
+    private func changeSelectColor(index: Int, colorCell: ColorCellView) {
+        if let indexOfSelectedColor = selectedColor?.rawValue,
+            indexOfSelectedColor != index {
+            colorCells[indexOfSelectedColor].isSelected = false
+        }
+        colorCell.isSelected = !colorCell.isSelected
+        selectedColor = colorsIndex.init(rawValue: index)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,14 +72,24 @@ class ViewController: UIViewController {
             datePickerHight.constant = 0
         }
     }
+    @IBAction func colorPickerPressed(_ sender: UILongPressGestureRecognizer) {
+        guard sender.state == UIGestureRecognizer.State.ended else {
+            return
+        }
+        performSegue(withIdentifier: "toCPViewController", sender: nil)
+    }
+    
+    @IBAction func unwindToMainScreen(segue: UIStoryboardSegue) {
+        guard segue.identifier == "unwindSegue" else { return }
+        guard let scv = segue.source as? ColorPickerViewController else { return }
+        colorPickerCell.backgroundColor = scv.selectedColor
+        colorPickerCell.isSelected = false
+        changeSelectColor(index: 3, colorCell: colorPickerCell)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let dvc = segue.destination as? ColorPickerViewController else { return }
-        dvc.color = colorPickerCell.backgroundColor
-    }
-    
-    @IBAction func colorPickerCall(_ sender: UILongPressGestureRecognizer) {
-        performSegue(withIdentifier: "goToColorPicker", sender: nil)
+        dvc.selectedColor = colorPickerCell.backgroundColor
     }
     
     @objc func updateContentView(notification: Notification) {

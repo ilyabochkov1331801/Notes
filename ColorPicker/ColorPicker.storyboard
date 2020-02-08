@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Color Picker View Controller-->
+        <scene sceneID="27P-Xd-rDF">
+            <objects>
+                <viewController storyboardIdentifier="ColorPickerVC" id="u4s-be-WCY" customClass="ColorPickerViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eaE-0B-Xbe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6J-gW-qkK" customClass="GradientView" customModule="Notes" customModuleProvider="target">
+                                <rect key="frame" x="20" y="180" width="335" height="444"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOS-Bo-y44">
+                                        <rect key="frame" x="157.5" y="212" width="20" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="pEO-JK-vNS"/>
+                                            <constraint firstAttribute="height" constant="20" id="zHM-l5-plg"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="mOS-Bo-y44" firstAttribute="centerX" secondItem="b6J-gW-qkK" secondAttribute="centerX" id="2cQ-2w-16Y"/>
+                                    <constraint firstItem="mOS-Bo-y44" firstAttribute="centerY" secondItem="b6J-gW-qkK" secondAttribute="centerY" id="W8E-ef-QEd"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Qc0-1k-sg2" appends="YES" id="MS2-4A-8vb"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTI-nN-ou9">
+                                <rect key="frame" x="20" y="52" width="120" height="120"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="1CS-Du-oEd"/>
+                                    <constraint firstAttribute="height" constant="120" id="L7K-Gq-4QO"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcE-T2-5ra">
+                                <rect key="frame" x="200" y="142" width="95" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="ldQ-kz-8Eh"/>
+                                </constraints>
+                                <state key="normal" title="Use this color"/>
+                                <connections>
+                                    <segue destination="DJ1-Kn-AI4" kind="unwind" identifier="unwindSegue" unwindAction="unwindToMainScreenWithSegue:" id="MMl-6C-iDt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AcE-T2-5ra" firstAttribute="top" secondItem="tVk-v8-fAJ" secondAttribute="top" constant="142" id="4Kg-to-29R"/>
+                            <constraint firstItem="tVk-v8-fAJ" firstAttribute="trailing" secondItem="b6J-gW-qkK" secondAttribute="trailing" constant="20" id="5K1-Ug-Ghf"/>
+                            <constraint firstItem="AcE-T2-5ra" firstAttribute="leading" secondItem="YTI-nN-ou9" secondAttribute="trailing" constant="60" id="Bef-tz-78Y"/>
+                            <constraint firstItem="b6J-gW-qkK" firstAttribute="top" secondItem="AcE-T2-5ra" secondAttribute="bottom" constant="8" id="GNU-UE-6MW"/>
+                            <constraint firstItem="YTI-nN-ou9" firstAttribute="leading" secondItem="tVk-v8-fAJ" secondAttribute="leading" constant="20" id="aIg-2i-IoS"/>
+                            <constraint firstItem="b6J-gW-qkK" firstAttribute="leading" secondItem="tVk-v8-fAJ" secondAttribute="leading" constant="20" id="jCX-ZF-B4S"/>
+                            <constraint firstItem="YTI-nN-ou9" firstAttribute="top" secondItem="tVk-v8-fAJ" secondAttribute="top" constant="52" id="k0i-At-JJV"/>
+                            <constraint firstItem="b6J-gW-qkK" firstAttribute="top" secondItem="YTI-nN-ou9" secondAttribute="bottom" constant="8" id="mQj-6C-HuR"/>
+                            <constraint firstItem="tVk-v8-fAJ" firstAttribute="bottom" secondItem="b6J-gW-qkK" secondAttribute="bottom" constant="43" id="tkR-3V-6wd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tVk-v8-fAJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="colorIndicator" destination="mOS-Bo-y44" id="yQC-8n-8Os"/>
+                        <outlet property="gradientView" destination="b6J-gW-qkK" id="XzB-Oj-v2z"/>
+                        <outlet property="selectedColorView" destination="YTI-nN-ou9" id="ofF-XK-RJz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nzt-EO-KRi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="DJ1-Kn-AI4" userLabel="Exit" sceneMemberID="exit"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Qc0-1k-sg2">
+                    <connections>
+                        <action selector="colorSelecting:" destination="u4s-be-WCY" id="OH5-yO-Pbq"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-49.275362318840585" y="46.875"/>
+        </scene>
+    </scenes>
+</document>
