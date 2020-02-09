@@ -58,7 +58,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="kIt-hq-tnw">
                                                 <rect key="frame" x="10" y="520" width="323" height="65"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APL-5A-T3u" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APL-5A-T3u" customClass="UIColorCellView" customModule="Notes" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
@@ -73,24 +73,24 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMj-QZ-b1o" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMj-QZ-b1o" customClass="UIColorCellView" customModule="Notes" customModuleProvider="target">
                                                         <rect key="frame" x="86" y="0.0" width="65" height="65"/>
                                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="NO"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41x-Hg-dJP" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41x-Hg-dJP" customClass="UIColorCellView" customModule="Notes" customModuleProvider="target">
                                                         <rect key="frame" x="172" y="0.0" width="65" height="65"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="NO"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-y9-Cdr" customClass="ColorCellView" customModule="Notes" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-y9-Cdr" customClass="UIColorCellView" customModule="Notes" customModuleProvider="target">
                                                         <rect key="frame" x="258" y="0.0" width="65" height="65"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rf3-HN-lCt">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient image" translatesAutoresizingMaskIntoConstraints="NO" id="Rf3-HN-lCt">
                                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                             </imageView>
                                                         </subviews>
@@ -165,9 +165,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="colorPicker" destination="dXb-tu-zCR" id="xea-FY-nBf"/>
                         <outlet property="colorPickerCell" destination="V8l-y9-Cdr" id="d5k-wr-R2w"/>
-                        <outlet property="contentView" destination="as6-AP-dh1" id="Uxt-G1-kPM"/>
                         <outlet property="datePickerHight" destination="0He-tz-pXm" id="LIx-fb-ro7"/>
                         <outlet property="image" destination="Rf3-HN-lCt" id="7BJ-0m-XlF"/>
                         <outlet property="scrollView" destination="wby-5h-Gfd" id="SPi-GP-PDi"/>
@@ -176,7 +174,7 @@
                         <outletCollection property="colorCells" destination="yMj-QZ-b1o" collectionClass="NSMutableArray" id="dCj-4S-xB2"/>
                         <outletCollection property="colorCells" destination="41x-Hg-dJP" collectionClass="NSMutableArray" id="RCS-af-YKl"/>
                         <outletCollection property="colorCells" destination="V8l-y9-Cdr" collectionClass="NSMutableArray" id="zD8-mM-iXf"/>
-                        <segue destination="pnv-WR-Uqp" kind="presentation" identifier="toCPViewController" modalPresentationStyle="fullScreen" id="Auy-Y2-qj6"/>
+                        <segue destination="pnv-WR-Uqp" kind="presentation" identifier="toColorPickerVC" modalPresentationStyle="fullScreen" id="Auy-Y2-qj6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -205,6 +203,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image-1" width="186" height="186"/>
+        <image name="gradient image" width="186" height="186"/>
     </resources>
 </document>

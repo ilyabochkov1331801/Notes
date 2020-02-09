@@ -20,10 +20,9 @@
 		EA1C1FE223E1AB6C00529695 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FDD23E1AB6C00529695 /* UIColorExtension.swift */; };
 		EA1C1FE323E1AB6C00529695 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FDE23E1AB6C00529695 /* Errors.swift */; };
 		EA1C1FE423E1AB6C00529695 /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FDF23E1AB6C00529695 /* FileNotebook.swift */; };
-		EAC1AE3123EC40F4005B8765 /* ColorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3023EC40F4005B8765 /* ColorCellView.swift */; };
-		EAC1AE3723EC70EC005B8765 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3623EC70EC005B8765 /* LaunchScreenViewController.swift */; };
+		EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */; };
 		EAC1AE3923EC7E1D005B8765 /* ColorComponentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */; };
-		EAD1A47F23EEF6D50041C782 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD1A47E23EEF6D50041C782 /* GradientView.swift */; };
+		EAD1A47F23EEF6D50041C782 /* UIGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD1A47E23EEF6D50041C782 /* UIGradientView.swift */; };
 		EADD0A0B23EAE34B00FF661D /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADD0A0A23EAE34B00FF661D /* CGRectExtension.swift */; };
 		EADE00E523E5A3A500CFF56C /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADE00E423E5A3A500CFF56C /* NotesTests.swift */; };
 		EAE3A9E123EF48A100CA1258 /* ColorPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE3A9E023EF48A100CA1258 /* ColorPicker.storyboard */; };
@@ -80,10 +79,9 @@
 		EAA78C9723E25B0C00A17131 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		EAA78C9A23E25B0C00A17131 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		EAA78C9C23E25B0C00A17131 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EAC1AE3023EC40F4005B8765 /* ColorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellView.swift; sourceTree = "<group>"; };
-		EAC1AE3623EC70EC005B8765 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCellView.swift; sourceTree = "<group>"; };
 		EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponentsList.swift; sourceTree = "<group>"; };
-		EAD1A47E23EEF6D50041C782 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		EAD1A47E23EEF6D50041C782 /* UIGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGradientView.swift; sourceTree = "<group>"; };
 		EADD0A0A23EAE34B00FF661D /* CGRectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
 		EADE00E223E5A3A500CFF56C /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EADE00E423E5A3A500CFF56C /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				EA1C1FBE23E1A98300529695 /* ViewController.swift */,
 				EA1C1FC023E1A98300529695 /* Main.storyboard */,
 				EA1C1FC323E1A98500529695 /* Assets.xcassets */,
-				EAC1AE3623EC70EC005B8765 /* LaunchScreenViewController.swift */,
 				EA1C1FC523E1A98500529695 /* LaunchScreen.storyboard */,
 				EA1C1FC823E1A98500529695 /* Info.plist */,
 			);
@@ -204,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				EADD0A0A23EAE34B00FF661D /* CGRectExtension.swift */,
-				EAC1AE3023EC40F4005B8765 /* ColorCellView.swift */,
+				EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */,
 			);
 			path = Flag;
 			sourceTree = "<group>";
@@ -221,7 +218,7 @@
 		EAE8008623EF12E400D6FD9D /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				EAD1A47E23EEF6D50041C782 /* GradientView.swift */,
+				EAD1A47E23EEF6D50041C782 /* UIGradientView.swift */,
 				EAE3A9E023EF48A100CA1258 /* ColorPicker.storyboard */,
 				EAE8008923EF271A00D6FD9D /* ColorPickerViewController.swift */,
 			);
@@ -381,10 +378,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1C1FE123E1AB6C00529695 /* NoteExtension.swift in Sources */,
-				EAD1A47F23EEF6D50041C782 /* GradientView.swift in Sources */,
+				EAD1A47F23EEF6D50041C782 /* UIGradientView.swift in Sources */,
 				EAC1AE3923EC7E1D005B8765 /* ColorComponentsList.swift in Sources */,
 				EA1C1FBF23E1A98300529695 /* ViewController.swift in Sources */,
-				EAC1AE3123EC40F4005B8765 /* ColorCellView.swift in Sources */,
+				EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */,
 				EAE8008A23EF271A00D6FD9D /* ColorPickerViewController.swift in Sources */,
 				EA1C1FBB23E1A98300529695 /* AppDelegate.swift in Sources */,
 				EA1C1FBD23E1A98300529695 /* SceneDelegate.swift in Sources */,
@@ -392,7 +389,6 @@
 				EA1C1FE023E1AB6C00529695 /* Note.swift in Sources */,
 				EA1C1FE223E1AB6C00529695 /* UIColorExtension.swift in Sources */,
 				EA1C1FE423E1AB6C00529695 /* FileNotebook.swift in Sources */,
-				EAC1AE3723EC70EC005B8765 /* LaunchScreenViewController.swift in Sources */,
 				EA1C1FE323E1AB6C00529695 /* Errors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

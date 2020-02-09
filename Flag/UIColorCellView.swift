@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class ColorCellView: UIView {
+class UIColorCellView: UIView {
     
     @IBInspectable var isSelected: Bool = false {
         didSet {

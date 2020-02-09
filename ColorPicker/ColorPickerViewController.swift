@@ -10,7 +10,7 @@ import UIKit
 
 class ColorPickerViewController: UIViewController {
     @IBOutlet weak var selectedColorView: UIView!
-    @IBOutlet weak var gradientView: GradientView!
+    @IBOutlet weak var gradientView: UIGradientView!
     @IBOutlet weak var colorIndicator: UIView!
     
     var selectedColor: UIColor?
@@ -43,12 +43,9 @@ class ColorPickerViewController: UIViewController {
         colorIndicator.isHidden = true
         colorIndicator.layer.borderWidth = 1
         colorIndicator.layer.cornerRadius = colorIndicatorSize
-        
         selectedColorView.layer.cornerRadius = 10
         selectedColorView.backgroundColor = selectedColor
-        
         gradientView.layer.borderWidth = 2
         view.setNeedsDisplay()
     }
-    
 }

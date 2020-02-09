@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class GradientView: UIView {
+class UIGradientView: UIView {
     
     let saturationExponentTop:Float = 2.0
     let saturationExponentBottom:Float = 1.3
