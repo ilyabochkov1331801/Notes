@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class EditNoteViewControllerr: UIViewController {
     
-    var datePickerHightValue: CGFloat = 200
+    private var datePickerHightValue: CGFloat = 200
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var datePickerHight: NSLayoutConstraint!
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var colorPickerCell: UIColorCellView!
     @IBOutlet weak var image: UIImageView!
     
-    var selectedColor: colorsIndex?
+    private var selectedColor: colorsIndex?
     enum colorsIndex: Int {
         case white = 0
         case green = 1

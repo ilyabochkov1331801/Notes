@@ -11,7 +11,7 @@
 		B3DACC799805D18B8657CDF4 /* libPods-Notes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 791C33BEC25400921CB58A08 /* libPods-Notes.a */; };
 		EA1C1FBB23E1A98300529695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FBA23E1A98300529695 /* AppDelegate.swift */; };
 		EA1C1FBD23E1A98300529695 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FBC23E1A98300529695 /* SceneDelegate.swift */; };
-		EA1C1FBF23E1A98300529695 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FBE23E1A98300529695 /* ViewController.swift */; };
+		EA1C1FBF23E1A98300529695 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FBE23E1A98300529695 /* EditNoteViewController.swift */; };
 		EA1C1FC223E1A98300529695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA1C1FC023E1A98300529695 /* Main.storyboard */; };
 		EA1C1FC423E1A98500529695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA1C1FC323E1A98500529695 /* Assets.xcassets */; };
 		EA1C1FC723E1A98500529695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA1C1FC523E1A98500529695 /* LaunchScreen.storyboard */; };
@@ -64,7 +64,7 @@
 		EA1C1FB723E1A98300529695 /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1C1FBA23E1A98300529695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA1C1FBC23E1A98300529695 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA1C1FBE23E1A98300529695 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA1C1FBE23E1A98300529695 /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
 		EA1C1FC123E1A98300529695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA1C1FC323E1A98500529695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA1C1FC623E1A98500529695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			children = (
 				EA1C1FBA23E1A98300529695 /* AppDelegate.swift */,
 				EA1C1FBC23E1A98300529695 /* SceneDelegate.swift */,
-				EA1C1FBE23E1A98300529695 /* ViewController.swift */,
+				EA1C1FBE23E1A98300529695 /* EditNoteViewController.swift */,
 				EA1C1FC023E1A98300529695 /* Main.storyboard */,
 				EA1C1FC323E1A98500529695 /* Assets.xcassets */,
 				EA1C1FC523E1A98500529695 /* LaunchScreen.storyboard */,
@@ -380,7 +380,7 @@
 				EA1C1FE123E1AB6C00529695 /* NoteExtension.swift in Sources */,
 				EAD1A47F23EEF6D50041C782 /* UIGradientView.swift in Sources */,
 				EAC1AE3923EC7E1D005B8765 /* ColorComponentsList.swift in Sources */,
-				EA1C1FBF23E1A98300529695 /* ViewController.swift in Sources */,
+				EA1C1FBF23E1A98300529695 /* EditNoteViewController.swift in Sources */,
 				EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */,
 				EAE8008A23EF271A00D6FD9D /* ColorPickerViewController.swift in Sources */,
 				EA1C1FBB23E1A98300529695 /* AppDelegate.swift in Sources */,
