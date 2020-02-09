@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcE-T2-5ra">
-                                <rect key="frame" x="200" y="142" width="95" height="30"/>
+                                <rect key="frame" x="206" y="97" width="95" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="ldQ-kz-8Eh"/>
                                 </constraints>
@@ -58,10 +58,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="AcE-T2-5ra" firstAttribute="top" secondItem="tVk-v8-fAJ" secondAttribute="top" constant="142" id="4Kg-to-29R"/>
+                            <constraint firstItem="AcE-T2-5ra" firstAttribute="top" secondItem="tVk-v8-fAJ" secondAttribute="top" constant="97" id="4Kg-to-29R"/>
                             <constraint firstItem="tVk-v8-fAJ" firstAttribute="trailing" secondItem="b6J-gW-qkK" secondAttribute="trailing" constant="20" id="5K1-Ug-Ghf"/>
-                            <constraint firstItem="AcE-T2-5ra" firstAttribute="leading" secondItem="YTI-nN-ou9" secondAttribute="trailing" constant="60" id="Bef-tz-78Y"/>
-                            <constraint firstItem="b6J-gW-qkK" firstAttribute="top" secondItem="AcE-T2-5ra" secondAttribute="bottom" constant="8" id="GNU-UE-6MW"/>
+                            <constraint firstItem="AcE-T2-5ra" firstAttribute="leading" secondItem="YTI-nN-ou9" secondAttribute="trailing" constant="66" id="Bef-tz-78Y"/>
+                            <constraint firstItem="b6J-gW-qkK" firstAttribute="top" secondItem="AcE-T2-5ra" secondAttribute="bottom" constant="53" id="GNU-UE-6MW"/>
                             <constraint firstItem="YTI-nN-ou9" firstAttribute="leading" secondItem="tVk-v8-fAJ" secondAttribute="leading" constant="20" id="aIg-2i-IoS"/>
                             <constraint firstItem="b6J-gW-qkK" firstAttribute="leading" secondItem="tVk-v8-fAJ" secondAttribute="leading" constant="20" id="jCX-ZF-B4S"/>
                             <constraint firstItem="YTI-nN-ou9" firstAttribute="top" secondItem="tVk-v8-fAJ" secondAttribute="top" constant="52" id="k0i-At-JJV"/>

@@ -19,8 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet var colorCells: [ColorCellView]!
     @IBOutlet weak var colorPickerCell: ColorCellView!
     @IBOutlet var colorPicker: UILongPressGestureRecognizer!
-    
     var selectedColor: colorsIndex?
+    @IBOutlet weak var image: UIImageView!
     
     enum colorsIndex: Int {
         case white = 0
@@ -38,7 +38,8 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateContentView(notification: )),
                                                name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)        
+                                               object: nil)
+        colorPicker.minimumPressDuration = 1
     }
     
     
@@ -73,15 +74,14 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func colorPickerPressed(_ sender: UILongPressGestureRecognizer) {
-        guard sender.state == UIGestureRecognizer.State.ended else {
-            return
-        }
+        guard sender.state != .ended else { return }
         performSegue(withIdentifier: "toCPViewController", sender: nil)
     }
     
     @IBAction func unwindToMainScreen(segue: UIStoryboardSegue) {
         guard segue.identifier == "unwindSegue" else { return }
         guard let scv = segue.source as? ColorPickerViewController else { return }
+        image.isHidden = true
         colorPickerCell.backgroundColor = scv.selectedColor
         colorPickerCell.isSelected = false
         changeSelectColor(index: 3, colorCell: colorPickerCell)
