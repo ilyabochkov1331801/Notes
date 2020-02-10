@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditNoteViewControllerr: UIViewController {
+class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
     
     private var datePickerHightValue: CGFloat = 200
     
@@ -21,6 +21,7 @@ class EditNoteViewControllerr: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var textField: UITextField!
     
     
     private var selectedColor: colorsIndex?
@@ -36,6 +37,10 @@ class EditNoteViewControllerr: UIViewController {
         datePicker.minimumDate = Date()
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 5
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboardOnSwipeDown))
+        swipeDown.delegate = self
+        swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
+        contentView.addGestureRecognizer(swipeDown)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateContentView(notification: )),
                                                name: UIResponder.keyboardWillShowNotification,
@@ -54,9 +59,9 @@ class EditNoteViewControllerr: UIViewController {
             return
         }
         if notification.name == UIResponder.keyboardWillShowNotification {
-            
+            scrollView.contentOffset = CGPoint(x: 0, y: keyboardFrame.height)
         } else {
-            
+            scrollView.contentOffset = .zero
         }
     }
     
@@ -70,11 +75,20 @@ class EditNoteViewControllerr: UIViewController {
     }
     @IBAction func destroyDatePickerChanged(_ sender: UISwitch) {
         if sender.isOn {
-            UIView.animate(withDuration: 1,
-                           animations: { self.datePickerHight.constant += self.datePickerHightValue })
+//            UIView.animate(withDuration: 0.5,
+//                           animations: {
+//                            self.datePickerHight.constant += self.datePickerHightValue
+//                            self.scrollView.contentOffset = CGPoint(x: 0, y: self.datePickerHightValue)
+//                            self.view.layoutIfNeeded()
+//            })
+            datePickerHight.constant += datePickerHightValue
         } else {
-            UIView.animate(withDuration: 1,
-                           animations: { self.datePickerHight.constant -= self.datePickerHightValue })
+//            UIView.animate(withDuration: 0.5,
+//                           animations: {
+//                            self.datePickerHight.constant -= self.datePickerHightValue
+//                            self.scrollView.contentOffset = .zero
+//                            self.view.layoutIfNeeded()})
+            datePickerHight.constant -= datePickerHightValue
         }
     }
     @IBAction func colorPickerPressed(_ sender: UILongPressGestureRecognizer) {
@@ -82,14 +96,23 @@ class EditNoteViewControllerr: UIViewController {
         performSegue(withIdentifier: "toColorPickerVC", sender: nil)
     }
     @IBAction func unwindToMainScreen(segue: UIStoryboardSegue) {
-        guard segue.identifier == "unwindSegue" else { return }
-        guard let scv = segue.source as? ColorPickerViewController else { return }
-        image.isHidden = true
-        colorPickerCell.backgroundColor = scv.selectedColor
-        colorPickerCell.isSelected = false
-        changeSelectColor(index: 3, colorCell: colorPickerCell)
+        switch segue.identifier {
+        case "unwindSegue":
+            guard let scv = segue.source as? ColorPickerViewController else { return }
+            image.isHidden = true
+            colorPickerCell.backgroundColor = scv.selectedColor
+            colorPickerCell.isSelected = false
+            changeSelectColor(index: 3, colorCell: colorPickerCell)
+        default:
+            return
+        }
     }
-    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    @objc func hideKeyboardOnSwipeDown() {
+        view.endEditing(true)
+    }
     private func changeSelectColor(index: Int, colorCell: UIColorCellView) {
         if let indexOfSelectedColor = selectedColor?.rawValue,
             indexOfSelectedColor != index {
@@ -97,10 +120,6 @@ class EditNoteViewControllerr: UIViewController {
         }
         colorCell.isSelected = !colorCell.isSelected
         selectedColor = colorsIndex.init(rawValue: index)
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        self.view.endEditing(true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
