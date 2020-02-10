@@ -12,6 +12,7 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet weak var selectedColorView: UIView!
     @IBOutlet weak var gradientView: UIGradientView!
     @IBOutlet weak var colorIndicator: UIView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var selectedColor: UIColor?
     let colorIndicatorSize: CGFloat = 20
@@ -26,9 +27,9 @@ class ColorPickerViewController: UIViewController {
             selectedColorView.backgroundColor = selectedColor
             colorIndicator.backgroundColor = selectedColor
         }
-        if sender.state == .ended {
-            colorIndicator.isHidden = true
-        }
+    }
+    @IBAction func goBack(_ sender: UIButton) {
+        performSegue(withIdentifier: "unwindSegue", sender: nil)
     }
     
     private func colorIndecatorLocation(fingerLocation: CGPoint) -> CGRect {
@@ -46,6 +47,6 @@ class ColorPickerViewController: UIViewController {
         selectedColorView.layer.cornerRadius = 10
         selectedColorView.backgroundColor = selectedColor
         gradientView.layer.borderWidth = 2
-        view.setNeedsDisplay()
+        selectedColorView.layer.borderWidth = 1
     }
 }

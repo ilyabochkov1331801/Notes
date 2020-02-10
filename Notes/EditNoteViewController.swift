@@ -18,6 +18,10 @@ class EditNoteViewControllerr: UIViewController {
     @IBOutlet var colorCells: [UIColorCellView]!
     @IBOutlet weak var colorPickerCell: UIColorCellView!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var contentView: UIView!
+    
     
     private var selectedColor: colorsIndex?
     enum colorsIndex: Int {
@@ -29,6 +33,9 @@ class EditNoteViewControllerr: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        datePicker.minimumDate = Date()
+        textView.layer.borderWidth = 1
+        textView.layer.cornerRadius = 5
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateContentView(notification: )),
                                                name: UIResponder.keyboardWillShowNotification,
@@ -37,7 +44,9 @@ class EditNoteViewControllerr: UIViewController {
                                                selector: #selector(updateContentView(notification: )),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
+        
     }
+    
     @objc func updateContentView(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Any],
             let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
@@ -45,9 +54,9 @@ class EditNoteViewControllerr: UIViewController {
             return
         }
         if notification.name == UIResponder.keyboardWillShowNotification {
-            scrollView.contentOffset = CGPoint(x: 0, y: keyboardFrame.height)
+            
         } else {
-            scrollView.contentOffset = CGPoint.zero
+            
         }
     }
     
@@ -61,9 +70,11 @@ class EditNoteViewControllerr: UIViewController {
     }
     @IBAction func destroyDatePickerChanged(_ sender: UISwitch) {
         if sender.isOn {
-            datePickerHight.constant = datePickerHightValue
+            UIView.animate(withDuration: 1,
+                           animations: { self.datePickerHight.constant += self.datePickerHightValue })
         } else {
-            datePickerHight.constant = 0
+            UIView.animate(withDuration: 1,
+                           animations: { self.datePickerHight.constant -= self.datePickerHightValue })
         }
     }
     @IBAction func colorPickerPressed(_ sender: UILongPressGestureRecognizer) {
@@ -73,7 +84,6 @@ class EditNoteViewControllerr: UIViewController {
     @IBAction func unwindToMainScreen(segue: UIStoryboardSegue) {
         guard segue.identifier == "unwindSegue" else { return }
         guard let scv = segue.source as? ColorPickerViewController else { return }
-        
         image.isHidden = true
         colorPickerCell.backgroundColor = scv.selectedColor
         colorPickerCell.isSelected = false
@@ -93,8 +103,13 @@ class EditNoteViewControllerr: UIViewController {
         self.view.endEditing(true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let dvc = segue.destination as? ColorPickerViewController else { return }
-        dvc.selectedColor = colorPickerCell.backgroundColor
+        switch segue.identifier {
+        case "toColorPickerVC":
+            guard let dvc = segue.destination as? ColorPickerViewController else { return }
+            dvc.selectedColor = colorPickerCell.backgroundColor
+        default:
+            return
+        }
     }
 }
 

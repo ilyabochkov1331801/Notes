@@ -75,10 +75,6 @@
 		EA1C1FDE23E1AB6C00529695 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EA1C1FDF23E1AB6C00529695 /* FileNotebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
 		EAA78C8D23E2595000A17131 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		EAA78C9523E25B0C00A17131 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		EAA78C9723E25B0C00A17131 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
-		EAA78C9A23E25B0C00A17131 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		EAA78C9C23E25B0C00A17131 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCellView.swift; sourceTree = "<group>"; };
 		EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponentsList.swift; sourceTree = "<group>"; };
 		EAD1A47E23EEF6D50041C782 /* UIGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGradientView.swift; sourceTree = "<group>"; };
@@ -131,7 +127,6 @@
 				EADD0A0723EAE2FB00FF661D /* Flag */,
 				EA1C1FD023E1AADD00529695 /* Model */,
 				EA1C1FB923E1A98300529695 /* Notes */,
-				EAA78C9423E25B0C00A17131 /* Product */,
 				EADE00E323E5A3A500CFF56C /* NotesTests */,
 				EA1C1FB823E1A98300529695 /* Products */,
 				EAA78C8C23E2595000A17131 /* Frameworks */,
@@ -184,17 +179,6 @@
 				7B2E3F275979AEB27C0C9B89 /* libPods-NotesTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EAA78C9423E25B0C00A17131 /* Product */ = {
-			isa = PBXGroup;
-			children = (
-				EAA78C9523E25B0C00A17131 /* Media.xcassets */,
-				EAA78C9723E25B0C00A17131 /* ActionViewController.swift */,
-				EAA78C9923E25B0C00A17131 /* MainInterface.storyboard */,
-				EAA78C9C23E25B0C00A17131 /* Info.plist */,
-			);
-			path = Product;
 			sourceTree = "<group>";
 		};
 		EADD0A0723EAE2FB00FF661D /* Flag */ = {
@@ -426,14 +410,6 @@
 				EA1C1FC623E1A98500529695 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		EAA78C9923E25B0C00A17131 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EAA78C9A23E25B0C00A17131 /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
