@@ -124,7 +124,6 @@
                                             <constraint firstItem="B86-Cm-HW0" firstAttribute="leading" secondItem="as6-AP-dh1" secondAttribute="leading" constant="8" id="DSh-JX-DAw"/>
                                             <constraint firstItem="EeM-ju-s2n" firstAttribute="leading" secondItem="as6-AP-dh1" secondAttribute="leading" constant="8" id="DmX-aq-kdI"/>
                                             <constraint firstItem="kIt-hq-tnw" firstAttribute="top" secondItem="gO0-6t-LXb" secondAttribute="bottom" constant="23" id="FHS-jr-fUg"/>
-                                            <constraint firstItem="EeM-ju-s2n" firstAttribute="top" secondItem="5q1-nO-tlO" secondAttribute="bottom" constant="8" id="HXr-aQ-7Nm"/>
                                             <constraint firstAttribute="bottom" secondItem="kIt-hq-tnw" secondAttribute="bottom" constant="125.5" id="HnY-10-hat"/>
                                             <constraint firstItem="5q1-nO-tlO" firstAttribute="top" secondItem="as6-AP-dh1" secondAttribute="top" constant="8" id="Owv-UW-63D"/>
                                             <constraint firstItem="EeM-ju-s2n" firstAttribute="top" secondItem="5q1-nO-tlO" secondAttribute="bottom" constant="8" id="S7M-yL-taC"/>
@@ -141,7 +140,6 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="as6-AP-dh1" secondAttribute="bottom" id="0LL-7N-etU"/>
                                     <constraint firstItem="as6-AP-dh1" firstAttribute="leading" secondItem="wby-5h-Gfd" secondAttribute="leading" id="8yd-Nt-CFX"/>
-                                    <constraint firstItem="br2-Ui-DXr" firstAttribute="width" secondItem="as6-AP-dh1" secondAttribute="width" id="Aus-Qb-T5y"/>
                                     <constraint firstItem="as6-AP-dh1" firstAttribute="top" secondItem="wby-5h-Gfd" secondAttribute="top" id="BUJ-Rs-SWs"/>
                                     <constraint firstItem="as6-AP-dh1" firstAttribute="width" secondItem="wby-5h-Gfd" secondAttribute="width" id="hza-Gp-F76"/>
                                     <constraint firstAttribute="trailing" secondItem="as6-AP-dh1" secondAttribute="trailing" id="ttq-6o-Wir"/>

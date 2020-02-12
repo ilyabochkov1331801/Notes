@@ -11,9 +11,9 @@ import UIKit
 @IBDesignable
 class UIGradientView: UIView {
     
-    let saturationExponentTop:Float = 2.0
-    let saturationExponentBottom:Float = 1.3
-    var elementSize: CGFloat = 1.0
+    let saturationExponentTop:Float = 1.4
+    let saturationExponentBottom:Float = 1.0
+    var elementSize: CGFloat = 2.0
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -54,5 +54,4 @@ class UIGradientView: UIView {
         let hue = roundedPoint.x / self.bounds.width
         return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
     }
-    
 }

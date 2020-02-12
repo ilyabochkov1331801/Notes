@@ -75,19 +75,8 @@ class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
     }
     @IBAction func destroyDatePickerChanged(_ sender: UISwitch) {
         if sender.isOn {
-//            UIView.animate(withDuration: 0.5,
-//                           animations: {
-//                            self.datePickerHight.constant += self.datePickerHightValue
-//                            self.scrollView.contentOffset = CGPoint(x: 0, y: self.datePickerHightValue)
-//                            self.view.layoutIfNeeded()
-//            })
             datePickerHight.constant += datePickerHightValue
         } else {
-//            UIView.animate(withDuration: 0.5,
-//                           animations: {
-//                            self.datePickerHight.constant -= self.datePickerHightValue
-//                            self.scrollView.contentOffset = .zero
-//                            self.view.layoutIfNeeded()})
             datePickerHight.constant -= datePickerHightValue
         }
     }
