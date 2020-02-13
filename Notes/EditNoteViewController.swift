@@ -20,9 +20,8 @@ class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var textField: UITextField!
-    
+    @IBOutlet weak var contentView: UIStackView!
     
     private var selectedColor: colorsIndex?
     enum colorsIndex: Int {
@@ -59,9 +58,12 @@ class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
             return
         }
         if notification.name == UIResponder.keyboardWillShowNotification {
-            scrollView.contentOffset = CGPoint(x: 0, y: keyboardFrame.height)
+            scrollView.contentInset = UIEdgeInsets(top: 0,
+                                                   left: 0,
+                                                   bottom: keyboardFrame.height - view.safeAreaInsets.bottom - 20,
+                                                   right: 0)
         } else {
-            scrollView.contentOffset = .zero
+            scrollView.contentInset = .zero
         }
     }
     

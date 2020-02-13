@@ -26,7 +26,7 @@ class UIGradientView: UIView {
         }
     }
     
-    func getPointForColor(color:UIColor) -> CGPoint {
+    func getPointForColor(color: UIColor) -> CGPoint {
         var hue: CGFloat = 0.0
         var saturation: CGFloat = 0.0
         var brightness: CGFloat = 0.0
@@ -44,7 +44,7 @@ class UIGradientView: UIView {
         return CGPoint(x: xPos, y: yPos)
     }
     
-    func getColorAtPoint(point:CGPoint) -> UIColor {
+    func getColorAtPoint(point: CGPoint) -> UIColor {
         let roundedPoint = CGPoint(x:elementSize * CGFloat(Int(point.x / elementSize)),
                                y:elementSize * CGFloat(Int(point.y / elementSize)))
         var saturation = roundedPoint.y < self.bounds.height / 2.0 ? CGFloat(2 * roundedPoint.y) / self.bounds.height

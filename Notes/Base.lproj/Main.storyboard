@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,17 +12,22 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="EditNoteViewControllerr" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wby-5h-Gfd">
-                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <rect key="frame" x="8" y="64" width="398" height="778"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="as6-AP-dh1">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="627"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BQU-DT-hsH">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="462"/>
                                         <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5q1-nO-tlO">
+                                                <rect key="frame" x="10" y="0.0" width="378" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EeM-ju-s2n">
-                                                <rect key="frame" x="8" y="50" width="327" height="116.5"/>
+                                                <rect key="frame" x="10" y="42" width="378" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="oUk-mq-lei"/>
@@ -32,31 +37,31 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5q1-nO-tlO">
-                                                <rect key="frame" x="8" y="8" width="327" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use destroy date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B86-Cm-HW0">
-                                                <rect key="frame" x="8" y="177.5" width="152.5" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-zX-4lR">
-                                                <rect key="frame" x="182.5" y="174.5" width="51" height="31"/>
-                                                <connections>
-                                                    <action selector="destroyDatePickerChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="rP5-wo-1zo"/>
-                                                </connections>
-                                            </switch>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="4DN-OI-4NP">
+                                                <rect key="frame" x="87.5" y="150" width="223.5" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use destroy date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B86-Cm-HW0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-zX-4lR">
+                                                        <rect key="frame" x="174.5" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="destroyDatePickerChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="rP5-wo-1zo"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gO0-6t-LXb">
-                                                <rect key="frame" x="11.5" y="213.5" width="320" height="200"/>
+                                                <rect key="frame" x="39" y="189" width="320" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="0He-tz-pXm"/>
                                                 </constraints>
                                             </datePicker>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="kIt-hq-tnw">
-                                                <rect key="frame" x="10" y="436.5" width="323" height="65"/>
+                                                <rect key="frame" x="37.5" y="397" width="323" height="65"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APL-5A-T3u" customClass="UIColorCellView" customModule="Notes" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
@@ -116,33 +121,17 @@
                                                 </connections>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="gO0-6t-LXb" firstAttribute="centerX" secondItem="as6-AP-dh1" secondAttribute="centerX" id="5rR-Tz-jvX"/>
-                                            <constraint firstItem="B86-Cm-HW0" firstAttribute="top" secondItem="EeM-ju-s2n" secondAttribute="bottom" constant="11" id="793-Sc-zI8"/>
-                                            <constraint firstAttribute="trailing" secondItem="EeM-ju-s2n" secondAttribute="trailing" constant="8" id="D5R-0P-1lL"/>
-                                            <constraint firstItem="B86-Cm-HW0" firstAttribute="leading" secondItem="as6-AP-dh1" secondAttribute="leading" constant="8" id="DSh-JX-DAw"/>
-                                            <constraint firstItem="EeM-ju-s2n" firstAttribute="leading" secondItem="as6-AP-dh1" secondAttribute="leading" constant="8" id="DmX-aq-kdI"/>
-                                            <constraint firstItem="kIt-hq-tnw" firstAttribute="top" secondItem="gO0-6t-LXb" secondAttribute="bottom" constant="23" id="FHS-jr-fUg"/>
-                                            <constraint firstAttribute="bottom" secondItem="kIt-hq-tnw" secondAttribute="bottom" constant="125.5" id="HnY-10-hat"/>
-                                            <constraint firstItem="5q1-nO-tlO" firstAttribute="top" secondItem="as6-AP-dh1" secondAttribute="top" constant="8" id="Owv-UW-63D"/>
-                                            <constraint firstItem="EeM-ju-s2n" firstAttribute="top" secondItem="5q1-nO-tlO" secondAttribute="bottom" constant="8" id="S7M-yL-taC"/>
-                                            <constraint firstItem="r9S-zX-4lR" firstAttribute="top" secondItem="EeM-ju-s2n" secondAttribute="bottom" constant="8" id="WL8-gw-UUW"/>
-                                            <constraint firstAttribute="trailing" secondItem="5q1-nO-tlO" secondAttribute="trailing" constant="8" id="X7J-3A-jKW"/>
-                                            <constraint firstItem="gO0-6t-LXb" firstAttribute="top" secondItem="B86-Cm-HW0" secondAttribute="bottom" constant="12" id="bhb-WX-5uc"/>
-                                            <constraint firstItem="5q1-nO-tlO" firstAttribute="leading" secondItem="as6-AP-dh1" secondAttribute="leading" constant="8" id="kPz-0Q-e5W"/>
-                                            <constraint firstItem="kIt-hq-tnw" firstAttribute="centerX" secondItem="as6-AP-dh1" secondAttribute="centerX" id="kog-gp-Mif"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="r9S-zX-4lR" secondAttribute="trailing" constant="111" id="rmY-Ee-k0i"/>
-                                            <constraint firstItem="r9S-zX-4lR" firstAttribute="leading" secondItem="B86-Cm-HW0" secondAttribute="trailing" constant="22" id="tb1-rH-BVk"/>
+                                            <constraint firstItem="EeM-ju-s2n" firstAttribute="width" secondItem="BQU-DT-hsH" secondAttribute="width" multiplier="0.95" id="2Rf-8t-qqJ"/>
+                                            <constraint firstItem="5q1-nO-tlO" firstAttribute="width" secondItem="BQU-DT-hsH" secondAttribute="width" multiplier="0.95" id="bZ6-gD-22S"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="as6-AP-dh1" secondAttribute="bottom" id="0LL-7N-etU"/>
-                                    <constraint firstItem="as6-AP-dh1" firstAttribute="leading" secondItem="wby-5h-Gfd" secondAttribute="leading" id="8yd-Nt-CFX"/>
-                                    <constraint firstItem="as6-AP-dh1" firstAttribute="top" secondItem="wby-5h-Gfd" secondAttribute="top" id="BUJ-Rs-SWs"/>
-                                    <constraint firstItem="as6-AP-dh1" firstAttribute="width" secondItem="wby-5h-Gfd" secondAttribute="width" id="hza-Gp-F76"/>
-                                    <constraint firstAttribute="trailing" secondItem="as6-AP-dh1" secondAttribute="trailing" id="ttq-6o-Wir"/>
+                                    <constraint firstItem="BQU-DT-hsH" firstAttribute="leading" secondItem="wby-5h-Gfd" secondAttribute="leading" id="MPf-Um-who"/>
+                                    <constraint firstAttribute="bottom" secondItem="BQU-DT-hsH" secondAttribute="bottom" constant="10" id="Tx3-Z1-2JL"/>
+                                    <constraint firstItem="BQU-DT-hsH" firstAttribute="top" secondItem="wby-5h-Gfd" secondAttribute="top" id="bFe-UL-uuN"/>
+                                    <constraint firstAttribute="trailing" secondItem="BQU-DT-hsH" secondAttribute="trailing" id="wje-Ie-ET7"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="br2-Ui-DXr"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="k12-1K-Hv2"/>
@@ -150,9 +139,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="wby-5h-Gfd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2gT-cf-kFH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wby-5h-Gfd" secondAttribute="trailing" constant="16" id="7L5-dy-rrU"/>
+                            <constraint firstItem="wby-5h-Gfd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="2gT-cf-kFH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wby-5h-Gfd" secondAttribute="trailing" constant="8" id="7L5-dy-rrU"/>
                             <constraint firstItem="wby-5h-Gfd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="EBy-NK-lNy"/>
+                            <constraint firstItem="BQU-DT-hsH" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" constant="-16" id="Ko3-UA-6qU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wby-5h-Gfd" secondAttribute="bottom" constant="20" id="RWf-fZ-89Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -164,7 +154,7 @@
                     </view>
                     <connections>
                         <outlet property="colorPickerCell" destination="V8l-y9-Cdr" id="d5k-wr-R2w"/>
-                        <outlet property="contentView" destination="as6-AP-dh1" id="Jts-9P-J9R"/>
+                        <outlet property="contentView" destination="BQU-DT-hsH" id="73G-ru-1t3"/>
                         <outlet property="datePicker" destination="gO0-6t-LXb" id="wG6-jt-35l"/>
                         <outlet property="datePickerHight" destination="0He-tz-pXm" id="LIx-fb-ro7"/>
                         <outlet property="image" destination="Rf3-HN-lCt" id="7BJ-0m-XlF"/>
@@ -173,9 +163,9 @@
                         <outlet property="textField" destination="5q1-nO-tlO" id="5MB-7Y-hHK"/>
                         <outlet property="textView" destination="EeM-ju-s2n" id="gQT-pi-eVJ"/>
                         <outletCollection property="colorCells" destination="APL-5A-T3u" collectionClass="NSMutableArray" id="TpH-SD-Ke6"/>
-                        <outletCollection property="colorCells" destination="yMj-QZ-b1o" collectionClass="NSMutableArray" id="dCj-4S-xB2"/>
                         <outletCollection property="colorCells" destination="41x-Hg-dJP" collectionClass="NSMutableArray" id="RCS-af-YKl"/>
                         <outletCollection property="colorCells" destination="V8l-y9-Cdr" collectionClass="NSMutableArray" id="zD8-mM-iXf"/>
+                        <outletCollection property="colorCells" destination="yMj-QZ-b1o" collectionClass="NSMutableArray" id="dCj-4S-xB2"/>
                         <segue destination="pnv-WR-Uqp" kind="presentation" identifier="toColorPickerVC" modalPresentationStyle="fullScreen" id="Auy-Y2-qj6"/>
                     </connections>
                 </viewController>

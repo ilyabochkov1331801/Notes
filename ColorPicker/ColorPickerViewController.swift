@@ -22,23 +22,23 @@ class ColorPickerViewController: UIViewController {
             colorIndicator.isHidden = false
         }
         if sender.state == .changed {
-            colorIndicator.frame = colorIndecatorLocation(fingerLocation: sender.location(in: gradientView))
-            selectedColor = gradientView.getColorAtPoint(point: sender.location(in: gradientView))
-            selectedColorView.backgroundColor = selectedColor
-            colorIndicator.backgroundColor = selectedColor
+            if gradientView.bounds.contains(sender.location(in: gradientView)) {
+                colorIndicator.frame = colorIndecatorLocation(fingerLocation: sender.location(in: gradientView))
+                selectedColor = gradientView.getColorAtPoint(point: sender.location(in: gradientView))
+                selectedColorView.backgroundColor = selectedColor
+                colorIndicator.backgroundColor = selectedColor
+            }
         }
     }
     @IBAction func goBack(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindSegue", sender: nil)
     }
-    
     private func colorIndecatorLocation(fingerLocation: CGPoint) -> CGRect {
         return CGRect(x: fingerLocation.x - colorIndicatorSize / 2,
                       y: fingerLocation.y - colorIndicatorSize / 2,
                       width: colorIndicatorSize,
                       height: colorIndicatorSize)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         colorIndicator.isHidden = true
