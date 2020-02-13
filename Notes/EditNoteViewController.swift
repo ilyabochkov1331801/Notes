@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
+class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, ColorPickerDelegate {
     
     private var datePickerHightValue: CGFloat = 200
     
@@ -70,7 +70,11 @@ class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    @IBAction func stackWithColorCellsTupped(_ sender: UITapGestureRecognizer) {
+    @objc func hideKeyboardOnSwipeDown() {
+        view.endEditing(true)
+    }
+    
+    @IBAction func colotCellsStackTapped(_ sender: UITapGestureRecognizer) {
         let touchLocation = sender.location(in: stackOfColorCell)
         for (index, colorCell) in colorCells.enumerated() {
             if colorCell.frame.contains(touchLocation) {
@@ -78,6 +82,7 @@ class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
+    
     @IBAction func destroyDatePickerChanged(_ sender: UISwitch) {
         if sender.isOn {
             UIView.animate(withDuration: 0.5, animations: {
@@ -91,44 +96,33 @@ class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
             })
         }
     }
+    
     @IBAction func colorPickerPressed(_ sender: UILongPressGestureRecognizer) {
         guard sender.state != .ended else { return }
-        performSegue(withIdentifier: "toColorPickerVC", sender: nil)
+        let colorPicker = ColorPickerViewController()
+        colorPicker.delegate = self
+        colorPicker.selectedColor = colorPickerCell.backgroundColor
+        present(colorPicker, animated: true, completion: nil)
     }
-    @IBAction func unwindToMainScreen(segue: UIStoryboardSegue) {
-        switch segue.identifier {
-        case "unwindSegue":
-            guard let scv = segue.source as? ColorPickerViewController else { return }
-            image.isHidden = true
-            colorPickerCell.backgroundColor = scv.selectedColor
-            colorPickerCell.isSelected = false
-            changeSelectColor(index: 3, colorCell: colorPickerCell)
-        default:
-            return
-        }
-    }
+    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-    @objc func hideKeyboardOnSwipeDown() {
-        view.endEditing(true)
+    
+    func setNewColor(color: UIColor?) {
+        image.isHidden = true
+        colorPickerCell.backgroundColor = color
+        colorPickerCell.isSelected = false
+        changeSelectColor(index: 3, colorCell: colorPickerCell)
     }
-    private func changeSelectColor(index: Int, colorCell: UIColorCellView) {
+    
+    func changeSelectColor(index: Int, colorCell: UIColorCellView) {
         if let indexOfSelectedColor = selectedColor?.rawValue, indexOfSelectedColor != index {
                 colorCells[indexOfSelectedColor].isSelected = false
                 selectedColor = colorsIndex.init(rawValue: index)
         }
         selectedColor = colorsIndex.init(rawValue: index)
         colorCell.isSelected = !colorCell.isSelected
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "toColorPickerVC":
-            guard let dvc = segue.destination as? ColorPickerViewController else { return }
-            dvc.selectedColor = colorPickerCell.backgroundColor
-        default:
-            return
-        }
     }
 }
 

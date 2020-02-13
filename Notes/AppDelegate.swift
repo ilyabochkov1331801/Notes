@@ -12,8 +12,15 @@ import CocoaLumberjack
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupLogger()
+        window = UIWindow()
+        window?.frame = UIScreen.main.bounds
+        let editNoteController = EditNoteViewController()
+        window?.rootViewController = editNoteController
+        window?.makeKeyAndVisible()
         return true
     }
     

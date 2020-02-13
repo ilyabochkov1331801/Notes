@@ -45,8 +45,8 @@ class UIGradientView: UIView {
     }
     
     func getColorAtPoint(point: CGPoint) -> UIColor {
-        let roundedPoint = CGPoint(x:elementSize * CGFloat(Int(point.x / elementSize)),
-                               y:elementSize * CGFloat(Int(point.y / elementSize)))
+        let roundedPoint = CGPoint(x: elementSize * CGFloat(Int(point.x / elementSize)),
+                               y: elementSize * CGFloat(Int(point.y / elementSize)))
         var saturation = roundedPoint.y < self.bounds.height / 2.0 ? CGFloat(2 * roundedPoint.y) / self.bounds.height
         : 2.0 * CGFloat(self.bounds.height - roundedPoint.y) / self.bounds.height
         saturation = CGFloat(powf(Float(saturation), roundedPoint.y < self.bounds.height / 2.0 ? saturationExponentTop : saturationExponentBottom))

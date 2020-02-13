@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditNoteViewController" customModule="Notes" customModuleProvider="target">
+            <connections>
+                <outlet property="colorPickerCell" destination="gHC-VW-5jq" id="wkF-6k-L3I"/>
+                <outlet property="contentView" destination="gdp-Mo-hI1" id="idd-Pc-ko5"/>
+                <outlet property="datePicker" destination="AZf-4s-h7G" id="XMd-1J-fXy"/>
+                <outlet property="datePickerHight" destination="ujz-6D-aJg" id="atv-Vu-AgQ"/>
+                <outlet property="image" destination="Jim-5F-mnf" id="PJT-EC-YpQ"/>
+                <outlet property="scrollView" destination="6GS-5L-cXy" id="Ebs-eF-ffu"/>
+                <outlet property="stackOfColorCell" destination="Z9e-V2-7eh" id="Kti-Uz-lBf"/>
+                <outlet property="textField" destination="6pV-Dl-lR8" id="Pqg-j8-jLJ"/>
+                <outlet property="textView" destination="2Hf-4K-Tzd" id="hx4-fc-3TQ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="ocR-Ij-818"/>
+                <outletCollection property="colorCells" destination="AqZ-Ki-K2k" collectionClass="NSMutableArray" id="sst-Cr-tac"/>
+                <outletCollection property="colorCells" destination="zQD-cp-emz" collectionClass="NSMutableArray" id="N0I-Mt-fvg"/>
+                <outletCollection property="colorCells" destination="eIZ-0x-710" collectionClass="NSMutableArray" id="PcH-OF-4ES"/>
+                <outletCollection property="colorCells" destination="gHC-VW-5jq" collectionClass="NSMutableArray" id="B5L-Pn-YpZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GS-5L-cXy">
+                    <rect key="frame" x="8" y="59" width="398" height="778"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gdp-Mo-hI1">
+                            <rect key="frame" x="0.0" y="0.0" width="398" height="462"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6pV-Dl-lR8">
+                                    <rect key="frame" x="10" y="0.0" width="378" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Hf-4K-Tzd">
+                                    <rect key="frame" x="10" y="42" width="378" height="100"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="RqN-Dm-jkZ"/>
+                                    </constraints>
+                                    <string key="text">Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example </string>
+                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iZ7-zV-5TN">
+                                    <rect key="frame" x="39" y="150" width="320" height="239"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="krd-X2-BvM">
+                                            <rect key="frame" x="48.5" y="0.0" width="223.5" height="31"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use destroy date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6Z-qr-V2M">
+                                                    <rect key="frame" x="0.0" y="0.0" width="152.5" height="31"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPb-fl-EQb">
+                                                    <rect key="frame" x="174.5" y="0.0" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="destroyDatePickerChanged:" destination="-1" eventType="valueChanged" id="5Qx-sN-8XK"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                        </stackView>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AZf-4s-h7G">
+                                            <rect key="frame" x="0.0" y="39" width="320" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="ujz-6D-aJg"/>
+                                            </constraints>
+                                        </datePicker>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Z9e-V2-7eh">
+                                    <rect key="frame" x="37.5" y="397" width="323" height="65"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AqZ-Ki-K2k" customClass="UIColorCellView" customModule="Notes" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="IWs-nx-kvc"/>
+                                                <constraint firstAttribute="width" secondItem="AqZ-Ki-K2k" secondAttribute="height" multiplier="1:1" id="JBa-bg-qtN"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQD-cp-emz" customClass="UIColorCellView" customModule="Notes" customModuleProvider="target">
+                                            <rect key="frame" x="86" y="0.0" width="65" height="65"/>
+                                            <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIZ-0x-710" customClass="UIColorCellView" customModule="Notes" customModuleProvider="target">
+                                            <rect key="frame" x="172" y="0.0" width="65" height="65"/>
+                                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-VW-5jq" customClass="UIColorCellView" customModule="Notes" customModuleProvider="target">
+                                            <rect key="frame" x="258" y="0.0" width="65" height="65"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient image" translatesAutoresizingMaskIntoConstraints="NO" id="Jim-5F-mnf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Jim-5F-mnf" secondAttribute="trailing" id="Far-Ag-nFU"/>
+                                                <constraint firstAttribute="bottom" secondItem="Jim-5F-mnf" secondAttribute="bottom" id="OB9-pd-x0x"/>
+                                                <constraint firstItem="Jim-5F-mnf" firstAttribute="top" secondItem="gHC-VW-5jq" secondAttribute="top" id="gkf-sB-If2"/>
+                                                <constraint firstItem="Jim-5F-mnf" firstAttribute="leading" secondItem="gHC-VW-5jq" secondAttribute="leading" id="kwj-t5-Ecm"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="vKK-D9-PSK" appends="YES" id="9YG-lY-ymP"/>
+                                            </connections>
+                                        </view>
+                                    </subviews>
+                                    <gestureRecognizers/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="KrO-lT-t2B" appends="YES" id="nBD-bx-f6s"/>
+                                    </connections>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="2Hf-4K-Tzd" firstAttribute="width" secondItem="gdp-Mo-hI1" secondAttribute="width" multiplier="0.95" id="72y-vH-41s"/>
+                                <constraint firstItem="6pV-Dl-lR8" firstAttribute="width" secondItem="gdp-Mo-hI1" secondAttribute="width" multiplier="0.95" id="EBy-Tc-P2M"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="gdp-Mo-hI1" secondAttribute="bottom" constant="10" id="gnO-H2-GXe"/>
+                        <constraint firstItem="gdp-Mo-hI1" firstAttribute="leading" secondItem="6GS-5L-cXy" secondAttribute="leading" id="myB-B0-AZy"/>
+                        <constraint firstAttribute="trailing" secondItem="gdp-Mo-hI1" secondAttribute="trailing" id="rp6-wc-I4P"/>
+                        <constraint firstItem="gdp-Mo-hI1" firstAttribute="top" secondItem="6GS-5L-cXy" secondAttribute="top" id="vjn-fp-hpO"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="iok-BT-k6E"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="zog-Ec-wAg"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6GS-5L-cXy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="1Wn-kh-YB1"/>
+                <constraint firstItem="gdp-Mo-hI1" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" constant="-16" id="4hP-Nr-7Of"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6GS-5L-cXy" secondAttribute="bottom" constant="25" id="WJx-PU-XYk"/>
+                <constraint firstItem="6GS-5L-cXy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="fMC-jA-YOS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6GS-5L-cXy" secondAttribute="trailing" constant="8" id="xA1-sp-6y3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="91"/>
+        </view>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="vKK-D9-PSK">
+            <connections>
+                <action selector="colorPickerPressed:" destination="-1" id="eqh-r6-EJp"/>
+            </connections>
+        </pongPressGestureRecognizer>
+        <tapGestureRecognizer id="KrO-lT-t2B">
+            <connections>
+                <action selector="colotCellsStackTapped:" destination="-1" id="uZf-bA-DOu"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="gradient image" width="186" height="186"/>
+    </resources>
+</document>

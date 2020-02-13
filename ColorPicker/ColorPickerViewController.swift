@@ -9,6 +9,7 @@
 import UIKit
 
 class ColorPickerViewController: UIViewController {
+    
     @IBOutlet weak var selectedColorView: UIView!
     @IBOutlet weak var gradientView: UIGradientView!
     @IBOutlet weak var colorIndicator: UIView!
@@ -16,6 +17,23 @@ class ColorPickerViewController: UIViewController {
     
     var selectedColor: UIColor?
     let colorIndicatorSize: CGFloat = 20
+    weak var delegate: ColorPickerDelegate?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        colorIndicator.isHidden = true
+        colorIndicator.layer.borderWidth = 1
+        colorIndicator.layer.cornerRadius = colorIndicatorSize
+        selectedColorView.layer.cornerRadius = 10
+        selectedColorView.backgroundColor = selectedColor
+        gradientView.layer.borderWidth = 2
+        selectedColorView.layer.borderWidth = 1
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        delegate?.setNewColor(color: selectedColor)
+    }
     
     @IBAction func colorSelecting(_ sender: UIPanGestureRecognizer) {
         if sender.state == .began {
@@ -30,23 +48,15 @@ class ColorPickerViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func goBack(_ sender: UIButton) {
-        performSegue(withIdentifier: "unwindSegue", sender: nil)
+        dismiss(animated: true, completion: nil)
     }
-    private func colorIndecatorLocation(fingerLocation: CGPoint) -> CGRect {
+    
+    func colorIndecatorLocation(fingerLocation: CGPoint) -> CGRect {
         return CGRect(x: fingerLocation.x - colorIndicatorSize / 2,
                       y: fingerLocation.y - colorIndicatorSize / 2,
                       width: colorIndicatorSize,
                       height: colorIndicatorSize)
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        colorIndicator.isHidden = true
-        colorIndicator.layer.borderWidth = 1
-        colorIndicator.layer.cornerRadius = colorIndicatorSize
-        selectedColorView.layer.cornerRadius = 10
-        selectedColorView.backgroundColor = selectedColor
-        gradientView.layer.borderWidth = 2
-        selectedColorView.layer.borderWidth = 1
     }
 }
