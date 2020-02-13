@@ -30,11 +30,6 @@ class UIColorCellView: UIView {
             path.stroke()
         }
     }
-    
-    func isPointInView(point: CGPoint) -> Bool {
-        return point.x < frame.maxX && point.x > frame.minX && point.y < frame.maxY && point.y > frame.minY
-    }
-    
     private func makeFlagPath(in rect: CGRect) -> UIBezierPath {
         let path = UIBezierPath(
             arcCenter: CGPoint(x: rect.midX, y: rect.midY),

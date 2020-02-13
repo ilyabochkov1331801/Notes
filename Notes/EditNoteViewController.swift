@@ -58,28 +58,37 @@ class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
             return
         }
         if notification.name == UIResponder.keyboardWillShowNotification {
-            scrollView.contentInset = UIEdgeInsets(top: 0,
-                                                   left: 0,
-                                                   bottom: keyboardFrame.height - view.safeAreaInsets.bottom - 20,
-                                                   right: 0)
+            let inset = UIEdgeInsets(top: 0,
+                                     left: 0,
+                                     bottom: keyboardFrame.height - view.safeAreaInsets.bottom - 20,
+                                     right: 0)
+            scrollView.contentInset = inset
+            scrollView.scrollIndicatorInsets = inset
         } else {
             scrollView.contentInset = .zero
+            scrollView.scrollIndicatorInsets = .zero
         }
     }
     
     @IBAction func stackWithColorCellsTupped(_ sender: UITapGestureRecognizer) {
         let touchLocation = sender.location(in: stackOfColorCell)
         for (index, colorCell) in colorCells.enumerated() {
-            if colorCell.isPointInView(point: touchLocation) {
+            if colorCell.frame.contains(touchLocation) {
                changeSelectColor(index: index, colorCell: colorCell)
             }
         }
     }
     @IBAction func destroyDatePickerChanged(_ sender: UISwitch) {
         if sender.isOn {
-            datePickerHight.constant += datePickerHightValue
+            UIView.animate(withDuration: 0.5, animations: {
+                self.datePickerHight.constant += self.datePickerHightValue
+                //self.contentView.layoutIfNeeded()
+            })
         } else {
-            datePickerHight.constant -= datePickerHightValue
+            UIView.animate(withDuration: 0.5, animations: {
+                self.datePickerHight.constant -= self.datePickerHightValue
+                //self.contentView.layoutIfNeeded()
+            })
         }
     }
     @IBAction func colorPickerPressed(_ sender: UILongPressGestureRecognizer) {
@@ -105,12 +114,12 @@ class EditNoteViewControllerr: UIViewController, UIGestureRecognizerDelegate {
         view.endEditing(true)
     }
     private func changeSelectColor(index: Int, colorCell: UIColorCellView) {
-        if let indexOfSelectedColor = selectedColor?.rawValue,
-            indexOfSelectedColor != index {
-            colorCells[indexOfSelectedColor].isSelected = false
+        if let indexOfSelectedColor = selectedColor?.rawValue, indexOfSelectedColor != index {
+                colorCells[indexOfSelectedColor].isSelected = false
+                selectedColor = colorsIndex.init(rawValue: index)
         }
-        colorCell.isSelected = !colorCell.isSelected
         selectedColor = colorsIndex.init(rawValue: index)
+        colorCell.isSelected = !colorCell.isSelected
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {

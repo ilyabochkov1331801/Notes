@@ -37,29 +37,34 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="4DN-OI-4NP">
-                                                <rect key="frame" x="87.5" y="150" width="223.5" height="31"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SRc-O1-eAn">
+                                                <rect key="frame" x="39" y="150" width="320" height="239"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use destroy date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B86-Cm-HW0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="31"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-zX-4lR">
-                                                        <rect key="frame" x="174.5" y="0.0" width="51" height="31"/>
-                                                        <connections>
-                                                            <action selector="destroyDatePickerChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="rP5-wo-1zo"/>
-                                                        </connections>
-                                                    </switch>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="4DN-OI-4NP">
+                                                        <rect key="frame" x="48.5" y="0.0" width="223.5" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use destroy date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B86-Cm-HW0">
+                                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="31"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-zX-4lR">
+                                                                <rect key="frame" x="174.5" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="destroyDatePickerChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="rP5-wo-1zo"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gO0-6t-LXb">
+                                                        <rect key="frame" x="0.0" y="39" width="320" height="200"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="200" id="0He-tz-pXm"/>
+                                                        </constraints>
+                                                    </datePicker>
                                                 </subviews>
                                             </stackView>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gO0-6t-LXb">
-                                                <rect key="frame" x="39" y="189" width="320" height="200"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="0He-tz-pXm"/>
-                                                </constraints>
-                                            </datePicker>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="kIt-hq-tnw">
                                                 <rect key="frame" x="37.5" y="397" width="323" height="65"/>
                                                 <subviews>
@@ -162,10 +167,10 @@
                         <outlet property="stackOfColorCell" destination="kIt-hq-tnw" id="ydj-LL-tGt"/>
                         <outlet property="textField" destination="5q1-nO-tlO" id="5MB-7Y-hHK"/>
                         <outlet property="textView" destination="EeM-ju-s2n" id="gQT-pi-eVJ"/>
-                        <outletCollection property="colorCells" destination="APL-5A-T3u" collectionClass="NSMutableArray" id="TpH-SD-Ke6"/>
-                        <outletCollection property="colorCells" destination="41x-Hg-dJP" collectionClass="NSMutableArray" id="RCS-af-YKl"/>
-                        <outletCollection property="colorCells" destination="V8l-y9-Cdr" collectionClass="NSMutableArray" id="zD8-mM-iXf"/>
-                        <outletCollection property="colorCells" destination="yMj-QZ-b1o" collectionClass="NSMutableArray" id="dCj-4S-xB2"/>
+                        <outletCollection property="colorCells" destination="APL-5A-T3u" collectionClass="NSMutableArray" id="rOy-Q0-a83"/>
+                        <outletCollection property="colorCells" destination="yMj-QZ-b1o" collectionClass="NSMutableArray" id="z3Q-UZ-E4N"/>
+                        <outletCollection property="colorCells" destination="41x-Hg-dJP" collectionClass="NSMutableArray" id="wL0-UW-9fo"/>
+                        <outletCollection property="colorCells" destination="V8l-y9-Cdr" collectionClass="NSMutableArray" id="5eH-x0-xRe"/>
                         <segue destination="pnv-WR-Uqp" kind="presentation" identifier="toColorPickerVC" modalPresentationStyle="fullScreen" id="Auy-Y2-qj6"/>
                     </connections>
                 </viewController>
