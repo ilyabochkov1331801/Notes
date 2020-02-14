@@ -11,9 +11,8 @@ import UIKit
 class ColorPickerViewController: UIViewController {
     
     @IBOutlet weak var selectedColorView: UIView!
-    @IBOutlet weak var gradientView: UIGradientView!
+    @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var colorIndicator: UIView!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var selectedColor: UIColor?
     let colorIndicatorSize: CGFloat = 20
@@ -21,6 +20,7 @@ class ColorPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Color Picker"
         colorIndicator.isHidden = true
         colorIndicator.layer.borderWidth = 1
         colorIndicator.layer.cornerRadius = colorIndicatorSize
@@ -28,11 +28,15 @@ class ColorPickerViewController: UIViewController {
         selectedColorView.backgroundColor = selectedColor
         gradientView.layer.borderWidth = 2
         selectedColorView.layer.borderWidth = 1
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Use",
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(saveColor))
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    @objc func saveColor() {
         delegate?.setNewColor(color: selectedColor)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func colorSelecting(_ sender: UIPanGestureRecognizer) {
@@ -47,10 +51,6 @@ class ColorPickerViewController: UIViewController {
                 colorIndicator.backgroundColor = selectedColor
             }
         }
-    }
-    
-    @IBAction func goBack(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
     }
     
     func colorIndecatorLocation(fingerLocation: CGPoint) -> CGRect {

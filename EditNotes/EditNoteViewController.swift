@@ -33,6 +33,7 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Edit"
         datePicker.minimumDate = Date()
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 5
@@ -98,11 +99,12 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     }
     
     @IBAction func colorPickerPressed(_ sender: UILongPressGestureRecognizer) {
-        guard sender.state != .ended else { return }
-        let colorPicker = ColorPickerViewController()
-        colorPicker.delegate = self
-        colorPicker.selectedColor = colorPickerCell.backgroundColor
-        present(colorPicker, animated: true, completion: nil)
+        if sender.state == .recognized {
+            let colorPicker = ColorPickerViewController()
+            colorPicker.delegate = self
+            colorPicker.selectedColor = colorPickerCell.backgroundColor
+            navigationController?.pushViewController(colorPicker, animated: true)
+        }
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

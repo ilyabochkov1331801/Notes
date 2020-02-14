@@ -19,7 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.frame = UIScreen.main.bounds
         let editNoteController = EditNoteViewController()
-        window?.rootViewController = editNoteController
+        let navigationController = UINavigationController(rootViewController: editNoteController)
+        navigationController.tabBarItem = UITabBarItem(title: "Notes",
+                                                       image: UIImage(systemName: "doc"),
+                                                       selectedImage: nil)
+        let tabBarCotroller = UITabBarController()
+        tabBarCotroller.viewControllers = [ navigationController ]
+        window?.rootViewController = tabBarCotroller
         window?.makeKeyAndVisible()
         return true
     }

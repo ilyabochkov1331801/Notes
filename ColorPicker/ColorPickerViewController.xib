@@ -11,7 +11,6 @@
             <connections>
                 <outlet property="colorIndicator" destination="6i3-j6-2ve" id="xR8-Jv-8dj"/>
                 <outlet property="gradientView" destination="eR2-3F-QMy" id="T5K-Wj-DNQ"/>
-                <outlet property="navigationBar" destination="U0v-v4-1Vf" id="0sW-QQ-WmC"/>
                 <outlet property="selectedColorView" destination="kdV-PC-5Cr" id="wFb-Bx-69T"/>
                 <outlet property="view" destination="iN0-l3-epB" id="YL2-X5-TgF"/>
             </connections>
@@ -21,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-3F-QMy" customClass="UIGradientView" customModule="Notes" customModuleProvider="target">
-                    <rect key="frame" x="20" y="186" width="374" height="581"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-3F-QMy" customClass="GradientView" customModule="Notes" customModuleProvider="target">
+                    <rect key="frame" x="20" y="142" width="374" height="572.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6i3-j6-2ve">
-                            <rect key="frame" x="177" y="280" width="20" height="20"/>
+                            <rect key="frame" x="177" y="245" width="20" height="20"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="WMk-Ti-6mR"/>
@@ -37,31 +36,14 @@
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="6i3-j6-2ve" firstAttribute="centerX" secondItem="eR2-3F-QMy" secondAttribute="centerX" id="2f1-at-aSG"/>
-                        <constraint firstItem="6i3-j6-2ve" firstAttribute="centerY" secondItem="eR2-3F-QMy" secondAttribute="centerY" id="nSh-CP-PjT"/>
+                        <constraint firstItem="6i3-j6-2ve" firstAttribute="centerY" secondItem="eR2-3F-QMy" secondAttribute="centerY" constant="-31.5" id="nSh-CP-PjT"/>
                     </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="Xkw-nP-zjl" appends="YES" id="9JH-rg-vXf"/>
                     </connections>
                 </view>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0v-v4-1Vf">
-                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                    <items>
-                        <navigationItem title="Color picker" id="nwV-mv-bd2">
-                            <barButtonItem key="leftBarButtonItem" style="done" id="2Cb-o7-tPo">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JXB-ud-Gd2">
-                                    <rect key="frame" x="20" y="7" width="53" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Use"/>
-                                    <connections>
-                                        <action selector="goBack:" destination="-1" eventType="touchUpInside" id="Rov-e8-GmF"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdV-PC-5Cr">
-                    <rect key="frame" x="167" y="98" width="80" height="80"/>
+                    <rect key="frame" x="167" y="54" width="80" height="80"/>
                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="CnL-ad-8Iy"/>
@@ -73,13 +55,10 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eR2-3F-QMy" secondAttribute="trailing" constant="20" id="0Sg-Em-QbQ"/>
                 <constraint firstItem="kdV-PC-5Cr" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="7Bd-Oi-0CE"/>
-                <constraint firstItem="U0v-v4-1Vf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="aIq-SP-YDK"/>
-                <constraint firstItem="kdV-PC-5Cr" firstAttribute="top" secondItem="U0v-v4-1Vf" secondAttribute="bottom" constant="10" id="aIz-X9-CiR"/>
                 <constraint firstItem="eR2-3F-QMy" firstAttribute="top" secondItem="kdV-PC-5Cr" secondAttribute="bottom" constant="8" id="b7g-oZ-i28"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="U0v-v4-1Vf" secondAttribute="trailing" id="jr4-a0-SmF"/>
                 <constraint firstItem="eR2-3F-QMy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="kIX-wv-bAG"/>
-                <constraint firstItem="U0v-v4-1Vf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ypt-O3-Qe1"/>
-                <constraint firstItem="eR2-3F-QMy" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.6" constant="90.200000000000045" id="zKK-kj-SSS"/>
+                <constraint firstItem="kdV-PC-5Cr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="urX-fW-RiR"/>
+                <constraint firstItem="eR2-3F-QMy" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.7" id="zKK-kj-SSS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="90.401785714285708"/>
