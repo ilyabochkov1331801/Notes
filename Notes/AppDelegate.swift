@@ -18,11 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupLogger()
         window = UIWindow()
         window?.frame = UIScreen.main.bounds
-        let editNoteController = EditNoteViewController()
-        let navigationController = UINavigationController(rootViewController: editNoteController)
-        navigationController.tabBarItem = UITabBarItem(title: "Notes",
-                                                       image: UIImage(systemName: "doc"),
-                                                       selectedImage: nil)
+        let tableOfNotes = TableOfNotes()
+        tableOfNotes.title = "Notes"
+        let navigationController = UINavigationController(rootViewController: tableOfNotes)
+        tableOfNotes.tabBarItem = UITabBarItem(title: "Notes",
+                                                image: UIImage(systemName: "doc"),
+                                                selectedImage: nil)
         let tabBarCotroller = UITabBarController()
         tabBarCotroller.viewControllers = [ navigationController ]
         window?.rootViewController = tabBarCotroller
@@ -31,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupLogger() {
-        DDLog.add(DDOSLogger.sharedInstance) // Uses os_log
-        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
-        fileLogger.rollingFrequency = 60 * 60 * 24 // 24 hours
+        DDLog.add(DDOSLogger.sharedInstance)
+        let fileLogger: DDFileLogger = DDFileLogger()
+        fileLogger.rollingFrequency = 60 * 60 * 24
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.add(fileLogger)
     }

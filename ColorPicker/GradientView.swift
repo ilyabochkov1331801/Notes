@@ -31,7 +31,6 @@ class GradientView: UIView {
         var saturation: CGFloat = 0.0
         var brightness: CGFloat = 0.0
         color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: nil);
-
         var yPos:CGFloat = 0
         let halfHeight = (self.bounds.height / 2)
         if (brightness >= 0.99) {
@@ -47,8 +46,7 @@ class GradientView: UIView {
     func getColorAtPoint(point: CGPoint) -> UIColor {
         let roundedPoint = CGPoint(x: elementSize * CGFloat(Int(point.x / elementSize)),
                                y: elementSize * CGFloat(Int(point.y / elementSize)))
-        var saturation = roundedPoint.y < self.bounds.height / 2.0 ? CGFloat(2 * roundedPoint.y) / self.bounds.height
-        : 2.0 * CGFloat(self.bounds.height - roundedPoint.y) / self.bounds.height
+        var saturation = roundedPoint.y < self.bounds.height / 2.0 ? CGFloat(2 * roundedPoint.y) / self.bounds.height : 2.0 * CGFloat(self.bounds.height - roundedPoint.y) / self.bounds.height
         saturation = CGFloat(powf(Float(saturation), roundedPoint.y < self.bounds.height / 2.0 ? saturationExponentTop : saturationExponentBottom))
         let brightness = roundedPoint.y < self.bounds.height / 2.0 ? CGFloat(1.0) : 2.0 * CGFloat(self.bounds.height - roundedPoint.y) / self.bounds.height
         let hue = roundedPoint.x / self.bounds.width

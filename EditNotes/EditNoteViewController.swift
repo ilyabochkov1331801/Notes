@@ -12,6 +12,8 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     
     private var datePickerHightValue: CGFloat = 200
     
+    var notebook: FileNotebook
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var datePickerHight: NSLayoutConstraint!
     @IBOutlet weak var stackOfColorCell: UIStackView!
@@ -22,13 +24,24 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var contentView: UIStackView!
+    @IBOutlet weak var datePickerSwitch: UISwitch!
     
-    private var selectedColor: colorsIndex?
+    private var selectedColor: UIColorCellView?
+    
     enum colorsIndex: Int {
         case white = 0
         case green = 1
         case red = 2
         case selector = 3
+    }
+    
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, notebook: FileNotebook) {
+        self.notebook = notebook
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -37,6 +50,8 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
         datePicker.minimumDate = Date()
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 5
+        selectedColor = colorCells[0]
+        colorCells[0].isSelected = true
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboardOnSwipeDown))
         swipeDown.delegate = self
         swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
@@ -49,7 +64,33 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
                                                selector: #selector(updateContentView(notification: )),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(save))
+    }
+    
+    @objc func save() {
+        guard let title = textView.text, let content = textField.text, let color = selectedColor?.backgroundColor else { return }
+        let note: Note
+        if datePickerSwitch.isOn {
+            note = Note(title: title,
+                        content: content,
+                        color: color,
+                        importance: .normal,
+                        selfDestructionDate: datePicker.date)
+        } else {
+            note = Note(title: title,
+                                   content: content,
+                                   color: color,
+                                   importance: .normal)
+        }
+        do {
+            try notebook.add(note)
+        } catch {
+            return
+        }
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func updateContentView(notification: Notification) {
@@ -77,9 +118,9 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     
     @IBAction func colotCellsStackTapped(_ sender: UITapGestureRecognizer) {
         let touchLocation = sender.location(in: stackOfColorCell)
-        for (index, colorCell) in colorCells.enumerated() {
+        for colorCell in colorCells {
             if colorCell.frame.contains(touchLocation) {
-               changeSelectColor(index: index, colorCell: colorCell)
+               changeSelectColor(colorCell: colorCell)
             }
         }
     }
@@ -88,12 +129,10 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
         if sender.isOn {
             UIView.animate(withDuration: 0.5, animations: {
                 self.datePickerHight.constant += self.datePickerHightValue
-                //self.contentView.layoutIfNeeded()
             })
         } else {
             UIView.animate(withDuration: 0.5, animations: {
                 self.datePickerHight.constant -= self.datePickerHightValue
-                //self.contentView.layoutIfNeeded()
             })
         }
     }
@@ -107,24 +146,21 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
         }
     }
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
     func setNewColor(color: UIColor?) {
         image.isHidden = true
         colorPickerCell.backgroundColor = color
         colorPickerCell.isSelected = false
-        changeSelectColor(index: 3, colorCell: colorPickerCell)
+        changeSelectColor(colorCell: colorPickerCell)
     }
     
-    func changeSelectColor(index: Int, colorCell: UIColorCellView) {
-        if let indexOfSelectedColor = selectedColor?.rawValue, indexOfSelectedColor != index {
-                colorCells[indexOfSelectedColor].isSelected = false
-                selectedColor = colorsIndex.init(rawValue: index)
-        }
-        selectedColor = colorsIndex.init(rawValue: index)
-        colorCell.isSelected = !colorCell.isSelected
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func changeSelectColor(colorCell: UIColorCellView) {
+        selectedColor?.isSelected = false
+        selectedColor = colorCell
+        selectedColor?.isSelected = true
     }
 }
 
