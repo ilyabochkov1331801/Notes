@@ -60,3 +60,4 @@ class ColorPickerViewController: UIViewController {
                       height: colorIndicatorSize)
     }
 }
+

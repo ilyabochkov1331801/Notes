@@ -14,9 +14,8 @@ class TableOfNotes: UITableViewController {
     
     override func viewDidLoad() {
         do {
-            try notebook.add(Note(uid: "1",
-                                  title: "title",
-                                  content: "contentcontentcontentcontentcontentc ontentcontentcontentcontentcontentconte ntcontentcontentcontentcontentcontentco ntentcontentcontentcontentcontentcontent",
+            try notebook.add(Note(title: "title",
+                                  content: "contentcontentcontentcontentcontentc",
                                   color: .red,
                                   importance: .important,
                                   selfDestructionDate: nil))
@@ -24,25 +23,13 @@ class TableOfNotes: UITableViewController {
             return
         }
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(addNote))
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
     
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -57,13 +44,14 @@ class TableOfNotes: UITableViewController {
         cell.imageView?.backgroundColor = note.color
         cell.textLabel?.text = note.title
         cell.detailTextLabel?.text = note.content
+        cell.detailTextLabel?.numberOfLines = 5
+        cell.contentView.layer.borderWidth = 1
         return cell
     }
 
     @objc func addNote() {
         let editNoteVC = EditNoteViewController(nibName: nil, bundle: nil, notebook: notebook)
         navigationController?.pushViewController(editNoteVC, animated: true)
-        print(notebook.getNoteCollection().count)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -76,8 +64,12 @@ class TableOfNotes: UITableViewController {
             notebook.remove(with: notebook.getNoteCollection()[indexPath.row].uid)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let editNoteVC = EditNoteViewController(nibName: nil, bundle: nil, notebook: notebook)
+        editNoteVC.noteIndex = indexPath.row
+        navigationController?.pushViewController(editNoteVC, animated: true)
     }
 
     /*

@@ -48,7 +48,6 @@
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="RqN-Dm-jkZ"/>
                                     </constraints>
-                                    <string key="text">Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example Example </string>
                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

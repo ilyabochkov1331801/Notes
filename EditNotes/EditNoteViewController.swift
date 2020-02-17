@@ -13,6 +13,8 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     private var datePickerHightValue: CGFloat = 200
     
     var notebook: FileNotebook
+    var noteIndex: Int?
+    private var selectedColor: UIColorCellView?
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var datePickerHight: NSLayoutConstraint!
@@ -25,21 +27,12 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var contentView: UIStackView!
     @IBOutlet weak var datePickerSwitch: UISwitch!
-    
-    private var selectedColor: UIColorCellView?
-    
-    enum colorsIndex: Int {
-        case white = 0
-        case green = 1
-        case red = 2
-        case selector = 3
-    }
-    
+        
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, notebook: FileNotebook) {
         self.notebook = notebook
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -52,10 +45,12 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
         textView.layer.cornerRadius = 5
         selectedColor = colorCells[0]
         colorCells[0].isSelected = true
+
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboardOnSwipeDown))
         swipeDown.delegate = self
         swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
         contentView.addGestureRecognizer(swipeDown)
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateContentView(notification: )),
                                                name: UIResponder.keyboardWillShowNotification,
@@ -68,26 +63,54 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(save))
+        if let index = noteIndex {
+            textField.text = notebook.getNoteCollection()[index].title
+            textView.text = notebook.getNoteCollection()[index].content
+            image.isHidden = true
+            colorPickerCell.backgroundColor = notebook.getNoteCollection()[index].color
+            changeSelectColor(colorCell: colorPickerCell)
+            if let date = notebook.getNoteCollection()[index].selfDestructionDate {
+                datePicker.date = date
+            }
+        }
     }
     
     @objc func save() {
         guard let title = textView.text, let content = textField.text, let color = selectedColor?.backgroundColor else { return }
         let note: Note
         if datePickerSwitch.isOn {
-            note = Note(title: title,
-                        content: content,
-                        color: color,
-                        importance: .normal,
-                        selfDestructionDate: datePicker.date)
+            if let index = noteIndex {
+                note = Note(uid: notebook.getNoteCollection()[index].uid,
+                            title: title,
+                            content: content,
+                            color: color,
+                            importance: .normal,
+                            selfDestructionDate: datePicker.date)
+            } else {
+                note = Note(title: title,
+                            content: content,
+                            color: color,
+                            importance: .normal,
+                            selfDestructionDate: datePicker.date)
+            }
         } else {
-            note = Note(title: title,
-                                   content: content,
-                                   color: color,
-                                   importance: .normal)
+           if let index = noteIndex {
+                note = Note(uid: notebook.getNoteCollection()[index].uid,
+                            title: title,
+                            content: content,
+                            color: color,
+                            importance: .normal)
+            } else {
+                note = Note(title: title,
+                            content: content,
+                            color: color,
+                            importance: .normal)
+            }
         }
         do {
             try notebook.add(note)
         } catch {
+            navigationController?.popViewController(animated: true)
             return
         }
         navigationController?.popViewController(animated: true)
