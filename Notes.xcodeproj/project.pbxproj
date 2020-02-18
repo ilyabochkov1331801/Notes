@@ -24,6 +24,8 @@
 		EA68C47623F5F0A0006A5256 /* EditNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA68C47523F5F0A0006A5256 /* EditNoteViewController.xib */; };
 		EA68C47823F5F458006A5256 /* ColorPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68C47723F5F458006A5256 /* ColorPickerDelegate.swift */; };
 		EA68C47A23F5F93C006A5256 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA68C47923F5F93C006A5256 /* ColorPickerViewController.xib */; };
+		EA970E8C23FC0D7200FEA447 /* NoteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA970E8A23FC0D7200FEA447 /* NoteTableCell.swift */; };
+		EA970E8D23FC0D7200FEA447 /* NoteTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA970E8B23FC0D7200FEA447 /* NoteTableCell.xib */; };
 		EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */; };
 		EAC1AE3923EC7E1D005B8765 /* ColorComponentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */; };
 		EAD1A47F23EEF6D50041C782 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD1A47E23EEF6D50041C782 /* GradientView.swift */; };
@@ -81,6 +83,8 @@
 		EA68C47523F5F0A0006A5256 /* EditNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditNoteViewController.xib; sourceTree = "<group>"; };
 		EA68C47723F5F458006A5256 /* ColorPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDelegate.swift; sourceTree = "<group>"; };
 		EA68C47923F5F93C006A5256 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
+		EA970E8A23FC0D7200FEA447 /* NoteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableCell.swift; sourceTree = "<group>"; };
+		EA970E8B23FC0D7200FEA447 /* NoteTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableCell.xib; sourceTree = "<group>"; };
 		EAA78C8D23E2595000A17131 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCellView.swift; sourceTree = "<group>"; };
 		EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponentsList.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			children = (
 				EA3966B123FAE3FE00EE3E22 /* TableOfNotes.swift */,
 				EA3966B223FAE3FE00EE3E22 /* TableOfNotes.xib */,
+				EA970E8A23FC0D7200FEA447 /* NoteTableCell.swift */,
+				EA970E8B23FC0D7200FEA447 /* NoteTableCell.xib */,
 			);
 			path = TableOfNotes;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 			files = (
 				EA1C1FC723E1A98500529695 /* LaunchScreen.storyboard in Resources */,
 				EA3966B423FAE3FE00EE3E22 /* TableOfNotes.xib in Resources */,
+				EA970E8D23FC0D7200FEA447 /* NoteTableCell.xib in Resources */,
 				EA68C47623F5F0A0006A5256 /* EditNoteViewController.xib in Resources */,
 				EA68C47A23F5F93C006A5256 /* ColorPickerViewController.xib in Resources */,
 				EA1C1FC423E1A98500529695 /* Assets.xcassets in Resources */,
@@ -389,6 +396,7 @@
 			files = (
 				EA1C1FE123E1AB6C00529695 /* NoteExtension.swift in Sources */,
 				EAD1A47F23EEF6D50041C782 /* GradientView.swift in Sources */,
+				EA970E8C23FC0D7200FEA447 /* NoteTableCell.swift in Sources */,
 				EAC1AE3923EC7E1D005B8765 /* ColorComponentsList.swift in Sources */,
 				EA1C1FBF23E1A98300529695 /* EditNoteViewController.swift in Sources */,
 				EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */,

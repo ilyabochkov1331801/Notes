@@ -71,12 +71,15 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
             changeSelectColor(colorCell: colorPickerCell)
             if let date = notebook.getNoteCollection()[index].selfDestructionDate {
                 datePicker.date = date
+            } else {
+                datePickerSwitch.isOn = false
+                datePickerHight.constant -= datePickerHightValue
             }
         }
     }
     
     @objc func save() {
-        guard let title = textView.text, let content = textField.text, let color = selectedColor?.backgroundColor else { return }
+        guard let title = textField.text, let content = textView.text, let color = selectedColor?.backgroundColor else { return }
         let note: Note
         if datePickerSwitch.isOn {
             if let index = noteIndex {

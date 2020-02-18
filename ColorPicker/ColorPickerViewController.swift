@@ -28,7 +28,7 @@ class ColorPickerViewController: UIViewController {
         selectedColorView.backgroundColor = selectedColor
         gradientView.layer.borderWidth = 2
         selectedColorView.layer.borderWidth = 1
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Use",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Use",
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(saveColor))
