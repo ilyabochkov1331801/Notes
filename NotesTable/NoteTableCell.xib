@@ -25,7 +25,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufy-YI-cR9">
-                        <rect key="frame" x="26" y="24" width="274" height="18"/>
+                        <rect key="frame" x="26" y="0.0" width="274" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="M6g-4d-xSJ"/>
                         </constraints>

@@ -19,13 +19,18 @@
 		EA1C1FE223E1AB6C00529695 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FDD23E1AB6C00529695 /* UIColorExtension.swift */; };
 		EA1C1FE323E1AB6C00529695 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FDE23E1AB6C00529695 /* Errors.swift */; };
 		EA1C1FE423E1AB6C00529695 /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FDF23E1AB6C00529695 /* FileNotebook.swift */; };
-		EA3966B323FAE3FE00EE3E22 /* TableOfNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3966B123FAE3FE00EE3E22 /* TableOfNotes.swift */; };
-		EA3966B423FAE3FE00EE3E22 /* TableOfNotes.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3966B223FAE3FE00EE3E22 /* TableOfNotes.xib */; };
+		EA3966B323FAE3FE00EE3E22 /* NotesTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3966B123FAE3FE00EE3E22 /* NotesTable.swift */; };
+		EA3966B423FAE3FE00EE3E22 /* NotesTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3966B223FAE3FE00EE3E22 /* NotesTable.xib */; };
 		EA68C47623F5F0A0006A5256 /* EditNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA68C47523F5F0A0006A5256 /* EditNoteViewController.xib */; };
 		EA68C47823F5F458006A5256 /* ColorPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68C47723F5F458006A5256 /* ColorPickerDelegate.swift */; };
 		EA68C47A23F5F93C006A5256 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA68C47923F5F93C006A5256 /* ColorPickerViewController.xib */; };
 		EA970E8C23FC0D7200FEA447 /* NoteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA970E8A23FC0D7200FEA447 /* NoteTableCell.swift */; };
 		EA970E8D23FC0D7200FEA447 /* NoteTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA970E8B23FC0D7200FEA447 /* NoteTableCell.xib */; };
+		EAA52FB623FD0B2C00DDC4C4 /* PhotoNotesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA52FB423FD0B2C00DDC4C4 /* PhotoNotesCollection.swift */; };
+		EAA52FB723FD0B2C00DDC4C4 /* PhotoNotesCollection.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA52FB523FD0B2C00DDC4C4 /* PhotoNotesCollection.xib */; };
+		EAA52FB923FD0CE700DDC4C4 /* PhotoNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA52FB823FD0CE700DDC4C4 /* PhotoNotebook.swift */; };
+		EAA52FBD23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA52FBB23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift */; };
+		EAA52FBE23FD586900DDC4C4 /* PhotoNotesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA52FBC23FD586900DDC4C4 /* PhotoNotesCollectionCell.xib */; };
 		EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */; };
 		EAC1AE3923EC7E1D005B8765 /* ColorComponentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */; };
 		EAD1A47F23EEF6D50041C782 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD1A47E23EEF6D50041C782 /* GradientView.swift */; };
@@ -78,13 +83,18 @@
 		EA1C1FDD23E1AB6C00529695 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		EA1C1FDE23E1AB6C00529695 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EA1C1FDF23E1AB6C00529695 /* FileNotebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
-		EA3966B123FAE3FE00EE3E22 /* TableOfNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfNotes.swift; sourceTree = "<group>"; };
-		EA3966B223FAE3FE00EE3E22 /* TableOfNotes.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableOfNotes.xib; sourceTree = "<group>"; };
+		EA3966B123FAE3FE00EE3E22 /* NotesTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTable.swift; sourceTree = "<group>"; };
+		EA3966B223FAE3FE00EE3E22 /* NotesTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesTable.xib; sourceTree = "<group>"; };
 		EA68C47523F5F0A0006A5256 /* EditNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditNoteViewController.xib; sourceTree = "<group>"; };
 		EA68C47723F5F458006A5256 /* ColorPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDelegate.swift; sourceTree = "<group>"; };
 		EA68C47923F5F93C006A5256 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 		EA970E8A23FC0D7200FEA447 /* NoteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableCell.swift; sourceTree = "<group>"; };
 		EA970E8B23FC0D7200FEA447 /* NoteTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableCell.xib; sourceTree = "<group>"; };
+		EAA52FB423FD0B2C00DDC4C4 /* PhotoNotesCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNotesCollection.swift; sourceTree = "<group>"; };
+		EAA52FB523FD0B2C00DDC4C4 /* PhotoNotesCollection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoNotesCollection.xib; sourceTree = "<group>"; };
+		EAA52FB823FD0CE700DDC4C4 /* PhotoNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNotebook.swift; sourceTree = "<group>"; };
+		EAA52FBB23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNotesCollectionCell.swift; sourceTree = "<group>"; };
+		EAA52FBC23FD586900DDC4C4 /* PhotoNotesCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoNotesCollectionCell.xib; sourceTree = "<group>"; };
 		EAA78C8D23E2595000A17131 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCellView.swift; sourceTree = "<group>"; };
 		EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponentsList.swift; sourceTree = "<group>"; };
@@ -133,11 +143,12 @@
 		EA1C1FAE23E1A98300529695 = {
 			isa = PBXGroup;
 			children = (
-				EA3966B523FAE4A700EE3E22 /* TableOfNotes */,
+				EAA52FBA23FD0CEC00DDC4C4 /* PhotoNotebookModel */,
+				EAA52FB823FD0CE700DDC4C4 /* PhotoNotebook.swift */,
+				EAA52FB323FD0AE400DDC4C4 /* PhotoNotesCollection */,
+				EA3966B523FAE4A700EE3E22 /* NotesTable */,
 				EA80B4E923F6014E008EE2E2 /* EditNotes */,
-				EAE8008623EF12E400D6FD9D /* ColorPicker */,
-				EADD0A0723EAE2FB00FF661D /* ColorCell */,
-				EA1C1FD023E1AADD00529695 /* Model */,
+				EA1C1FD023E1AADD00529695 /* NotebookModel */,
 				EA1C1FB923E1A98300529695 /* Notes */,
 				EADE00E323E5A3A500CFF56C /* NotesTests */,
 				EA1C1FB823E1A98300529695 /* Products */,
@@ -167,7 +178,7 @@
 			path = Notes;
 			sourceTree = "<group>";
 		};
-		EA1C1FD023E1AADD00529695 /* Model */ = {
+		EA1C1FD023E1AADD00529695 /* NotebookModel */ = {
 			isa = PBXGroup;
 			children = (
 				EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */,
@@ -177,27 +188,47 @@
 				EA1C1FDC23E1AB6C00529695 /* NoteExtension.swift */,
 				EA1C1FDD23E1AB6C00529695 /* UIColorExtension.swift */,
 			);
-			path = Model;
+			path = NotebookModel;
 			sourceTree = "<group>";
 		};
-		EA3966B523FAE4A700EE3E22 /* TableOfNotes */ = {
+		EA3966B523FAE4A700EE3E22 /* NotesTable */ = {
 			isa = PBXGroup;
 			children = (
-				EA3966B123FAE3FE00EE3E22 /* TableOfNotes.swift */,
-				EA3966B223FAE3FE00EE3E22 /* TableOfNotes.xib */,
+				EA3966B123FAE3FE00EE3E22 /* NotesTable.swift */,
+				EA3966B223FAE3FE00EE3E22 /* NotesTable.xib */,
 				EA970E8A23FC0D7200FEA447 /* NoteTableCell.swift */,
 				EA970E8B23FC0D7200FEA447 /* NoteTableCell.xib */,
 			);
-			path = TableOfNotes;
+			path = NotesTable;
 			sourceTree = "<group>";
 		};
 		EA80B4E923F6014E008EE2E2 /* EditNotes */ = {
 			isa = PBXGroup;
 			children = (
+				EADD0A0723EAE2FB00FF661D /* ColorCell */,
+				EAE8008623EF12E400D6FD9D /* ColorPicker */,
 				EA1C1FBE23E1A98300529695 /* EditNoteViewController.swift */,
 				EA68C47523F5F0A0006A5256 /* EditNoteViewController.xib */,
 			);
 			path = EditNotes;
+			sourceTree = "<group>";
+		};
+		EAA52FB323FD0AE400DDC4C4 /* PhotoNotesCollection */ = {
+			isa = PBXGroup;
+			children = (
+				EAA52FB423FD0B2C00DDC4C4 /* PhotoNotesCollection.swift */,
+				EAA52FB523FD0B2C00DDC4C4 /* PhotoNotesCollection.xib */,
+				EAA52FBB23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift */,
+				EAA52FBC23FD586900DDC4C4 /* PhotoNotesCollectionCell.xib */,
+			);
+			path = PhotoNotesCollection;
+			sourceTree = "<group>";
+		};
+		EAA52FBA23FD0CEC00DDC4C4 /* PhotoNotebookModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PhotoNotebookModel;
 			sourceTree = "<group>";
 		};
 		EAA78C8C23E2595000A17131 /* Frameworks */ = {
@@ -325,8 +356,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1C1FC723E1A98500529695 /* LaunchScreen.storyboard in Resources */,
-				EA3966B423FAE3FE00EE3E22 /* TableOfNotes.xib in Resources */,
+				EA3966B423FAE3FE00EE3E22 /* NotesTable.xib in Resources */,
+				EAA52FB723FD0B2C00DDC4C4 /* PhotoNotesCollection.xib in Resources */,
 				EA970E8D23FC0D7200FEA447 /* NoteTableCell.xib in Resources */,
+				EAA52FBE23FD586900DDC4C4 /* PhotoNotesCollectionCell.xib in Resources */,
 				EA68C47623F5F0A0006A5256 /* EditNoteViewController.xib in Resources */,
 				EA68C47A23F5F93C006A5256 /* ColorPickerViewController.xib in Resources */,
 				EA1C1FC423E1A98500529695 /* Assets.xcassets in Resources */,
@@ -395,13 +428,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1C1FE123E1AB6C00529695 /* NoteExtension.swift in Sources */,
+				EAA52FB923FD0CE700DDC4C4 /* PhotoNotebook.swift in Sources */,
 				EAD1A47F23EEF6D50041C782 /* GradientView.swift in Sources */,
 				EA970E8C23FC0D7200FEA447 /* NoteTableCell.swift in Sources */,
 				EAC1AE3923EC7E1D005B8765 /* ColorComponentsList.swift in Sources */,
+				EAA52FB623FD0B2C00DDC4C4 /* PhotoNotesCollection.swift in Sources */,
 				EA1C1FBF23E1A98300529695 /* EditNoteViewController.swift in Sources */,
 				EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */,
+				EAA52FBD23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift in Sources */,
 				EAE8008A23EF271A00D6FD9D /* ColorPickerViewController.swift in Sources */,
-				EA3966B323FAE3FE00EE3E22 /* TableOfNotes.swift in Sources */,
+				EA3966B323FAE3FE00EE3E22 /* NotesTable.swift in Sources */,
 				EA1C1FBB23E1A98300529695 /* AppDelegate.swift in Sources */,
 				EA1C1FBD23E1A98300529695 /* SceneDelegate.swift in Sources */,
 				EA68C47823F5F458006A5256 /* ColorPickerDelegate.swift in Sources */,

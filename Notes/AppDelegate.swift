@@ -18,14 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupLogger()
         window = UIWindow()
         window?.frame = UIScreen.main.bounds
-        let tableOfNotes = TableOfNotes()
-        tableOfNotes.title = "Notes"
-        let navigationController = UINavigationController(rootViewController: tableOfNotes)
-        tableOfNotes.tabBarItem = UITabBarItem(title: "Notes",
+        let notesTable = NotesTable()
+        let navigationControllerForNotes = UINavigationController(rootViewController: notesTable)
+        navigationControllerForNotes.tabBarItem = UITabBarItem(title: "Notes",
                                                 image: UIImage(systemName: "doc"),
                                                 selectedImage: nil)
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let photoNotes = PhotoNotesCollection(collectionViewLayout: layout)
+        let navigationControllerForPhotoNotes = UINavigationController(rootViewController: photoNotes)
+        navigationControllerForPhotoNotes.tabBarItem = UITabBarItem(title: "Photo Notes",
+                                                                    image: UIImage(systemName: "photo"),
+                                                                    selectedImage: nil)
         let tabBarCotroller = UITabBarController()
-        tabBarCotroller.viewControllers = [ navigationController ]
+        tabBarCotroller.viewControllers = [ navigationControllerForNotes, navigationControllerForPhotoNotes ]
         window?.rootViewController = tabBarCotroller
         window?.makeKeyAndVisible()
         return true

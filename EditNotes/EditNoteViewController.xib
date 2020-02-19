@@ -11,8 +11,7 @@
             <connections>
                 <outlet property="colorPickerCell" destination="gHC-VW-5jq" id="wkF-6k-L3I"/>
                 <outlet property="contentView" destination="gdp-Mo-hI1" id="idd-Pc-ko5"/>
-                <outlet property="datePicker" destination="AZf-4s-h7G" id="XMd-1J-fXy"/>
-                <outlet property="datePickerHight" destination="ujz-6D-aJg" id="atv-Vu-AgQ"/>
+                <outlet property="datePicker" destination="AZf-4s-h7G" id="BoF-Kh-19H"/>
                 <outlet property="datePickerSwitch" destination="VPb-fl-EQb" id="hD4-di-dG5"/>
                 <outlet property="image" destination="Jim-5F-mnf" id="PJT-EC-YpQ"/>
                 <outlet property="scrollView" destination="6GS-5L-cXy" id="Ebs-eF-ffu"/>

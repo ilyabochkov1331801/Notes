@@ -8,11 +8,12 @@
 
 import UIKit
 
-class TableOfNotes: UITableViewController {
+class NotesTable: UITableViewController {
     
     var notebook = FileNotebook()
     
     override func viewDidLoad() {
+        title = "Notes"
         do {
             try notebook.add(Note(title: "title1",
                                   content: "contentcontentcontentcontentcontentc1",
@@ -33,7 +34,7 @@ class TableOfNotes: UITableViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(addNote))
-        tableView.register(NoteTableCell.self, forCellReuseIdentifier: "NoteTableCell")
+        tableView.register(UINib(nibName: "NoteTableCell", bundle: nil), forCellReuseIdentifier: "NoteTableCell")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,21 +47,16 @@ class TableOfNotes: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let note = notebook.getNoteCollection()[indexPath.row]
-//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-//        cell.imageView?.backgroundColor = note.color
-//        cell.textLabel?.text = note.title
-//        cell.detailTextLabel?.text = note.content
-//        cell.detailTextLabel?.numberOfLines = 5
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteTableCell") as! NoteTableCell
-        cell.note = note
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteTableCell", for: indexPath) as! NoteTableCell
+        cell.showData(note: note)
         return cell
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-//        self.tableView.rowHeight = UITableView.automaticDimension
-//        self.tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 50
     }
     
     @objc func addNote() {

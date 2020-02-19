@@ -9,15 +9,12 @@
 import UIKit
 
 class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, ColorPickerDelegate {
-    
-    private var datePickerHightValue: CGFloat = 200
-    
+        
     var notebook: FileNotebook
     var noteIndex: Int?
     private var selectedColor: UIColorCellView?
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var datePickerHight: NSLayoutConstraint!
     @IBOutlet weak var stackOfColorCell: UIStackView!
     @IBOutlet var colorCells: [UIColorCellView]!
     @IBOutlet weak var colorPickerCell: UIColorCellView!
@@ -73,7 +70,7 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
                 datePicker.date = date
             } else {
                 datePickerSwitch.isOn = false
-                datePickerHight.constant -= datePickerHightValue
+                datePicker.isHidden = true
             }
         }
     }
@@ -154,11 +151,13 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     @IBAction func destroyDatePickerChanged(_ sender: UISwitch) {
         if sender.isOn {
             UIView.animate(withDuration: 0.5, animations: {
-                self.datePickerHight.constant += self.datePickerHightValue
+                self.datePicker.isHidden = false
+                self.view.layoutIfNeeded()
             })
         } else {
             UIView.animate(withDuration: 0.5, animations: {
-                self.datePickerHight.constant -= self.datePickerHightValue
+                self.datePicker.isHidden = true
+                self.view.layoutIfNeeded()
             })
         }
     }
