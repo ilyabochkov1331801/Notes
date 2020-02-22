@@ -9,21 +9,16 @@
 import UIKit
 
 class PhotoPageViewController: UIViewController, UIGestureRecognizerDelegate {
-
-    private let photoImage: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
     
     let index: Int
+    let photoImage: UIImage
+    
+    @IBOutlet weak var photoImageView: UIImageView!
     
     init(photo: UIImage, index: Int) {
         self.index = index
+        photoImage = photo
         super.init(nibName: nil, bundle: nil)
-        photoImage.image = photo
-        view.backgroundColor = .black
-        view.addSubview(photoImage)
     }
     
     required init?(coder: NSCoder) {
@@ -32,13 +27,14 @@ class PhotoPageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoImage.frame.size = view.frame.size
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(goBack))
-        swipeDown.delegate = self
-        swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
-        view.addGestureRecognizer(swipeDown)
+        photoImageView.image = photoImage
+        view.backgroundColor = .black
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(goBack))
+        swipeUp.delegate = self
+        swipeUp.direction =  UISwipeGestureRecognizer.Direction.up
+        view.addGestureRecognizer(swipeUp)
     }
     @objc func goBack() {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }

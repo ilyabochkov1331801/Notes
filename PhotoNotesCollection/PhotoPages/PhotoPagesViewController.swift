@@ -10,9 +10,10 @@ import UIKit
 
 class PhotoPagesViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    var photoNotebookControllers: [PhotoPageViewController] = []
+    var photoNotebookControllers: [PhotoPageViewController]
     
     init(photoNotebook: PhotoNotebook, entryPhotoIndex: Int) {
+        photoNotebookControllers = Array<PhotoPageViewController>()
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         for (index, photo) in photoNotebook.photes.enumerated() {
             photoNotebookControllers.append(PhotoPageViewController(photo: photo, index: index))
