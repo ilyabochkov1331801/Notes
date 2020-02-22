@@ -18,6 +18,7 @@ class PhotoPagesViewController: UIPageViewController, UIPageViewControllerDataSo
             photoNotebookControllers.append(PhotoPageViewController(photo: photo, index: index))
         }
         setViewControllers([photoNotebookControllers[entryPhotoIndex]], direction: .forward, animated: true, completion: nil)
+        hidesBottomBarWhenPushed = true
     }
     
     required init?(coder: NSCoder) {
@@ -27,7 +28,6 @@ class PhotoPagesViewController: UIPageViewController, UIPageViewControllerDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
-        hidesBottomBarWhenPushed = true
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
