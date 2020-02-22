@@ -47,7 +47,7 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboardOnSwipeDown))
         swipeDown.delegate = self
         swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
-        contentView.addGestureRecognizer(swipeDown)
+        view.addGestureRecognizer(swipeDown)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateContentView(notification: )),

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoPageViewController: UIViewController {
+class PhotoPageViewController: UIViewController, UIGestureRecognizerDelegate {
 
     private let photoImage: UIImageView = {
         let view = UIImageView()
@@ -33,6 +33,12 @@ class PhotoPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         photoImage.frame.size = view.frame.size
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(goBack))
+        swipeDown.delegate = self
+        swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
+        view.addGestureRecognizer(swipeDown)
     }
-    
+    @objc func goBack() {
+        dismiss(animated: true, completion: nil)
+    }
 }
