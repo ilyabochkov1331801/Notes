@@ -10,15 +10,14 @@ import UIKit
 
 class PhotoNotesCollectionCell: UICollectionViewCell {
 
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     
     func showData(image: UIImage) {
-        self.image.image = image
+        contentView.layer.borderWidth = 1
+        self.imageView.image = image
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }

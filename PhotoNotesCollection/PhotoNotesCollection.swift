@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class PhotoNotesCollection: UICollectionViewController {
+class PhotoNotesCollection: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
     
     let photoNotebook: PhotoNotebook = PhotoNotebook()
     
@@ -19,34 +19,38 @@ class PhotoNotesCollection: UICollectionViewController {
         collectionView.register(UINib(nibName: "PhotoNotesCollectionCell",
                                       bundle: nil),
                                 forCellWithReuseIdentifier: "PhotoNotesCollectionCell")
-        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
-                                                                                  style: .plain,
-                                                                                  target: self,
-                                                                                  action: #selector(addPhoto))
-        photoNotebook.addPhoto(photo: UIImage(systemName: "photo")!)
-        photoNotebook.addPhoto(photo: UIImage(systemName: "doc")!)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(addPhoto))
+        title = "Photo Notes"
+        collectionView.backgroundColor = .white
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let newPhoto = info[.editedImage] as? UIImage {
+            photoNotebook.addPhoto(photo: newPhoto)
+        }
+        dismiss(animated: true, completion: nil)
+        collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 100)
     }
     
     @objc func addPhoto() {
-        
+        let photoPickerViewController = UIImagePickerController()
+        photoPickerViewController.delegate = self
+        photoPickerViewController.allowsEditing = true
+        photoPickerViewController.mediaTypes = ["public.image"]
+        photoPickerViewController.sourceType = .photoLibrary
+        present(photoPickerViewController, animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoNotebook.photes.count
@@ -58,35 +62,8 @@ class PhotoNotesCollection: UICollectionViewController {
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photoPagesVC = PhotoPagesViewController(photoNotebook: photoNotebook, entryPhotoIndex: indexPath.row)
+        navigationController?.pushViewController(photoPagesVC, animated: true)
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-    
 }

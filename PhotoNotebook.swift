@@ -18,4 +18,9 @@ class PhotoNotebook {
     func addPhoto(photo: UIImage) {
         photes.append(photo)
     }
+    
+    func savePhotoNotebook() {
+        
+    }
+    
 }

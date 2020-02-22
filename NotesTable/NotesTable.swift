@@ -14,20 +14,6 @@ class NotesTable: UITableViewController {
     
     override func viewDidLoad() {
         title = "Notes"
-        do {
-            try notebook.add(Note(title: "title1",
-                                  content: "contentcontentcontentcontentcontentc1",
-                                  color: .red,
-                                  importance: .important,
-                                  selfDestructionDate: nil))
-            try notebook.add(Note(title: "title2",
-                                  content: "contentcontentcontentcontentcontentc2",
-                                  color: .yellow,
-                                  importance: .important,
-                                  selfDestructionDate: nil))
-        } catch {
-            return
-        }
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
@@ -35,6 +21,7 @@ class NotesTable: UITableViewController {
                                                             target: self,
                                                             action: #selector(addNote))
         tableView.register(UINib(nibName: "NoteTableCell", bundle: nil), forCellReuseIdentifier: "NoteTableCell")
+        notebook.loadFromFile()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,7 +43,8 @@ class NotesTable: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 400
+        notebook.saveToFile()
     }
     
     @objc func addNote() {
@@ -68,46 +56,17 @@ class NotesTable: UITableViewController {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             notebook.remove(with: notebook.getNoteCollection()[indexPath.row].uid)
+            notebook.saveToFile()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let editNoteVC = EditNoteViewController(nibName: nil, bundle: nil, notebook: notebook)
-        editNoteVC.noteIndex = indexPath.row
+        editNoteVC.putIndexOfNote(index: indexPath.row)
         navigationController?.pushViewController(editNoteVC, animated: true)
     }
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
 }

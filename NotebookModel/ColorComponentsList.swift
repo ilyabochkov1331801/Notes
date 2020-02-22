@@ -10,7 +10,7 @@ import UIKit.UIColor
 
 enum colorComponentsList: Int {
     case red = 0
-    case blue = 1
-    case green = 2
+    case green = 1
+    case blue = 2
     case alpha = 3
 }

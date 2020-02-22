@@ -12,6 +12,7 @@
                 <outlet property="colorPickerCell" destination="gHC-VW-5jq" id="wkF-6k-L3I"/>
                 <outlet property="contentView" destination="gdp-Mo-hI1" id="idd-Pc-ko5"/>
                 <outlet property="datePicker" destination="AZf-4s-h7G" id="BoF-Kh-19H"/>
+                <outlet property="datePickerContainerHeightConstraint" destination="u3h-bC-8Ye" id="Ifc-X2-wA5"/>
                 <outlet property="datePickerSwitch" destination="VPb-fl-EQb" id="hD4-di-dG5"/>
                 <outlet property="image" destination="Jim-5F-mnf" id="PJT-EC-YpQ"/>
                 <outlet property="scrollView" destination="6GS-5L-cXy" id="Ebs-eF-ffu"/>
@@ -52,10 +53,10 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iZ7-zV-5TN">
-                                    <rect key="frame" x="39" y="150" width="320" height="239"/>
+                                    <rect key="frame" x="29" y="150" width="340" height="239"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="krd-X2-BvM">
-                                            <rect key="frame" x="48.5" y="0.0" width="223.5" height="31"/>
+                                            <rect key="frame" x="58.5" y="0.0" width="223.5" height="31"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use destroy date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6Z-qr-V2M">
                                                     <rect key="frame" x="0.0" y="0.0" width="152.5" height="31"/>
@@ -71,12 +72,24 @@
                                                 </switch>
                                             </subviews>
                                         </stackView>
-                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AZf-4s-h7G">
-                                            <rect key="frame" x="0.0" y="39" width="320" height="200"/>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTv-3J-Gb8">
+                                            <rect key="frame" x="0.0" y="39" width="340" height="200"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AZf-4s-h7G">
+                                                    <rect key="frame" x="10" y="0.0" width="320" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="FNq-x1-FiF"/>
+                                                    </constraints>
+                                                </datePicker>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="ujz-6D-aJg"/>
+                                                <constraint firstAttribute="leading" secondItem="AZf-4s-h7G" secondAttribute="leading" constant="-10" id="BLU-Tm-51a"/>
+                                                <constraint firstAttribute="height" constant="200" id="u3h-bC-8Ye"/>
+                                                <constraint firstAttribute="top" secondItem="AZf-4s-h7G" secondAttribute="top" id="u7u-W7-HsF"/>
+                                                <constraint firstItem="AZf-4s-h7G" firstAttribute="trailing" secondItem="cTv-3J-Gb8" secondAttribute="trailing" constant="-10" id="zzr-Uj-lnd"/>
                                             </constraints>
-                                        </datePicker>
+                                        </view>
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Z9e-V2-7eh">

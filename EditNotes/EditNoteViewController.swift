@@ -11,9 +11,10 @@ import UIKit
 class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, ColorPickerDelegate {
         
     var notebook: FileNotebook
-    var noteIndex: Int?
     private var selectedColor: UIColorCellView?
+    private var noteIndex: Int?
     
+    @IBOutlet weak var datePickerContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackOfColorCell: UIStackView!
     @IBOutlet var colorCells: [UIColorCellView]!
@@ -64,19 +65,32 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
             textField.text = notebook.getNoteCollection()[index].title
             textView.text = notebook.getNoteCollection()[index].content
             image.isHidden = true
+            print(notebook.getNoteCollection()[index].color)
             colorPickerCell.backgroundColor = notebook.getNoteCollection()[index].color
             changeSelectColor(colorCell: colorPickerCell)
             if let date = notebook.getNoteCollection()[index].selfDestructionDate {
                 datePicker.date = date
             } else {
                 datePickerSwitch.isOn = false
-                datePicker.isHidden = true
+                datePickerContainerHeightConstraint.constant = 0
             }
         }
     }
     
+    func putIndexOfNote(index: Int) {
+        noteIndex = index
+    }
+    
     @objc func save() {
+        view.endEditing(true)
         guard let title = textField.text, let content = textView.text, let color = selectedColor?.backgroundColor else { return }
+        guard title != "", content != "" else {
+            let alert = UIAlertController(title: "Enter title and content", message: "Title and content can't be empty", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            present(alert, animated: true, completion: nil)
+            return
+        }
         let note: Note
         if datePickerSwitch.isOn {
             if let index = noteIndex {
@@ -151,12 +165,12 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     @IBAction func destroyDatePickerChanged(_ sender: UISwitch) {
         if sender.isOn {
             UIView.animate(withDuration: 0.5, animations: {
-                self.datePicker.isHidden = false
+                self.datePickerContainerHeightConstraint.constant = 200
                 self.view.layoutIfNeeded()
             })
         } else {
             UIView.animate(withDuration: 0.5, animations: {
-                self.datePicker.isHidden = true
+                self.datePickerContainerHeightConstraint.constant = 0
                 self.view.layoutIfNeeded()
             })
         }
