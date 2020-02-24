@@ -65,7 +65,6 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
             textField.text = notebook.getNoteCollection()[index].title
             textView.text = notebook.getNoteCollection()[index].content
             image.isHidden = true
-            print(notebook.getNoteCollection()[index].color)
             colorPickerCell.backgroundColor = notebook.getNoteCollection()[index].color
             changeSelectColor(colorCell: colorPickerCell)
             if let date = notebook.getNoteCollection()[index].selfDestructionDate {

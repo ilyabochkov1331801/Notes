@@ -10,13 +10,13 @@ import UIKit
 
 class PhotoPageViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    let index: Int
+    let indexOfPage: Int
     let photoImage: UIImage
     
     @IBOutlet weak var photoImageView: UIImageView!
     
     init(photo: UIImage, index: Int) {
-        self.index = index
+        indexOfPage = index
         photoImage = photo
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,7 +34,8 @@ class PhotoPageViewController: UIViewController, UIGestureRecognizerDelegate {
         swipeUp.direction =  UISwipeGestureRecognizer.Direction.up
         view.addGestureRecognizer(swipeUp)
     }
+    
     @objc func goBack() {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: false)
     }
 }

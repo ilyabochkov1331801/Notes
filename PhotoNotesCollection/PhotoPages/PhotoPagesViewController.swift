@@ -10,15 +10,21 @@ import UIKit
 
 class PhotoPagesViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    var photoNotebookControllers: [PhotoPageViewController]
+    var photoNotebookControllers: Array<PhotoPageViewController>
     
     init(photoNotebook: PhotoNotebook, entryPhotoIndex: Int) {
         photoNotebookControllers = Array<PhotoPageViewController>()
-        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        for (index, photo) in photoNotebook.photes.enumerated() {
-            photoNotebookControllers.append(PhotoPageViewController(photo: photo, index: index))
+        super.init(transitionStyle: .scroll,
+                   navigationOrientation: .horizontal,
+                   options: nil)
+        for (indexInControllersArray, photo) in photoNotebook.photes.enumerated() {
+            photoNotebookControllers.append(PhotoPageViewController(photo: photo,
+                                                                    index: indexInControllersArray))
         }
-        setViewControllers([photoNotebookControllers[entryPhotoIndex]], direction: .forward, animated: true, completion: nil)
+        setViewControllers([photoNotebookControllers[entryPhotoIndex]],
+                           direction: .forward,
+                           animated: true,
+                           completion: nil)
         hidesBottomBarWhenPushed = true
     }
     
@@ -32,11 +38,13 @@ class PhotoPagesViewController: UIPageViewController, UIPageViewControllerDataSo
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let photoPageVC = viewController as? PhotoPageViewController, photoPageVC.index > 0 else { return nil }
-        return photoNotebookControllers[photoPageVC.index - 1]
+        guard let photoPageVC = viewController as? PhotoPageViewController,
+            photoPageVC.indexOfPage > 0 else { return nil }
+        return photoNotebookControllers[photoPageVC.indexOfPage - 1]
     }
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let photoPageVC = viewController as? PhotoPageViewController, photoPageVC.index < photoNotebookControllers.count - 1 else { return nil }
-        return photoNotebookControllers[photoPageVC.index + 1]
+        guard let photoPageVC = viewController as? PhotoPageViewController,
+            photoPageVC.indexOfPage < photoNotebookControllers.count - 1 else { return nil }
+        return photoNotebookControllers[photoPageVC.indexOfPage + 1]
     }
 }

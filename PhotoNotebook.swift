@@ -12,7 +12,7 @@ class PhotoNotebook {
     private(set) var photes: Array<UIImage>
     
     init() {
-        photes = []
+        photes = Array<UIImage>()
     }
     
     func addPhoto(photo: UIImage) {
@@ -20,7 +20,6 @@ class PhotoNotebook {
     }
     
     func savePhotoNotebook() {
-        
+        //
     }
-    
 }

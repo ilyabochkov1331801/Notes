@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotesTable: UITableViewController {
+class NotesTableViewController: UITableViewController {
     
     var notebook = FileNotebook()
     
@@ -62,6 +62,7 @@ class NotesTable: UITableViewController {
             notebook.saveToFile()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
+            
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

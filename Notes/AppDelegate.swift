@@ -18,13 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupLogger()
         window = UIWindow()
         window?.frame = UIScreen.main.bounds
-        let notesTable = NotesTable()
+        let notesTable = NotesTableViewController()
         let navigationControllerForNotes = UINavigationController(rootViewController: notesTable)
         navigationControllerForNotes.tabBarItem = UITabBarItem(title: "Notes",
                                                 image: UIImage(systemName: "doc"),
                                                 selectedImage: nil)
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let photoNotes = PhotoNotesCollection(collectionViewLayout: layout)
+        let photoNotes = PhotoNotesCollectionViewController(collectionViewLayout: layout)
         let navigationControllerForPhotoNotes = UINavigationController(rootViewController: photoNotes)
         navigationControllerForPhotoNotes.tabBarItem = UITabBarItem(title: "Photo Notes",
                                                                     image: UIImage(systemName: "photo"),

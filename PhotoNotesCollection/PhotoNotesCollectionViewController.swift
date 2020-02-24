@@ -10,14 +10,13 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class PhotoNotesCollection: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
+class PhotoNotesCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     let photoNotebook: PhotoNotebook = PhotoNotebook()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(UINib(nibName: "PhotoNotesCollectionCell",
-                                      bundle: nil),
+        collectionView.register(UINib(nibName: "PhotoNotesCollectionCell", bundle: nil),
                                 forCellWithReuseIdentifier: "PhotoNotesCollectionCell")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
                                                             style: .plain,
@@ -39,18 +38,49 @@ class PhotoNotesCollection: UICollectionViewController, UIImagePickerControllerD
         let cellSize = (view.frame.width - 20) / 3
         return CGSize(width: cellSize, height: cellSize)
     }
-    
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
     
     @objc func addPhoto() {
-        let photoPickerViewController = UIImagePickerController()
-        photoPickerViewController.delegate = self
-        photoPickerViewController.allowsEditing = true
-        photoPickerViewController.mediaTypes = ["public.image"]
-        photoPickerViewController.sourceType = .photoLibrary
-        present(photoPickerViewController, animated: true, completion: nil)
+        let alert = UIAlertController(title: nil, message: "Add photo", preferredStyle: .actionSheet)
+        let galleryButton = UIAlertAction(title: "Galery", style: .default, handler: { [weak self] _ in
+            self?.addPhotoViewController()
+        })
+        let cameraButton = UIAlertAction(title: "Take photo", style: .default, handler: { [weak self] _ in
+            self?.addCameraViewController()
+        })
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(galleryButton)
+        alert.addAction(cameraButton)
+        alert.addAction(cancelButton)
+        present(alert, animated: true)
+    }
+    
+    private func addPhotoViewController() {
+        let photoViewController = UIImagePickerController()
+        photoViewController.sourceType = .photoLibrary
+        photoViewController.allowsEditing = true
+        photoViewController.delegate = self
+        present(photoViewController, animated: true)
+    }
+    
+    private func addCameraViewController() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraViewController = UIImagePickerController()
+            cameraViewController.sourceType = .camera
+            cameraViewController.allowsEditing = true
+            cameraViewController.delegate = self
+            present(cameraViewController, animated: true)
+        } else {
+            showNoCameraAlert()
+        }
+    }
+    private func showNoCameraAlert() {
+        let alertViewController = UIAlertController(title: "No Camera", message: "Sorry, this device hasn't got camera", preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style:.default))
+        present(alertViewController, animated: true)
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
