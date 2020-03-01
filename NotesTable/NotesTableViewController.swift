@@ -21,7 +21,10 @@ class NotesTableViewController: UITableViewController {
                                                             target: self,
                                                             action: #selector(addNote))
         tableView.register(UINib(nibName: "NoteTableCell", bundle: nil), forCellReuseIdentifier: "NoteTableCell")
-        notebook.loadFromFile()
+        let loadNotesOperation = LoadNotesOperation(notebook: notebook,
+                                                    backendQueue: OperationQueue(),
+                                                    dbQueue: OperationQueue())
+        loadNotesOperation.main()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,7 +47,6 @@ class NotesTableViewController: UITableViewController {
         tableView.reloadData()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 400
-        notebook.saveToFile()
     }
     
     @objc func addNote() {
@@ -58,9 +60,11 @@ class NotesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            notebook.remove(with: notebook.getNoteCollection()[indexPath.row].uid)
-            notebook.saveToFile()
+            let removeNoteOperation = RemoveNoteOperation(note: notebook.getNoteCollection()[indexPath.row],
+                                notebook: notebook,
+                                backendQueue: OperationQueue(), dbQueue: OperationQueue())
             tableView.deleteRows(at: [indexPath], with: .fade)
+            removeNoteOperation.main()
         } else if editingStyle == .insert {
             
         }

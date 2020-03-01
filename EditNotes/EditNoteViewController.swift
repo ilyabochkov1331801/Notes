@@ -120,12 +120,12 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
                             importance: .normal)
             }
         }
-        do {
-            try notebook.add(note)
-        } catch {
-            navigationController?.popViewController(animated: true)
-            return
-        }
+        
+        let saveNoteOperation = SaveNoteOperation(note: note,
+                                                  notebook: notebook,
+                                                  backendQueue: OperationQueue(),
+                                                  dbQueue: OperationQueue())
+        saveNoteOperation.main()
         navigationController?.popViewController(animated: true)
     }
     
