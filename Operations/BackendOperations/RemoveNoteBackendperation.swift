@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CocoaLumberjack
+
 
 enum RemoveNotesBackendResult {
     case success
@@ -18,6 +20,7 @@ class RemoveNoteBackendperation: BaseBackendOperation {
     
     override func main() {
         result = .failure(.unreachable)
+        DDLogInfo("RemoveNotesBackendOperation failured (\(NetworkError.unreachable))")
         finish()
     }
 }

@@ -63,8 +63,8 @@ class NotesTableViewController: UITableViewController {
             let removeNoteOperation = RemoveNoteOperation(note: notebook.getNoteCollection()[indexPath.row],
                                 notebook: notebook,
                                 backendQueue: OperationQueue(), dbQueue: OperationQueue())
-            tableView.deleteRows(at: [indexPath], with: .fade)
             removeNoteOperation.main()
+            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             
         }

@@ -174,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				EAB84F1B240C2B3D000543CC /* Operations */,
-				EAB84F38240C3E67000543CC /* AggregateOperations */,
 				EAA52FBA23FD0CEC00DDC4C4 /* PhotoNotebookModel */,
 				EAA52FB323FD0AE400DDC4C4 /* PhotoNotesCollection */,
 				EA3966B523FAE4A700EE3E22 /* NotesTable */,
@@ -290,6 +289,7 @@
 				EAB84F1E240C2BDC000543CC /* AsynsOperation.swift */,
 				EAB84F2B240C2EA8000543CC /* DBOperationOperations */,
 				EAB84F28240C2DD0000543CC /* BackendOperations */,
+				EAB84F38240C3E67000543CC /* AggregateOperations */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
