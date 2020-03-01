@@ -174,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				EAB84F1B240C2B3D000543CC /* Operations */,
+				EAB84F38240C3E67000543CC /* AggregateOperations */,
 				EAA52FBA23FD0CEC00DDC4C4 /* PhotoNotebookModel */,
 				EAA52FB323FD0AE400DDC4C4 /* PhotoNotesCollection */,
 				EA3966B523FAE4A700EE3E22 /* NotesTable */,
@@ -289,9 +290,6 @@
 				EAB84F1E240C2BDC000543CC /* AsynsOperation.swift */,
 				EAB84F2B240C2EA8000543CC /* DBOperationOperations */,
 				EAB84F28240C2DD0000543CC /* BackendOperations */,
-				EAB84F20240C2C01000543CC /* SaveNoteOperation.swift */,
-				EAB84F30240C3125000543CC /* LoadNotesOperation.swift */,
-				EAB84F36240C389F000543CC /* RemoveNoteOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -299,11 +297,11 @@
 		EAB84F28240C2DD0000543CC /* BackendOperations */ = {
 			isa = PBXGroup;
 			children = (
-				EAB84F22240C2C78000543CC /* SaveNotesBackendOperation.swift */,
 				EAB84F1C240C2B8F000543CC /* BaseBackendOperation.swift */,
+				EAB84F34240C3857000543CC /* NetworkError.swift */,
+				EAB84F22240C2C78000543CC /* SaveNotesBackendOperation.swift */,
 				EAB84F29240C2DF3000543CC /* LoadNotesBackendOperation.swift */,
 				EAB84F32240C3815000543CC /* RemoveNoteBackendperation.swift */,
-				EAB84F34240C3857000543CC /* NetworkError.swift */,
 			);
 			path = BackendOperations;
 			sourceTree = "<group>";
@@ -317,6 +315,16 @@
 				EAB84F2E240C3095000543CC /* RemoveNoteDBOperation.swift */,
 			);
 			path = DBOperationOperations;
+			sourceTree = "<group>";
+		};
+		EAB84F38240C3E67000543CC /* AggregateOperations */ = {
+			isa = PBXGroup;
+			children = (
+				EAB84F20240C2C01000543CC /* SaveNoteOperation.swift */,
+				EAB84F30240C3125000543CC /* LoadNotesOperation.swift */,
+				EAB84F36240C389F000543CC /* RemoveNoteOperation.swift */,
+			);
+			path = AggregateOperations;
 			sourceTree = "<group>";
 		};
 		EADD0A0723EAE2FB00FF661D /* ColorCell */ = {
