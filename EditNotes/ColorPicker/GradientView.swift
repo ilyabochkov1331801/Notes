@@ -13,7 +13,7 @@ class GradientView: UIView {
     
     let saturationExponentTop:Float = 1.4
     let saturationExponentBottom:Float = 1.0
-    var elementSize: CGFloat = 2.0
+    var elementSize: CGFloat = 1.0
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -21,7 +21,7 @@ class GradientView: UIView {
         for x: CGFloat in stride(from: 0.0, to: rect.width, by: elementSize) {
             for y: CGFloat in stride(from: 0.0, to: rect.height, by: elementSize) {
                 context?.setFillColor(getColorAtPoint(point: CGPoint(x: x, y: y)).cgColor)
-                context?.fill(CGRect(x: x, y: y, width: elementSize, height: elementSize))
+                context?.fill(CGRect(x: x, y: y, width: self.elementSize, height: self.elementSize))
             }
         }
     }

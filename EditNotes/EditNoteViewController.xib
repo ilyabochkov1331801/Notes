@@ -187,7 +187,7 @@
         </pongPressGestureRecognizer>
         <tapGestureRecognizer id="KrO-lT-t2B">
             <connections>
-                <action selector="colotCellsStackTapped:" destination="-1" id="uZf-bA-DOu"/>
+                <action selector="colorCellsStackTapped:" destination="-1" id="KQb-be-RnR"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

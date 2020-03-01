@@ -152,7 +152,7 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
         view.endEditing(true)
     }
     
-    @IBAction func colotCellsStackTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func colorCellsStackTapped(_ sender: UITapGestureRecognizer) {
         let touchLocation = sender.location(in: stackOfColorCell)
         for colorCell in colorCells {
             if colorCell.frame.contains(touchLocation) {
