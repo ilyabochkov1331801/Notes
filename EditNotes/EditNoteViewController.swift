@@ -125,7 +125,7 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
                                                   notebook: notebook,
                                                   backendQueue: OperationQueue(),
                                                   dbQueue: OperationQueue())
-        saveNoteOperation.main()
+        saveNoteOperation.start()
         navigationController?.popViewController(animated: true)
     }
     

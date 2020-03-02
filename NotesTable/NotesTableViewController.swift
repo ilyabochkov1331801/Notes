@@ -24,7 +24,7 @@ class NotesTableViewController: UITableViewController {
         let loadNotesOperation = LoadNotesOperation(notebook: notebook,
                                                     backendQueue: OperationQueue(),
                                                     dbQueue: OperationQueue())
-        loadNotesOperation.main()
+        loadNotesOperation.start()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,7 +63,7 @@ class NotesTableViewController: UITableViewController {
             let removeNoteOperation = RemoveNoteOperation(note: notebook.getNoteCollection()[indexPath.row],
                                 notebook: notebook,
                                 backendQueue: OperationQueue(), dbQueue: OperationQueue())
-            removeNoteOperation.main()
+            removeNoteOperation.start()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             
