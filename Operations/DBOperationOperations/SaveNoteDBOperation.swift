@@ -9,6 +9,7 @@
 import Foundation
 
 class SaveNoteDBOperation: BaseDBOperation {
+    
     private let note: Note
     
     init(note: Note, notebook: FileNotebook) {
@@ -19,9 +20,7 @@ class SaveNoteDBOperation: BaseDBOperation {
     override func main() {
         do {
             try notebook.add(note)
-        } catch {
-            
-        }
+        } catch { }
         notebook.saveToFile()
         finish()
     }

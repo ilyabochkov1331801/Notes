@@ -14,17 +14,26 @@ class NotesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         title = "Notes"
-        super.viewDidLoad()
+        
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(addNote))
+        
         tableView.register(UINib(nibName: "NoteTableCell", bundle: nil), forCellReuseIdentifier: "NoteTableCell")
+        
         let loadNotesOperation = LoadNotesOperation(notebook: notebook,
                                                     backendQueue: OperationQueue(),
                                                     dbQueue: OperationQueue())
-        loadNotesOperation.start()
+        OperationQueue().addOperation(loadNotesOperation)
+        
+        super.viewDidLoad()
+    }
+    
+    @objc func addNote() {
+        let editNoteVC = EditNoteViewController(notebook: notebook)
+        navigationController?.pushViewController(editNoteVC, animated: true)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,22 +45,16 @@ class NotesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let note = notebook.getNoteCollection()[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteTableCell", for: indexPath) as! NoteTableCell
-        cell.showData(note: note)
+        cell.showData(note: notebook.getNoteCollection()[indexPath.row])
         return cell
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         tableView.reloadData()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 400
-    }
-    
-    @objc func addNote() {
-        let editNoteVC = EditNoteViewController(nibName: nil, bundle: nil, notebook: notebook)
-        navigationController?.pushViewController(editNoteVC, animated: true)
+        super.viewWillAppear(animated)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -61,17 +64,17 @@ class NotesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let removeNoteOperation = RemoveNoteOperation(note: notebook.getNoteCollection()[indexPath.row],
-                                notebook: notebook,
-                                backendQueue: OperationQueue(), dbQueue: OperationQueue())
-            removeNoteOperation.start()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            
-        }
+                                                          notebook: notebook,
+                                                          backendQueue: OperationQueue(), dbQueue: OperationQueue())
+            OperationQueue().addOperation(removeNoteOperation)
+            removeNoteOperation.completionBlock = {
+                OperationQueue.main.addOperation { tableView.deleteRows(at: [indexPath], with: .fade) }
+            }
+        } else if editingStyle == .insert { }
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let editNoteVC = EditNoteViewController(nibName: nil, bundle: nil, notebook: notebook)
-        editNoteVC.putIndexOfNote(index: indexPath.row)
+        let editNoteVC = EditNoteViewController(notebook: notebook, noteIndex: indexPath.row)
         navigationController?.pushViewController(editNoteVC, animated: true)
     }
 }

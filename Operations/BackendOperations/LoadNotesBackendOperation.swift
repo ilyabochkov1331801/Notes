@@ -9,7 +9,6 @@
 import Foundation
 import CocoaLumberjack
 
-
 enum LoadNotesBackendResult {
     case success
     case failure(NetworkError)

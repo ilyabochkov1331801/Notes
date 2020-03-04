@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, ColorPickerDelegate {
+class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate {
         
     var notebook: FileNotebook
     private var selectedColor: UIColorCellView?
@@ -26,9 +26,10 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     @IBOutlet weak var contentView: UIStackView!
     @IBOutlet weak var datePickerSwitch: UISwitch!
         
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, notebook: FileNotebook) {
+    init( notebook: FileNotebook, noteIndex: Int? = nil) {
         self.notebook = notebook
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.noteIndex = noteIndex
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -36,13 +37,14 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         title = "Edit"
+        
         datePicker.minimumDate = Date()
+        
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 5
-        selectedColor = colorCells[0]
-        colorCells[0].isSelected = true
+        
+        changeSelectColor(colorCell: colorCells[0])
 
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboardOnSwipeDown))
         swipeDown.delegate = self
@@ -57,10 +59,12 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
                                                selector: #selector(updateContentView(notification: )),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(save))
+        
         if let index = noteIndex {
             textField.text = notebook.getNoteCollection()[index].title
             textView.text = notebook.getNoteCollection()[index].content
@@ -74,15 +78,35 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
                 datePickerContainerHeightConstraint.constant = 0
             }
         }
+        
+        super.viewDidLoad()
+
     }
     
-    func putIndexOfNote(index: Int) {
-        noteIndex = index
-    }
-    
-    @objc func save() {
+    @objc func hideKeyboardOnSwipeDown() {
         view.endEditing(true)
-        guard let title = textField.text, let content = textView.text, let color = selectedColor?.backgroundColor else { return }
+    }
+    
+    @objc func updateContentView(notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any], let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        if notification.name == UIResponder.keyboardWillShowNotification {
+            let inset = UIEdgeInsets(top: 0,
+                                     left: 0,
+                                     bottom: keyboardFrame.height - view.safeAreaInsets.bottom - 20,
+                                     right: 0)
+            scrollView.contentInset = inset
+            scrollView.scrollIndicatorInsets = inset
+        } else {
+            scrollView.contentInset = .zero
+            scrollView.scrollIndicatorInsets = .zero
+        }
+    }
+
+    @objc func save() {
+        guard let title = textField.text, let content = textView.text,
+            let color = selectedColor?.backgroundColor else { return }
         guard title != "", content != "" else {
             let alert = UIAlertController(title: "Enter title and content", message: "Title and content can't be empty", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -125,31 +149,9 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
                                                   notebook: notebook,
                                                   backendQueue: OperationQueue(),
                                                   dbQueue: OperationQueue())
-        saveNoteOperation.start()
+        OperationQueue().addOperation(saveNoteOperation)
+        
         navigationController?.popViewController(animated: true)
-    }
-    
-    @objc func updateContentView(notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: Any],
-            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-            else {
-            return
-        }
-        if notification.name == UIResponder.keyboardWillShowNotification {
-            let inset = UIEdgeInsets(top: 0,
-                                     left: 0,
-                                     bottom: keyboardFrame.height - view.safeAreaInsets.bottom - 20,
-                                     right: 0)
-            scrollView.contentInset = inset
-            scrollView.scrollIndicatorInsets = inset
-        } else {
-            scrollView.contentInset = .zero
-            scrollView.scrollIndicatorInsets = .zero
-        }
-    }
-    
-    @objc func hideKeyboardOnSwipeDown() {
-        view.endEditing(true)
     }
     
     @IBAction func colorCellsStackTapped(_ sender: UITapGestureRecognizer) {
@@ -177,18 +179,10 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     
     @IBAction func colorPickerPressed(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .recognized {
-            let colorPicker = ColorPickerViewController()
+            let colorPicker = ColorPickerViewController(selectedColor: colorPickerCell.backgroundColor)
             colorPicker.delegate = self
-            colorPicker.selectedColor = colorPickerCell.backgroundColor
             navigationController?.pushViewController(colorPicker, animated: true)
         }
-    }
-    
-    func setNewColor(color: UIColor?) {
-        image.isHidden = true
-        colorPickerCell.backgroundColor = color
-        colorPickerCell.isSelected = false
-        changeSelectColor(colorCell: colorPickerCell)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -202,3 +196,11 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate, Col
     }
 }
 
+extension EditNoteViewController: ColorPickerDelegate {
+    func setNewColor(color: UIColor?) {
+        image.isHidden = true
+        colorPickerCell.backgroundColor = color
+        colorPickerCell.isSelected = false
+        changeSelectColor(colorCell: colorPickerCell)
+    }
+}
