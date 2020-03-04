@@ -43,7 +43,6 @@
 		EAB84F2D240C3026000543CC /* LoadNotesDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F2C240C3026000543CC /* LoadNotesDBOperation.swift */; };
 		EAB84F2F240C3095000543CC /* RemoveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F2E240C3095000543CC /* RemoveNoteDBOperation.swift */; };
 		EAB84F31240C3125000543CC /* LoadNotesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F30240C3125000543CC /* LoadNotesOperation.swift */; };
-		EAB84F33240C3815000543CC /* RemoveNoteBackendperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F32240C3815000543CC /* RemoveNoteBackendperation.swift */; };
 		EAB84F35240C3857000543CC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F34240C3857000543CC /* NetworkError.swift */; };
 		EAB84F37240C389F000543CC /* RemoveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F36240C389F000543CC /* RemoveNoteOperation.swift */; };
 		EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */; };
@@ -123,7 +122,6 @@
 		EAB84F2C240C3026000543CC /* LoadNotesDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesDBOperation.swift; sourceTree = "<group>"; };
 		EAB84F2E240C3095000543CC /* RemoveNoteDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteDBOperation.swift; sourceTree = "<group>"; };
 		EAB84F30240C3125000543CC /* LoadNotesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesOperation.swift; sourceTree = "<group>"; };
-		EAB84F32240C3815000543CC /* RemoveNoteBackendperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteBackendperation.swift; sourceTree = "<group>"; };
 		EAB84F34240C3857000543CC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EAB84F36240C389F000543CC /* RemoveNoteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteOperation.swift; sourceTree = "<group>"; };
 		EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCellView.swift; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 				EAB84F34240C3857000543CC /* NetworkError.swift */,
 				EAB84F22240C2C78000543CC /* SaveNotesBackendOperation.swift */,
 				EAB84F29240C2DF3000543CC /* LoadNotesBackendOperation.swift */,
-				EAB84F32240C3815000543CC /* RemoveNoteBackendperation.swift */,
 			);
 			path = BackendOperations;
 			sourceTree = "<group>";
@@ -531,7 +528,6 @@
 				EAB84F27240C2D81000543CC /* SaveNoteDBOperation.swift in Sources */,
 				EAB84F1F240C2BDC000543CC /* AsynsOperation.swift in Sources */,
 				EAB84F2D240C3026000543CC /* LoadNotesDBOperation.swift in Sources */,
-				EAB84F33240C3815000543CC /* RemoveNoteBackendperation.swift in Sources */,
 				EAA52FBD23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift in Sources */,
 				EAB84F31240C3125000543CC /* LoadNotesOperation.swift in Sources */,
 				EAE8008A23EF271A00D6FD9D /* ColorPickerViewController.swift in Sources */,
