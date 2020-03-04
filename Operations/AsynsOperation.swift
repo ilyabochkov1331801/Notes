@@ -9,6 +9,7 @@
 import Foundation
 
 class AsyncOperation: Operation {
+    
     private var _executing = false
     private var _finished = false
     
@@ -42,5 +43,8 @@ class AsyncOperation: Operation {
         willChangeValue(forKey: "isFinished")
         _finished = true
         didChangeValue(forKey: "isFinished")
+        willChangeValue(forKey: "isExecuting")
+        _executing = false
+        didChangeValue(forKey: "isExecuting")
     }
 }

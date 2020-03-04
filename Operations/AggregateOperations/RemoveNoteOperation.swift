@@ -35,12 +35,16 @@ class RemoveNoteOperation: AsyncOperation {
                 }
                 self?.finish()
             }
+            guard !saveToBackend.isCancelled else {
+                self?.finish()
+                return
+            }
             self?.backendQueue.addOperation(saveToBackend)
         }
     }
         
     override func main() {
-        guard !isCancelled else {
+        guard !removeFromDb.isCancelled else {
             finish()
             return
         }

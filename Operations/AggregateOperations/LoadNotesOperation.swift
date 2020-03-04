@@ -41,6 +41,10 @@ class LoadNotesOperation: AsyncOperation {
                 }
                 self?.finish()
             }
+            guard !loadFromBackend.isCancelled else {
+                self?.finish()
+                return
+            }
             backendQueue.addOperation(loadFromBackend)
         }
     }
@@ -58,7 +62,7 @@ class LoadNotesOperation: AsyncOperation {
     }
     
     override func main() {
-        guard !isCancelled else {
+        guard !loadFromDb.isCancelled else {
             finish()
             return
         }
