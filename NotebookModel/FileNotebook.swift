@@ -18,7 +18,7 @@ class FileNotebook {
             if element.uid == note.uid {
                 noteCollection[index] = note
                 DDLogInfo("Note with id \(note.uid) is overwritten")
-                throw Errors.addExistingNoteException
+                throw FileNotebookErrors.addExistingNoteException
             }
         }
         noteCollection.append(note)
@@ -66,7 +66,7 @@ class FileNotebook {
                             try add(note)
                         } catch {
                             switch error {
-                            case Errors.addExistingNoteException:
+                            case FileNotebookErrors.addExistingNoteException:
                                 DDLogError(error.localizedDescription)
                             default:
                                 DDLogError(error.localizedDescription)

@@ -1,3 +1,3 @@
-enum Errors: Error {
+enum FileNotebookErrors: Error {
     case addExistingNoteException
 }
