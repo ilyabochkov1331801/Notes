@@ -10,9 +10,12 @@ import UIKit
 
 class NotesTableViewController: UITableViewController {
     
+    
     var notebook = FileNotebook()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         title = "Notes"
         
         navigationItem.leftBarButtonItem = editButtonItem
@@ -28,7 +31,6 @@ class NotesTableViewController: UITableViewController {
                                                     dbQueue: OperationQueue())
         OperationQueue().addOperation(loadNotesOperation)
         
-        super.viewDidLoad()
     }
     
     @objc func addNote() {
@@ -51,10 +53,10 @@ class NotesTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 400
-        super.viewWillAppear(animated)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
