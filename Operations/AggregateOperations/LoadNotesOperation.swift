@@ -10,9 +10,9 @@ import Foundation
 
 class LoadNotesOperation: AsyncOperation {
     private let loadFromDb: LoadNotesDBOperation
-    private let loadFromBackend: LoadNotesBackendOperation
     private let dbQueue: OperationQueue
     private let backendQueue: OperationQueue
+    private let notebook: FileNotebook
     
     private(set) var result: Bool? = false
 
@@ -20,25 +20,44 @@ class LoadNotesOperation: AsyncOperation {
         
         loadFromDb = LoadNotesDBOperation(notebook: notebook)
         self.dbQueue = dbQueue
-        
-        loadFromBackend = LoadNotesBackendOperation()
+
         self.backendQueue = backendQueue
+        
+        self.notebook = notebook
 
         super.init()
         
-        loadFromBackend.completionBlock = {
-            switch self.loadFromBackend.result! {
-            case .success:
-                self.result = true
-            case .failure:
-                self.result = false
+        loadFromDb.completionBlock = { [weak self] in
+            
+            let loadFromBackend = LoadNotesBackendOperation()
+
+            loadFromBackend.completionBlock = {
+                switch loadFromBackend.result! {
+                case .success:
+                    self?.result = true
+                    self?.checkData(notes: loadFromBackend.notes)
+                case .failure:
+                    self?.result = false
+                }
+                self?.finish()
             }
-            self.finish()
+            backendQueue.addOperation(loadFromBackend)
         }
+    }
+    
+    private func checkData(notes: Array<Note>?) {
+        guard let notes = notes else { return }
+        for note in notes {
+            do {
+                try notebook.add(note)
+            } catch {
+                
+            }
+        }
+        notebook.saveToFile()
     }
     
     override func main() {
         dbQueue.addOperation(loadFromDb)
-        backendQueue.addOperation(loadFromBackend)
     }
 }

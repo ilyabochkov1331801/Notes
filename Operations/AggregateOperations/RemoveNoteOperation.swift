@@ -10,7 +10,6 @@ import Foundation
 
 class RemoveNoteOperation: AsyncOperation {
     private let removeFromDb: RemoveNoteBDOperation
-    private let saveToBackend: SaveNotesBackendOperation
     private let dbQueue: OperationQueue
     private let backendQueue: OperationQueue
     
@@ -21,18 +20,26 @@ class RemoveNoteOperation: AsyncOperation {
         removeFromDb = RemoveNoteBDOperation(note: note, notebook: notebook)
         self.dbQueue = dbQueue
         
-        saveToBackend = SaveNotesBackendOperation(notes: notebook.getNoteCollection())
         self.backendQueue = backendQueue
         
         super.init()
         
-        removeFromDb.completionBlock = {
-            backendQueue.addOperation(self.saveToBackend)
+        removeFromDb.completionBlock = { [weak self] in
+            let saveToBackend = SaveNotesBackendOperation(notes: notebook.getNoteCollection())
+            saveToBackend.completionBlock = {
+                switch saveToBackend.result! {
+                case .success:
+                    self?.result = true
+                case .failure:
+                    self?.result = false
+                }
+                self?.finish()
+            }
+            self?.backendQueue.addOperation(saveToBackend)
         }
     }
         
     override func main() {
         dbQueue.addOperation(removeFromDb)
-        finish()
     }
 }

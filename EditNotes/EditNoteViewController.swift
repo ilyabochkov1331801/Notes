@@ -37,6 +37,8 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         title = "Edit"
         
         datePicker.minimumDate = Date()
@@ -78,9 +80,6 @@ class EditNoteViewController: UIViewController, UIGestureRecognizerDelegate {
                 datePickerContainerHeightConstraint.constant = 0
             }
         }
-        
-        super.viewDidLoad()
-
     }
     
     @objc func hideKeyboardOnSwipeDown() {

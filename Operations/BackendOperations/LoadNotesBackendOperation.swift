@@ -15,7 +15,10 @@ enum LoadNotesBackendResult {
 }
 
 class LoadNotesBackendOperation: BaseBackendOperation {
+    
     var result: SaveNotesBackendResult?
+    
+    var notes: Array<Note>?
     
     override func main() {
         result = .failure(.unreachable)
