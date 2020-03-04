@@ -21,6 +21,10 @@ class LoadNotesBackendOperation: BaseBackendOperation {
     var notes: Array<Note>?
     
     override func main() {
+        guard !isCancelled else {
+            finish()
+            return
+        }
         result = .failure(.unreachable)
         DDLogInfo("LoadNotesBackendOperation failured (\(NetworkError.unreachable))")
         finish()

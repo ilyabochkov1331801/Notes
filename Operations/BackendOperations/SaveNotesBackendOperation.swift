@@ -22,6 +22,10 @@ class SaveNotesBackendOperation: BaseBackendOperation {
     }
     
     override func main() {
+        guard !isCancelled else {
+            finish()
+            return
+        }
         result = .failure(.unreachable)
         DDLogInfo("SaveNotesBackendOperation failured (\(NetworkError.unreachable))")
         finish()

@@ -18,6 +18,10 @@ class SaveNoteDBOperation: BaseDBOperation {
     }
     
     override func main() {
+        guard !isCancelled else {
+            finish()
+            return
+        }
         do {
             try notebook.add(note)
         } catch { }

@@ -10,6 +10,10 @@ import Foundation
 
 class LoadNotesDBOperation: BaseDBOperation {
     override func main() {
+        guard !isCancelled else {
+            finish()
+            return
+        }
         notebook.loadFromFile()
         finish()
     }
