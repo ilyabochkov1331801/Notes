@@ -39,6 +39,10 @@ class SaveNoteOperation: AsyncOperation {
     }
     
     override func main() {
+        guard !isCancelled else {
+            finish()
+            return
+        }
         dbQueue.addOperation(saveToDb)
     }
 }

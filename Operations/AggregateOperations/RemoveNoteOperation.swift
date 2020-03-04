@@ -40,6 +40,10 @@ class RemoveNoteOperation: AsyncOperation {
     }
         
     override func main() {
+        guard !isCancelled else {
+            finish()
+            return
+        }
         dbQueue.addOperation(removeFromDb)
     }
 }

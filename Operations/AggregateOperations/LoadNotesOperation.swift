@@ -58,6 +58,10 @@ class LoadNotesOperation: AsyncOperation {
     }
     
     override func main() {
+        guard !isCancelled else {
+            finish()
+            return
+        }
         dbQueue.addOperation(loadFromDb)
     }
 }
