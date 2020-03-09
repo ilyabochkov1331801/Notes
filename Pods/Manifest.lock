@@ -1,18 +1,30 @@
 PODS:
+  - Alamofire (5.0.2)
   - CocoaLumberjack/Core (3.6.1)
   - CocoaLumberjack/Swift (3.6.1):
     - CocoaLumberjack/Core
+  - Magic (3.0.3)
+  - SwiftKeychainWrapper (3.4.0)
 
 DEPENDENCIES:
+  - Alamofire
   - CocoaLumberjack/Swift
+  - Magic
+  - SwiftKeychainWrapper
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - CocoaLumberjack
+    - Magic
+    - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
   CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
+  Magic: 4cf0cae9f1c7c1f89332a23737309fa49b422796
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: 38496f6aa82de20dd41fdc9a07c57817e2b6947b
+PODFILE CHECKSUM: da9449737636ec97fcfd4834596394dba1de4e13
 
 COCOAPODS: 1.8.4

@@ -43,7 +43,7 @@ class MainScreenViewController: UIViewController {
                            initialSpringVelocity: 8,
                            options: .curveEaseInOut,
                            animations: {
-                            self.navigationControllerForNotes.view.frame.origin.x = self.navigationControllerForNotes.view.frame.width / 2
+                            self.navigationControllerForNotes.view.frame.origin.x = self.navigationControllerForNotes.view.frame.width
             }, completion: { [weak self] (finished) in
                 self?.navigationControllerForNotes.view.isUserInteractionEnabled = false
             })

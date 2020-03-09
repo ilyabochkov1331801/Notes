@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WebKit
 
-class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate {
+class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, TokenDelegate {
     
     var delegate: LeftMenuDelegate?
     
@@ -24,17 +25,35 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate {
         swipeLeft.delegate = self
         swipeLeft.direction =  UISwipeGestureRecognizer.Direction.left
         view.addGestureRecognizer(swipeLeft)
+        token.loadTokenFromFile()
+        if token.token != nil {
+            loginButton.isEnabled = false
+        } else {
+            exitButton.isEnabled = false
+        }
     }
     
     @objc func hideLeftMenu() {
         delegate?.toggleMenu()
     }
     @IBAction func loginButtonTupped(_ sender: UIButton) {
-        token.token = "token"
-        token.saveTokenToFile()
+        let authorizationViewController = AuthorizationViewController()
+        authorizationViewController.delegate = self
+        present(authorizationViewController, animated: true, completion: nil)
     }
     
     @IBAction func exitButtonTupped(_ sender: Any) {
         token.deleteTokenFile()
+        loginButton.isEnabled = !loginButton.isEnabled
+        exitButton.isEnabled = !exitButton.isEnabled
+        loginLabel.text = ""
+    }
+    
+    func handleTokenChanged(newToken: String) {
+        token.token = newToken
+        token.saveTokenToFile()
+        loginLabel.text = token.token
+        loginButton.isEnabled = !loginButton.isEnabled
+        exitButton.isEnabled = !exitButton.isEnabled
     }
 }
