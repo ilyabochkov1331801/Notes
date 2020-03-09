@@ -20,14 +20,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your token" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeK-D7-KQv">
-                    <rect key="frame" x="20.5" y="144" width="373" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeK-D7-KQv">
+                    <rect key="frame" x="20.5" y="144" width="373" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haN-W6-dAY">
-                    <rect key="frame" x="172" y="284" width="70" height="40"/>
+                    <rect key="frame" x="172" y="280.5" width="70" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="YY6-lw-ZBB"/>
                         <constraint firstAttribute="width" constant="70" id="xib-Ao-3Vo"/>
@@ -39,7 +39,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOW-k2-dqS">
-                    <rect key="frame" x="172" y="220" width="70" height="40"/>
+                    <rect key="frame" x="172" y="216.5" width="70" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="3dj-ml-EIa"/>
                         <constraint firstAttribute="width" constant="70" id="Qeg-P0-zMp"/>

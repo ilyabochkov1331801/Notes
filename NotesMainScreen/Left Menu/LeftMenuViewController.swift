@@ -9,6 +9,14 @@
 import UIKit
 import WebKit
 
+struct Gist: Codable {
+    var owner: Owner
+}
+
+struct Owner: Codable {
+    let login: String
+}
+
 class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, TokenDelegate {
     
     var delegate: LeftMenuDelegate?
@@ -36,6 +44,7 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, Tok
     @objc func hideLeftMenu() {
         delegate?.toggleMenu()
     }
+    
     @IBAction func loginButtonTupped(_ sender: UIButton) {
         let authorizationViewController = AuthorizationViewController()
         authorizationViewController.delegate = self
@@ -46,13 +55,27 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, Tok
         token.deleteTokenFile()
         loginButton.isEnabled = !loginButton.isEnabled
         exitButton.isEnabled = !exitButton.isEnabled
-        loginLabel.text = ""
+        loginLabel.text = "Your login"
+    }
+    
+    func getLogin() {
+        let gitUrl = "https://api.github.com/gists"
+        guard let url = URL(string: gitUrl) else { return }
+        var request = URLRequest(url: url)
+        guard let token = token.token else { return }
+        request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+        URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let gists: Array<Gist> = try? JSONDecoder().decode(Array<Gist>.self, from: data!) else { return }
+            OperationQueue.main.addOperation {
+                self?.loginLabel.text = gists.first?.owner.login
+            }
+        }.resume()
     }
     
     func handleTokenChanged(newToken: String) {
         token.token = newToken
         token.saveTokenToFile()
-        loginLabel.text = token.token
+        getLogin()
         loginButton.isEnabled = !loginButton.isEnabled
         exitButton.isEnabled = !exitButton.isEnabled
     }

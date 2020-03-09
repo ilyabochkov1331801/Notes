@@ -31,8 +31,8 @@ class AuthorizationViewController: UIViewController {
             return nil
         }
         urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: "Iv1.3a51459ced2d9937"),
-            URLQueryItem(name: "scope", value: "gist")
+            URLQueryItem(name: "client_id", value: "6f41c208445449d28196"),
+            URLQueryItem(name: "scope", value: "gist user")
         ]
         guard let url = urlComponents.url else { return nil }
         return URLRequest(url: url)
@@ -56,8 +56,8 @@ extension AuthorizationViewController: WKNavigationDelegate {
             return
         }
         urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: "Iv1.3a51459ced2d9937"),
-            URLQueryItem(name: "client_secret", value: "d33fa0f93aa803bd36787df5f73d1d371dd0ce0e"),
+            URLQueryItem(name: "client_id", value: "6f41c208445449d28196"),
+            URLQueryItem(name: "client_secret", value: "13a0e93f8dbce88e01c400beaedbb2d74075e409"),
             URLQueryItem(name: "code", value: code)
         ]
         var request = URLRequest(url: urlComponents.url!)
