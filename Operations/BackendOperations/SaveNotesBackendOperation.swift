@@ -22,7 +22,6 @@ class SaveNotesBackendOperation: BaseBackendOperation {
             finish()
             return
         }
-        print(token)
         result = .failure(.unreachable)
         DDLogInfo("SaveNotesBackendOperation failured (\(NetworkError.unreachable))")
         finish()

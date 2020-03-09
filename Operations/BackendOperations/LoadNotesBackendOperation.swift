@@ -22,7 +22,6 @@ class LoadNotesBackendOperation: BaseBackendOperation {
             finish()
             return
         }
-        print(token)
         result = .failure(.unreachable)
         DDLogInfo("LoadNotesBackendOperation failured (\(NetworkError.unreachable))")
         finish()

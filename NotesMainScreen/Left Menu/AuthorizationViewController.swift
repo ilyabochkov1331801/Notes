@@ -9,8 +9,8 @@
 import UIKit
 import WebKit
 
-enum GithubScope: String {
-  case user, gist
+struct AccessToken: Codable {
+    var access_token: String
 }
 
 class AuthorizationViewController: UIViewController {
@@ -21,10 +21,9 @@ class AuthorizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        webView.navigationDelegate = self
         guard let request = tokenGetRequest else { return }
         webView.load(request)
-        webView.navigationDelegate = self
-
     }
     
     private var tokenGetRequest: URLRequest? {
@@ -32,29 +31,27 @@ class AuthorizationViewController: UIViewController {
             return nil
         }
         urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: "Iv1.3a51459ced2d9937")
+            URLQueryItem(name: "client_id", value: "Iv1.3a51459ced2d9937"),
+            URLQueryItem(name: "scope", value: "gist")
         ]
         guard let url = urlComponents.url else { return nil }
         return URLRequest(url: url)
     }
 }
 
-struct TokenStr: Codable {
-    var access_token: String
-}
-
 extension AuthorizationViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if let url = navigationAction.request.url, url.scheme == "notes" {
             let targetString = url.absoluteString.replacingOccurrences(of: "#", with: "?")
-            guard let components = URLComponents(string: targetString) else { return }
-            if let code = components.queryItems?.first(where: { $0.name == "code" })?.value {
-                getToken(code: code)
+            guard let urlComponents = URLComponents(string: targetString) else { return }
+            if let code = urlComponents.queryItems?.first(where: { $0.name == "code" })?.value {
+                getToken(withCode: code)
             }
         }
         decisionHandler(.allow)
     }
-    func getToken(code: String) {
+    
+    func getToken(withCode code: String) {
         guard var urlComponents = URLComponents(string: "https://github.com/login/oauth/access_token") else {
             return
         }
@@ -66,13 +63,11 @@ extension AuthorizationViewController: WKNavigationDelegate {
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        var newToken: String? = nil
         URLSession.shared.dataTask(with: request) { [weak self]
             (data, response, error) in
-            guard let tokenStr = try? JSONDecoder().decode(TokenStr.self, from: data!) else { return }
-            newToken = tokenStr.access_token
-            self?.delegate?.handleTokenChanged(newToken: newToken!)
+            guard let accessToken = try? JSONDecoder().decode(AccessToken.self, from: data!) else { return }
             OperationQueue.main.addOperation {
+                self?.delegate?.handleTokenChanged(newToken: accessToken.access_token)
                 self?.dismiss(animated: true, completion: nil)
             }
         }.resume()
