@@ -30,6 +30,14 @@ class FileNotebook {
         DDLogInfo("Note with id \(uid) is removed")
     }
     
+    public func saveToBackend(token: String) {
+        
+    }
+    
+    public func loadFromBackend(token: String) {
+        
+    }
+    
     public func saveToFile() {
         if let directoryPath = FileManager.default.urls(for: .cachesDirectory,
                                                         in: .userDomainMask).first {

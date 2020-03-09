@@ -13,7 +13,7 @@ class GradientView: UIView {
     
     let saturationExponentTop:Float = 1.4
     let saturationExponentBottom:Float = 1.0
-    var elementSize: CGFloat = 1.0
+    var elementSize: CGFloat = 2.0
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)

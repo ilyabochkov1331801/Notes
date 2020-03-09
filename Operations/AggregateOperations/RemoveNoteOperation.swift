@@ -24,8 +24,17 @@ class RemoveNoteOperation: AsyncOperation {
         
         super.init()
         
+        let token = Token()
+        token.loadTokenFromFile()
+        
         removeFromDb.completionBlock = { [weak self] in
-            let saveToBackend = SaveNotesBackendOperation(notes: notebook.getNoteCollection())
+            
+            guard let token = token.token else {
+                self?.finish()
+                return
+            }
+            
+            let saveToBackend = SaveNotesBackendOperation(notebook: notebook, token: token)
             saveToBackend.completionBlock = {
                 switch saveToBackend.result! {
                 case .success:

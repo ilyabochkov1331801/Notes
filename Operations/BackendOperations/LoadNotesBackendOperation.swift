@@ -15,16 +15,14 @@ enum LoadNotesBackendResult {
 }
 
 class LoadNotesBackendOperation: BaseBackendOperation {
-    
     var result: SaveNotesBackendResult?
-    
-    var notes: Array<Note>?
-    
+        
     override func main() {
         guard !isCancelled else {
             finish()
             return
         }
+        print(token)
         result = .failure(.unreachable)
         DDLogInfo("LoadNotesBackendOperation failured (\(NetworkError.unreachable))")
         finish()

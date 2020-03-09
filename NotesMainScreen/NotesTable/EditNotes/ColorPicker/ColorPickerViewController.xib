@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-3F-QMy" customClass="GradientView" customModule="Notes" customModuleProvider="target">
-                    <rect key="frame" x="20" y="142" width="374" height="572.5"/>
+                    <rect key="frame" x="20" y="164" width="374" height="572.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6i3-j6-2ve">
-                            <rect key="frame" x="177" y="245" width="20" height="20"/>
+                            <rect key="frame" x="177" y="276.5" width="20" height="20"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="WMk-Ti-6mR"/>
@@ -36,14 +36,14 @@
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="6i3-j6-2ve" firstAttribute="centerX" secondItem="eR2-3F-QMy" secondAttribute="centerX" id="2f1-at-aSG"/>
-                        <constraint firstItem="6i3-j6-2ve" firstAttribute="centerY" secondItem="eR2-3F-QMy" secondAttribute="centerY" constant="-31.5" id="nSh-CP-PjT"/>
+                        <constraint firstItem="6i3-j6-2ve" firstAttribute="centerY" secondItem="eR2-3F-QMy" secondAttribute="centerY" id="nSh-CP-PjT"/>
                     </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="Xkw-nP-zjl" appends="YES" id="9JH-rg-vXf"/>
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdV-PC-5Cr">
-                    <rect key="frame" x="167" y="54" width="80" height="80"/>
+                    <rect key="frame" x="167" y="64" width="80" height="80"/>
                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="CnL-ad-8Iy"/>
@@ -54,10 +54,10 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eR2-3F-QMy" secondAttribute="trailing" constant="20" id="0Sg-Em-QbQ"/>
-                <constraint firstItem="kdV-PC-5Cr" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="7Bd-Oi-0CE"/>
-                <constraint firstItem="eR2-3F-QMy" firstAttribute="top" secondItem="kdV-PC-5Cr" secondAttribute="bottom" constant="8" id="b7g-oZ-i28"/>
+                <constraint firstItem="eR2-3F-QMy" firstAttribute="top" secondItem="kdV-PC-5Cr" secondAttribute="bottom" constant="20" id="b7g-oZ-i28"/>
                 <constraint firstItem="eR2-3F-QMy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="kIX-wv-bAG"/>
-                <constraint firstItem="kdV-PC-5Cr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="urX-fW-RiR"/>
+                <constraint firstItem="kdV-PC-5Cr" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="rOh-Oh-O94"/>
+                <constraint firstItem="kdV-PC-5Cr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="urX-fW-RiR"/>
                 <constraint firstItem="eR2-3F-QMy" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.7" id="zKK-kj-SSS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -8,10 +8,10 @@
 
 import UIKit
 
-class NotesTableViewController: UITableViewController {
-    
+class NotesTableViewController: UITableViewController, UIGestureRecognizerDelegate {
     
     var notebook = FileNotebook()
+    var delegate: LeftMenuDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,18 @@ class NotesTableViewController: UITableViewController {
         let loadNotesOperation = LoadNotesOperation(notebook: notebook,
                                                     backendQueue: OperationQueue(),
                                                     dbQueue: OperationQueue())
+        loadNotesOperation.completionBlock = { [weak self] in
+            self?.tableView.reloadData()
+        }
         OperationQueue().addOperation(loadNotesOperation)
-        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(showLeftMenu))
+        swipeRight.delegate = self
+        swipeRight.direction =  UISwipeGestureRecognizer.Direction.right
+        view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func showLeftMenu() {
+        delegate?.toggleMenu()
     }
     
     @objc func addNote() {
@@ -80,3 +90,5 @@ class NotesTableViewController: UITableViewController {
         navigationController?.pushViewController(editNoteVC, animated: true)
     }
 }
+
+

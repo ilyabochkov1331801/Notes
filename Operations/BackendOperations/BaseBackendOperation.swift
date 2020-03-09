@@ -9,7 +9,12 @@
 import Foundation
 
 class BaseBackendOperation: AsyncOperation {
-    override init() {
+    let notebook: FileNotebook
+    let token: String
+
+    init(notebook: FileNotebook, token: String) {
+        self.notebook = notebook
+        self.token = token
         super.init()
     }
 }

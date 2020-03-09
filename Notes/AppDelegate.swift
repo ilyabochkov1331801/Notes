@@ -18,9 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupLogger()
         window = UIWindow()
         window?.frame = UIScreen.main.bounds
-        let notesTable = NotesTableViewController()
-        let navigationControllerForNotes = UINavigationController(rootViewController: notesTable)
-        navigationControllerForNotes.tabBarItem = UITabBarItem(title: "Notes",
+        let mainScreenViewController = MainScreenViewController()
+        mainScreenViewController.tabBarItem = UITabBarItem(title: "Notes",
                                                 image: UIImage(systemName: "doc"),
                                                 selectedImage: nil)
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -30,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                                     image: UIImage(systemName: "photo"),
                                                                     selectedImage: nil)
         let tabBarCotroller = UITabBarController()
-        tabBarCotroller.viewControllers = [ navigationControllerForNotes, navigationControllerForPhotoNotes ]
+        tabBarCotroller.viewControllers = [ mainScreenViewController, navigationControllerForPhotoNotes ]
         window?.rootViewController = tabBarCotroller
         window?.makeKeyAndVisible()
         return true

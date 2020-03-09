@@ -25,6 +25,8 @@
 		EA5CAD5E24011CF8002CCAAE /* PhotoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5CAD5C24011CF8002CCAAE /* PhotoPageViewController.swift */; };
 		EA5CAD64240142C8002CCAAE /* PhotoNotesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA5CAD63240142C8002CCAAE /* PhotoNotesCollectionCell.xib */; };
 		EA5CAD6624015125002CCAAE /* PhotoPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA5CAD6524015125002CCAAE /* PhotoPageViewController.xib */; };
+		EA668CCB24165A280014D19F /* LeftMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA668CCA24165A280014D19F /* LeftMenuDelegate.swift */; };
+		EA668CCF24166D8B0014D19F /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA668CCE24166D8B0014D19F /* Token.swift */; };
 		EA68C47623F5F0A0006A5256 /* EditNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA68C47523F5F0A0006A5256 /* EditNoteViewController.xib */; };
 		EA68C47823F5F458006A5256 /* ColorPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68C47723F5F458006A5256 /* ColorPickerDelegate.swift */; };
 		EA68C47A23F5F93C006A5256 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA68C47923F5F93C006A5256 /* ColorPickerViewController.xib */; };
@@ -47,6 +49,9 @@
 		EAB84F37240C389F000543CC /* RemoveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F36240C389F000543CC /* RemoveNoteOperation.swift */; };
 		EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */; };
 		EAC1AE3923EC7E1D005B8765 /* ColorComponentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */; };
+		EAC8CBD624163A35001A5594 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC8CBD424163A35001A5594 /* LeftMenuViewController.swift */; };
+		EAC8CBD724163A35001A5594 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC8CBD524163A35001A5594 /* LeftMenuViewController.xib */; };
+		EAC8CBDC241641EE001A5594 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC8CBDB241641EE001A5594 /* MainScreenViewController.swift */; };
 		EAD1A47F23EEF6D50041C782 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD1A47E23EEF6D50041C782 /* GradientView.swift */; };
 		EADD0A0B23EAE34B00FF661D /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADD0A0A23EAE34B00FF661D /* CGRectExtension.swift */; };
 		EADE00E523E5A3A500CFF56C /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADE00E423E5A3A500CFF56C /* NotesTests.swift */; };
@@ -103,6 +108,8 @@
 		EA5CAD5C24011CF8002CCAAE /* PhotoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPageViewController.swift; sourceTree = "<group>"; };
 		EA5CAD63240142C8002CCAAE /* PhotoNotesCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoNotesCollectionCell.xib; sourceTree = "<group>"; };
 		EA5CAD6524015125002CCAAE /* PhotoPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPageViewController.xib; sourceTree = "<group>"; };
+		EA668CCA24165A280014D19F /* LeftMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuDelegate.swift; sourceTree = "<group>"; };
+		EA668CCE24166D8B0014D19F /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EA68C47523F5F0A0006A5256 /* EditNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditNoteViewController.xib; sourceTree = "<group>"; };
 		EA68C47723F5F458006A5256 /* ColorPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerDelegate.swift; sourceTree = "<group>"; };
 		EA68C47923F5F93C006A5256 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
@@ -126,6 +133,9 @@
 		EAB84F36240C389F000543CC /* RemoveNoteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteOperation.swift; sourceTree = "<group>"; };
 		EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCellView.swift; sourceTree = "<group>"; };
 		EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponentsList.swift; sourceTree = "<group>"; };
+		EAC8CBD424163A35001A5594 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		EAC8CBD524163A35001A5594 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
+		EAC8CBDB241641EE001A5594 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		EAD1A47E23EEF6D50041C782 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		EADD0A0A23EAE34B00FF661D /* CGRectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
 		EADE00E223E5A3A500CFF56C /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,12 +181,12 @@
 		EA1C1FAE23E1A98300529695 = {
 			isa = PBXGroup;
 			children = (
+				EA7ECE432416741800FB0A47 /* TokenModel */,
+				EAC8CBDA241641AB001A5594 /* NotesMainScreen */,
 				EA60BC64240FB7DB0099F5C0 /* Errors */,
 				EAB84F1B240C2B3D000543CC /* Operations */,
 				EAA52FBA23FD0CEC00DDC4C4 /* PhotoNotebookModel */,
 				EAA52FB323FD0AE400DDC4C4 /* PhotoNotesCollection */,
-				EA3966B523FAE4A700EE3E22 /* NotesTable */,
-				EA80B4E923F6014E008EE2E2 /* EditNotes */,
 				EA1C1FD023E1AADD00529695 /* NotebookModel */,
 				EA1C1FB923E1A98300529695 /* Notes */,
 				EADE00E323E5A3A500CFF56C /* NotesTests */,
@@ -222,6 +232,7 @@
 		EA3966B523FAE4A700EE3E22 /* NotesTable */ = {
 			isa = PBXGroup;
 			children = (
+				EA80B4E923F6014E008EE2E2 /* EditNotes */,
 				EA3966B123FAE3FE00EE3E22 /* NotesTableViewController.swift */,
 				EA3966B223FAE3FE00EE3E22 /* NotesTableViewController.xib */,
 				EA970E8A23FC0D7200FEA447 /* NoteTableCell.swift */,
@@ -247,6 +258,14 @@
 				EA1C1FDE23E1AB6C00529695 /* FileNotebookErrors.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		EA7ECE432416741800FB0A47 /* TokenModel */ = {
+			isa = PBXGroup;
+			children = (
+				EA668CCE24166D8B0014D19F /* Token.swift */,
+			);
+			path = TokenModel;
 			sourceTree = "<group>";
 		};
 		EA80B4E923F6014E008EE2E2 /* EditNotes */ = {
@@ -330,6 +349,26 @@
 				EAB84F36240C389F000543CC /* RemoveNoteOperation.swift */,
 			);
 			path = AggregateOperations;
+			sourceTree = "<group>";
+		};
+		EAC8CBD824163A3B001A5594 /* Left Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EAC8CBD424163A35001A5594 /* LeftMenuViewController.swift */,
+				EAC8CBD524163A35001A5594 /* LeftMenuViewController.xib */,
+				EA668CCA24165A280014D19F /* LeftMenuDelegate.swift */,
+			);
+			path = "Left Menu";
+			sourceTree = "<group>";
+		};
+		EAC8CBDA241641AB001A5594 /* NotesMainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				EAC8CBDB241641EE001A5594 /* MainScreenViewController.swift */,
+				EAC8CBD824163A3B001A5594 /* Left Menu */,
+				EA3966B523FAE4A700EE3E22 /* NotesTable */,
+			);
+			path = NotesMainScreen;
 			sourceTree = "<group>";
 		};
 		EADD0A0723EAE2FB00FF661D /* ColorCell */ = {
@@ -452,6 +491,7 @@
 				EA68C47623F5F0A0006A5256 /* EditNoteViewController.xib in Resources */,
 				EA68C47A23F5F93C006A5256 /* ColorPickerViewController.xib in Resources */,
 				EA5CAD64240142C8002CCAAE /* PhotoNotesCollectionCell.xib in Resources */,
+				EAC8CBD724163A35001A5594 /* LeftMenuViewController.xib in Resources */,
 				EA1C1FC423E1A98500529695 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,11 +570,15 @@
 				EAB84F2F240C3095000543CC /* RemoveNoteDBOperation.swift in Sources */,
 				EAA52FB623FD0B2C00DDC4C4 /* PhotoNotesCollectionViewController.swift in Sources */,
 				EA5CAD5924011A02002CCAAE /* PhotoPagesViewController.swift in Sources */,
+				EAC8CBDC241641EE001A5594 /* MainScreenViewController.swift in Sources */,
+				EA668CCF24166D8B0014D19F /* Token.swift in Sources */,
 				EA1C1FBF23E1A98300529695 /* EditNoteViewController.swift in Sources */,
 				EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */,
 				EAB84F37240C389F000543CC /* RemoveNoteOperation.swift in Sources */,
 				EAB84F27240C2D81000543CC /* SaveNoteDBOperation.swift in Sources */,
 				EAB84F1F240C2BDC000543CC /* AsynsOperation.swift in Sources */,
+				EAC8CBD624163A35001A5594 /* LeftMenuViewController.swift in Sources */,
+				EA668CCB24165A280014D19F /* LeftMenuDelegate.swift in Sources */,
 				EAB84F2D240C3026000543CC /* LoadNotesDBOperation.swift in Sources */,
 				EAA52FBD23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift in Sources */,
 				EAB84F31240C3125000543CC /* LoadNotesOperation.swift in Sources */,

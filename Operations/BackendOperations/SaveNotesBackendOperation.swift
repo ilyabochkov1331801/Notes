@@ -17,15 +17,12 @@ enum SaveNotesBackendResult {
 class SaveNotesBackendOperation: BaseBackendOperation {
     var result: SaveNotesBackendResult?
     
-    init(notes: [Note]) {
-        super.init()
-    }
-    
     override func main() {
         guard !isCancelled else {
             finish()
             return
         }
+        print(token)
         result = .failure(.unreachable)
         DDLogInfo("SaveNotesBackendOperation failured (\(NetworkError.unreachable))")
         finish()

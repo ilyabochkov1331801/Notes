@@ -20,22 +20,28 @@ class LoadNotesOperation: AsyncOperation {
         
         loadFromDb = LoadNotesDBOperation(notebook: notebook)
         self.dbQueue = dbQueue
-
         self.backendQueue = backendQueue
-        
         self.notebook = notebook
 
         super.init()
         
+        let token = Token()
+        token.loadTokenFromFile()
+        
         loadFromDb.completionBlock = { [weak self] in
             
-            let loadFromBackend = LoadNotesBackendOperation()
+            guard let token = token.token else {
+                self?.finish()
+                return
+            }
+            
+            let loadFromBackend = LoadNotesBackendOperation(notebook: notebook, token: token)
 
             loadFromBackend.completionBlock = {
                 switch loadFromBackend.result! {
                 case .success:
                     self?.result = true
-                    self?.checkData(notes: loadFromBackend.notes)
+                    self?.checkData(newNotebook: loadFromBackend.notebook)
                 case .failure:
                     self?.result = false
                 }
@@ -49,13 +55,12 @@ class LoadNotesOperation: AsyncOperation {
         }
     }
     
-    private func checkData(notes: Array<Note>?) {
-        guard let notes = notes else { return }
+    private func checkData(newNotebook: FileNotebook?) {
+        guard let notes = newNotebook?.getNoteCollection() else { return }
         for note in notes {
             do {
                 try notebook.add(note)
             } catch {
-                
             }
         }
         notebook.saveToFile()
