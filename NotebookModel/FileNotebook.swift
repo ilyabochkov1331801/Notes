@@ -30,12 +30,197 @@ class FileNotebook {
         DDLogInfo("Note with id \(uid) is removed")
     }
     
-    public func saveToBackend(token: String) {
+    func saveToBackend(token: String) -> Bool {
         
+        let semaphote = DispatchSemaphore(value: 1)
+        guard let url = URL(string: "https://api.github.com/gists") else {
+            return false
+        }
+        var request = URLRequest(url: url)
+        request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+        var flag = true
+        let dataTask = URLSession.shared.dataTask(with: request) {
+            [weak self] (data, response, error) in
+            guard let gists = try? JSONDecoder().decode(Array<Gist>.self, from: data!) else {
+                flag = false
+                semaphote.signal()
+                return
+            }
+            for gist in gists {
+                if gist.files["ios-course-notes-db"] != nil {
+                    guard let url = URL(string: "https://api.github.com/gists/\(gist.id)") else {
+                        flag = false
+                        semaphote.signal()
+                        return
+                    }
+                    var request = URLRequest(url: url)
+                    request.httpMethod = "PATCH"
+                    request.addValue("token \(token)", forHTTPHeaderField: "Authorization")
+                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    guard let data = try? JSONSerialization.data(withJSONObject: self!.noteCollection.map { $0.json }, options: []) else {
+                        flag = false
+                        semaphote.signal()
+                        return
+                    }
+                    let dataString = String(data: data, encoding: .utf8)
+                    guard let dataToWrite = try? JSONSerialization.data(withJSONObject: ["files" : ["ios-course-notes-db": ["filename" : "ios-course-notes-db", "content" : dataString]]], options: []) else {
+                        semaphote.signal()
+                        flag = false
+                        return
+                    }
+                    request.httpBody = dataToWrite
+                    let urlSessionSemaphore = DispatchSemaphore(value: 1)
+                    let rewriteDataTask = URLSession.shared.dataTask(with: request) {
+                        (data, response, error) in
+                        guard error == nil else {
+                            flag = false
+                            urlSessionSemaphore.signal()
+                            return
+                        }
+                        guard let response = response as? HTTPURLResponse else {
+                            flag = false
+                            urlSessionSemaphore.signal()
+                            return
+                        }
+                        switch response.statusCode {
+                        case 200...300:
+                            flag = true
+                            urlSessionSemaphore.signal()
+                            return
+                        default:
+                            flag = false
+                            urlSessionSemaphore.signal()
+                            return
+                        }
+                    }
+                    urlSessionSemaphore.wait()
+                    rewriteDataTask.resume()
+                    urlSessionSemaphore.wait()
+                    semaphote.signal()
+                }
+            }
+        }
+        
+        semaphote.wait()
+        dataTask.resume()
+        semaphote.wait()
+        
+        if !flag {
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("token \(token)", forHTTPHeaderField: "Authorization")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            guard let data = try? JSONSerialization.data(withJSONObject: self.noteCollection.map { $0.json }, options: []) else {
+                return false
+            }
+            let dataString = String(data: data, encoding: .utf8)
+            guard let dataToWrite = try? JSONSerialization.data(withJSONObject: ["files": ["ios-course-notes-db": ["content": dataString ]]], options: []) else {
+                return false
+            }
+            request.httpBody = dataToWrite
+            let urlSessionSemaphore = DispatchSemaphore(value: 1)
+            urlSessionSemaphore.wait()
+            URLSession.shared.dataTask(with: request) {
+                (data, response, error) in
+                guard error == nil else {
+                    flag = false
+                    urlSessionSemaphore.signal()
+                    return
+                }
+                guard let response = response as? HTTPURLResponse else {
+                    flag = false
+                    urlSessionSemaphore.signal()
+                    return
+                }
+                switch response.statusCode {
+                case 200...300:
+                    flag = true
+                default:
+                    flag = false
+                }
+            }.resume()
+            urlSessionSemaphore.wait()
+            semaphote.signal()
+        } else {
+            semaphote.signal()
+        }
+        
+        semaphote.wait()
+        return flag
     }
     
-    public func loadFromBackend(token: String) {
-        
+    public func loadFromBackend(token: String) -> Bool {
+        guard let url = URL(string: "https://api.github.com/gists") else {
+            return false
+        }
+        let semaphore = DispatchSemaphore(value: 1)
+        var request = URLRequest(url: url)
+        request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+        var flag = false
+        let dataTask = URLSession.shared.dataTask(with: request) {
+            [weak self] (data, response, error) in
+            guard let gists = try? JSONDecoder().decode(Array<Gist>.self, from: data!) else {
+                flag = false
+                semaphore.signal()
+                return
+            }
+            let urlSessoinSemaphore = DispatchSemaphore(value: 1)
+            for gist in gists {
+                if let file = gist.files["ios-course-notes-db"] {
+                    guard let url = URL(string: file.raw_url) else {
+                        flag = false
+                        semaphore.signal()
+                        return
+                    }
+                    var request = URLRequest(url: url)
+                    request.addValue("token \(token)", forHTTPHeaderField: "Authorization")
+                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    let loadNotesDataTask = URLSession.shared.dataTask(with: request) {
+                        [weak self] (data, response, error) in
+                        guard error == nil else {
+                            flag = false
+                            urlSessoinSemaphore.signal()
+                            return
+                        }
+                        guard let response = response as? HTTPURLResponse else {
+                            flag = false
+                            urlSessoinSemaphore.signal()
+                            return
+                        }
+                        switch response.statusCode {
+                        case 200...300:
+                            flag = true
+                        default:
+                            flag = false
+                            urlSessoinSemaphore.signal()
+                            return
+                        }
+                        if let arrayOfJsons = try? JSONSerialization.jsonObject(with: data!, options: []) as? [[String: Any]] {
+                            arrayOfJsons.forEach {
+                                guard let note = Note.parse(json: $0) else {
+                                    flag = false
+                                    urlSessoinSemaphore.signal()
+                                    return
+                                }
+                                do {
+                                    try self?.add(note)
+                                } catch { }
+                            }
+                        }
+                        urlSessoinSemaphore.signal()
+                    }
+                    urlSessoinSemaphore.wait()
+                    loadNotesDataTask.resume()
+                    urlSessoinSemaphore.wait()
+                    break
+                }
+            }
+            semaphore.signal()
+        }
+        semaphore.wait()
+        dataTask.resume()
+        semaphore.wait()
+        return flag
     }
     
     public func saveToFile() {

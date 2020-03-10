@@ -9,14 +9,6 @@
 import UIKit
 import WebKit
 
-struct Gist: Codable {
-    var owner: Owner
-}
-
-struct Owner: Codable {
-    let login: String
-}
-
 class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, TokenDelegate {
     
     var delegate: LeftMenuDelegate?
@@ -29,6 +21,7 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, Tok
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginLabel.text = "You aren't logged in"
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(hideLeftMenu))
         swipeLeft.delegate = self
         swipeLeft.direction =  UISwipeGestureRecognizer.Direction.left
@@ -36,6 +29,7 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, Tok
         token.loadTokenFromFile()
         if token.token != nil {
             loginButton.isEnabled = false
+            getLogin()
         } else {
             exitButton.isEnabled = false
         }
@@ -55,7 +49,7 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, Tok
         token.deleteTokenFile()
         loginButton.isEnabled = !loginButton.isEnabled
         exitButton.isEnabled = !exitButton.isEnabled
-        loginLabel.text = "Your login"
+        loginLabel.text = "You aren't logged in"
     }
     
     func getLogin() {

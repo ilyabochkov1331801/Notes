@@ -9,68 +9,45 @@
 import Foundation
 
 class LoadNotesOperation: AsyncOperation {
-    private let loadFromDb: LoadNotesDBOperation
+    private let loadNotesBackendOperation: LoadNotesBackendOperation
     private let dbQueue: OperationQueue
     private let backendQueue: OperationQueue
-    private let notebook: FileNotebook
+    private var notebook: FileNotebook
     
     private(set) var result: Bool? = false
 
     init(notebook: FileNotebook, backendQueue: OperationQueue, dbQueue: OperationQueue) {
         
-        loadFromDb = LoadNotesDBOperation(notebook: notebook)
+        let token = Token()
+        token.loadTokenFromFile()
+        
+        loadNotesBackendOperation = LoadNotesBackendOperation(notebook: notebook, token: token.token)
         self.dbQueue = dbQueue
         self.backendQueue = backendQueue
         self.notebook = notebook
 
         super.init()
         
-        let token = Token()
-        token.loadTokenFromFile()
         
-        loadFromDb.completionBlock = { [weak self] in
-            
-            guard let token = token.token else {
-                self?.finish()
-                return
-            }
-            
-            let loadFromBackend = LoadNotesBackendOperation(notebook: notebook, token: token)
-
-            loadFromBackend.completionBlock = {
-                switch loadFromBackend.result! {
+        loadNotesBackendOperation.completionBlock = {
+            [weak self] in
+            switch self!.loadNotesBackendOperation.result! {
                 case .success:
                     self?.result = true
-                    self?.checkData(newNotebook: loadFromBackend.notebook)
+                    dbQueue.addOperation( self!.loadNotesBackendOperation.notebook.saveToFile )
                 case .failure:
-                    self?.result = false
-                }
-                self?.finish()
-            }
-            guard !loadFromBackend.isCancelled else {
-                self?.finish()
-                return
-            }
-            backendQueue.addOperation(loadFromBackend)
-        }
-    }
-    
-    private func checkData(newNotebook: FileNotebook?) {
-        guard let notes = newNotebook?.getNoteCollection() else { return }
-        for note in notes {
-            do {
-                try notebook.add(note)
-            } catch {
+                   self?.result = false
+                   dbQueue.addOperation(LoadNotesDBOperation(notebook: notebook))
+                   self?.finish()
             }
         }
-        notebook.saveToFile()
     }
     
     override func main() {
-        guard !loadFromDb.isCancelled else {
+        guard !loadNotesBackendOperation.isCancelled else {
             finish()
             return
         }
-        dbQueue.addOperation(loadFromDb)
+        backendQueue.addOperation(loadNotesBackendOperation)
     }
 }

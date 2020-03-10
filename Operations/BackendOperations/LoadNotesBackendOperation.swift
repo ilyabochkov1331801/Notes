@@ -18,12 +18,17 @@ class LoadNotesBackendOperation: BaseBackendOperation {
     var result: SaveNotesBackendResult?
         
     override func main() {
-        guard !isCancelled else {
+        guard !isCancelled, let token = token else {
+            result = .failure(.unreachable)
             finish()
             return
         }
-        result = .failure(.unreachable)
-        DDLogInfo("LoadNotesBackendOperation failured (\(NetworkError.unreachable))")
+        switch notebook.loadFromBackend(token: token) {
+        case true:
+            result = .success
+        case false:
+            result = .failure(.unreachable)
+        }
         finish()
     }
 }

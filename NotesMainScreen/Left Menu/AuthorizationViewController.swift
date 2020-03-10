@@ -32,7 +32,7 @@ class AuthorizationViewController: UIViewController {
         }
         urlComponents.queryItems = [
             URLQueryItem(name: "client_id", value: "6f41c208445449d28196"),
-            URLQueryItem(name: "scope", value: "gist user")
+            URLQueryItem(name: "scope", value: "gist user repo")
         ]
         guard let url = urlComponents.url else { return nil }
         return URLRequest(url: url)

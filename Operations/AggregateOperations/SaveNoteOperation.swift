@@ -27,11 +27,11 @@ class SaveNoteOperation: AsyncOperation {
         token.loadTokenFromFile()
         
         saveToDb.completionBlock = { [weak self] in
-            guard let token = token.token else {
+            guard let tokenString = token.token else {
                 self?.finish()
                 return
             }
-            let saveToBackend = SaveNotesBackendOperation(notebook: notebook, token: token)
+            let saveToBackend = SaveNotesBackendOperation(notebook: notebook, token: tokenString)
             saveToBackend.completionBlock = {
                 switch saveToBackend.result! {
                 case .success:

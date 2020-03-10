@@ -10,9 +10,9 @@ import Foundation
 
 class BaseBackendOperation: AsyncOperation {
     let notebook: FileNotebook
-    let token: String
+    let token: String?
 
-    init(notebook: FileNotebook, token: String) {
+    init(notebook: FileNotebook, token: String?) {
         self.notebook = notebook
         self.token = token
         super.init()

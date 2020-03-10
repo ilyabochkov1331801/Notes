@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,20 +17,20 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeK-D7-KQv">
-                    <rect key="frame" x="20.5" y="144" width="373" height="20.5"/>
+                    <rect key="frame" x="19" y="100" width="337.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haN-W6-dAY">
-                    <rect key="frame" x="172" y="280.5" width="70" height="40"/>
+                    <rect key="frame" x="152.5" y="236.5" width="70" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="YY6-lw-ZBB"/>
-                        <constraint firstAttribute="width" constant="70" id="xib-Ao-3Vo"/>
+                        <constraint firstAttribute="height" constant="40" id="FGz-9e-9zM"/>
+                        <constraint firstAttribute="width" constant="70" id="Fk9-HN-nc9"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Exit"/>
@@ -39,10 +39,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOW-k2-dqS">
-                    <rect key="frame" x="172" y="216.5" width="70" height="40"/>
+                    <rect key="frame" x="152.5" y="172.5" width="70" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="3dj-ml-EIa"/>
-                        <constraint firstAttribute="width" constant="70" id="Qeg-P0-zMp"/>
+                        <constraint firstAttribute="width" constant="70" id="PfM-AP-qrP"/>
+                        <constraint firstAttribute="height" constant="40" id="lTa-XE-Yr3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Login"/>
@@ -53,13 +53,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="FeK-D7-KQv" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="A5N-yx-Zvo"/>
-                <constraint firstItem="haN-W6-dAY" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Bb1-Bs-e4e"/>
-                <constraint firstItem="EOW-k2-dqS" firstAttribute="top" secondItem="FeK-D7-KQv" secondAttribute="bottom" constant="52" id="Ikd-6N-pX6"/>
-                <constraint firstItem="FeK-D7-KQv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="RYS-Ck-5Tb"/>
-                <constraint firstItem="EOW-k2-dqS" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="fmp-Mc-rP2"/>
-                <constraint firstItem="FeK-D7-KQv" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="gCe-Bb-1yG"/>
-                <constraint firstItem="haN-W6-dAY" firstAttribute="top" secondItem="EOW-k2-dqS" secondAttribute="bottom" constant="24" id="ibi-Wu-C1T"/>
+                <constraint firstItem="FeK-D7-KQv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="1yx-nc-gpS"/>
+                <constraint firstItem="EOW-k2-dqS" firstAttribute="top" secondItem="FeK-D7-KQv" secondAttribute="bottom" constant="52" id="U4x-aH-jlt"/>
+                <constraint firstItem="FeK-D7-KQv" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="eLb-HP-R2W"/>
+                <constraint firstItem="EOW-k2-dqS" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="jg8-Mi-xjc"/>
+                <constraint firstItem="FeK-D7-KQv" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="nQ9-7I-bYB"/>
+                <constraint firstItem="haN-W6-dAY" firstAttribute="top" secondItem="EOW-k2-dqS" secondAttribute="bottom" constant="24" id="ux9-Hy-80Y"/>
+                <constraint firstItem="haN-W6-dAY" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="vKT-Lq-Ip5"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="85.714285714285708"/>
