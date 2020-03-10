@@ -177,7 +177,7 @@ class FileNotebook {
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                     let urlSessoinSemaphore = DispatchSemaphore(value: 1) // семафор для отслеживания операции загрузки заметок из гиста (2)
                     let loadNotesDataTask = URLSession.shared.dataTask(with: request) { // операция загрузки заметок
-                        [weak self] (data, response, error) in
+                        [weak self] (data, response, error) in // в этот хэндлер не заходит (
                         guard error == nil else {
                             flag = false
                             urlSessoinSemaphore.signal() // 2 ++
