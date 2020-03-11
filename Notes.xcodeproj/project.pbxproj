@@ -22,6 +22,7 @@
 		EA1C1FE223E1AB6C00529695 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FDD23E1AB6C00529695 /* UIColorExtension.swift */; };
 		EA1C1FE323E1AB6C00529695 /* FileNotebookErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FDE23E1AB6C00529695 /* FileNotebookErrors.swift */; };
 		EA1C1FE423E1AB6C00529695 /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C1FDF23E1AB6C00529695 /* FileNotebook.swift */; };
+		EA393DA824196785000516A1 /* UpdateDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA393DA724196785000516A1 /* UpdateDataDelegate.swift */; };
 		EA3966B323FAE3FE00EE3E22 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3966B123FAE3FE00EE3E22 /* NotesTableViewController.swift */; };
 		EA3966B423FAE3FE00EE3E22 /* NotesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA3966B223FAE3FE00EE3E22 /* NotesTableViewController.xib */; };
 		EA5CAD5924011A02002CCAAE /* PhotoPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5CAD5724011A02002CCAAE /* PhotoPagesViewController.swift */; };
@@ -110,6 +111,7 @@
 		EA1C1FDD23E1AB6C00529695 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		EA1C1FDE23E1AB6C00529695 /* FileNotebookErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNotebookErrors.swift; sourceTree = "<group>"; };
 		EA1C1FDF23E1AB6C00529695 /* FileNotebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
+		EA393DA724196785000516A1 /* UpdateDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDataDelegate.swift; sourceTree = "<group>"; };
 		EA3966B123FAE3FE00EE3E22 /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 		EA3966B223FAE3FE00EE3E22 /* NotesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesTableViewController.xib; sourceTree = "<group>"; };
 		EA5CAD5724011A02002CCAAE /* PhotoPagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPagesViewController.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				EA0E602024167A4E00AB4387 /* AuthorizationViewController.swift */,
 				EA0E602124167A4E00AB4387 /* AuthorizationViewController.xib */,
 				EA0E602424167ED800AB4387 /* TokenDelegate.swift */,
+				EA393DA724196785000516A1 /* UpdateDataDelegate.swift */,
 			);
 			path = "Left Menu";
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				EAB84F2A240C2DF3000543CC /* LoadNotesBackendOperation.swift in Sources */,
 				EAD1A47F23EEF6D50041C782 /* GradientView.swift in Sources */,
 				EAB84F1D240C2B8F000543CC /* BaseBackendOperation.swift in Sources */,
+				EA393DA824196785000516A1 /* UpdateDataDelegate.swift in Sources */,
 				EA970E8C23FC0D7200FEA447 /* NoteTableCell.swift in Sources */,
 				EAD926B62417652200BA07E9 /* Gists.swift in Sources */,
 				EAB84F35240C3857000543CC /* NetworkError.swift in Sources */,

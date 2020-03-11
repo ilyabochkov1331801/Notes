@@ -35,11 +35,15 @@ class LoadNotesOperation: AsyncOperation {
                 case .success:
                     self?.result = true
                     dbQueue.addOperation( self!.loadNotesBackendOperation.notebook.saveToFile )
+                    self?.finish()
                 case .failure:
                    self?.result = false
-                   dbQueue.addOperation(LoadNotesDBOperation(notebook: notebook))
+                   let loadNotesDBOperation = LoadNotesDBOperation(notebook: notebook)
+                   loadNotesDBOperation.completionBlock = {
+                        self?.finish()
+                   }
+                   dbQueue.addOperation(loadNotesDBOperation)
             }
-            self?.finish()
         }
     }
     

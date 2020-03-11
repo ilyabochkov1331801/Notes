@@ -93,4 +93,18 @@ class NotesTableViewController: UITableViewController, UIGestureRecognizerDelega
     }
 }
 
+extension NotesTableViewController: UpdateDataDelegate {
+    func updateData() {
+        let loadNotesOperation = LoadNotesOperation(notebook: notebook,
+                                                    backendQueue: OperationQueue(),
+                                                    dbQueue: OperationQueue())
+        loadNotesOperation.completionBlock = {
+            [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        OperationQueue().addOperation(loadNotesOperation)
+    }
+}
 

@@ -46,10 +46,9 @@ class LoadNotesBackendOperation: BaseBackendOperation {
         var fileRawUrl: String? = nil
         request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
         let semaphore = DispatchSemaphore(value: 1)
-        let urlSession = URLSession(configuration: .ephemeral)
-        let dataTask = urlSession.dataTask(with: request) {
+        let dataTask = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
-            guard error != nil else {
+            guard error == nil else {
                 semaphore.signal()
                 return
             }

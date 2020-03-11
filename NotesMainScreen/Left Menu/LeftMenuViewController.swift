@@ -12,6 +12,7 @@ import WebKit
 class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, TokenDelegate {
     
     var delegate: LeftMenuDelegate?
+    var updateDataDelegate: UpdateDataDelegate?
     
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
@@ -80,6 +81,7 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, Tok
         token.token = newToken
         token.saveTokenToFile()
         getLogin()
+        updateDataDelegate?.updateData()
         loginButton.isEnabled = !loginButton.isEnabled
         exitButton.isEnabled = !exitButton.isEnabled
     }
