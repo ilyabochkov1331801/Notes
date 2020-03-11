@@ -126,8 +126,10 @@
             filePath = "NotesMainScreen/Left Menu/LeftMenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77">
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "handleTokenChanged(newToken:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -140,10 +142,10 @@
             filePath = "NotesMainScreen/Left Menu/LeftMenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "LeftMenuViewController"
-            landmarkType = "3">
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "handleTokenChanged(newToken:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -156,8 +158,8 @@
             filePath = "NotesMainScreen/Left Menu/LeftMenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "getLogin()"
             landmarkType = "7">
          </BreakpointContent>
@@ -236,8 +238,8 @@
             filePath = "NotebookModel/FileNotebook.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "saveToBackend(token:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -268,8 +270,8 @@
             filePath = "NotebookModel/FileNotebook.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "saveToBackend(token:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -284,8 +286,8 @@
             filePath = "NotebookModel/FileNotebook.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "saveToBackend(token:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -300,8 +302,8 @@
             filePath = "NotebookModel/FileNotebook.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "saveToBackend(token:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -316,8 +318,8 @@
             filePath = "NotebookModel/FileNotebook.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "saveToBackend(token:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -332,8 +334,8 @@
             filePath = "NotebookModel/FileNotebook.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "saveToBackend(token:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -348,8 +350,8 @@
             filePath = "NotebookModel/FileNotebook.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "saveToBackend(token:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -364,8 +366,8 @@
             filePath = "Operations/AggregateOperations/LoadNotesOperation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "init(notebook:backendQueue:dbQueue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -389,48 +391,144 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C1B7F75A-B08A-4A54-83D2-54ACC3CB6FE6"
+            uuid = "9EF0548B-9314-478C-A669-41514698FE4E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NotebookModel/FileNotebook.swift"
+            filePath = "Operations/BackendOperations/LoadNotesBackendOperation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "loadFromBackend(token:)"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "main()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C29B86B8-1A62-4640-8A7B-D3FD14AEEFC5"
-            shouldBeEnabled = "Yes"
+            uuid = "FE3CBBF5-CD87-49CF-BFB5-107D7E0A1414"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NotebookModel/FileNotebook.swift"
+            filePath = "Operations/BackendOperations/LoadNotesBackendOperation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "loadFromBackend(token:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "fileRawUrl(token:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BDEEEF25-2838-4EE3-A51A-E1B26EAAB7CA"
+            uuid = "361F3F82-9EE8-4038-B8AE-2C0CE49DF98F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NotebookModel/FileNotebook.swift"
+            filePath = "Operations/BackendOperations/LoadNotesBackendOperation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "loadFromBackend(token:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "fileRawUrl(token:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "16684F34-7C8E-4FC5-B03B-EA229C60CF64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operations/BackendOperations/LoadNotesBackendOperation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "fileRawUrl(token:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A14B782C-2B0F-43F4-A175-90E13127B54F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operations/BackendOperations/LoadNotesBackendOperation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "fileRawUrl(token:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D799C00D-925E-48A6-9609-D217221BAEED"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operations/BackendOperations/LoadNotesBackendOperation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "getNotes(token:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63A95D65-D46A-46E2-A2E9-D7A5F40E0952"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operations/BackendOperations/LoadNotesBackendOperation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "getNotes(token:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "543D747C-6C67-4D4F-A39F-49C88BC13313"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operations/BackendOperations/LoadNotesBackendOperation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "getNotes(token:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73E4F15F-3C40-4A5F-BCF0-CDA6BF88574B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operations/AggregateOperations/RemoveNoteOperation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "init(note:notebook:backendQueue:dbQueue:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

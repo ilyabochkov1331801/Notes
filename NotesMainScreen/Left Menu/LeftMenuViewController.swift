@@ -53,17 +53,27 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, Tok
     }
     
     func getLogin() {
-        let gitUrl = "https://api.github.com/gists"
+        let gitUrl = "https://api.github.com/user"
         guard let url = URL(string: gitUrl) else { return }
         var request = URLRequest(url: url)
         guard let token = token.token else { return }
         request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
-            guard let gists: Array<Gist> = try? JSONDecoder().decode(Array<Gist>.self, from: data!) else { return }
+            guard let data = data else {
+                OperationQueue.main.addOperation {
+                    self?.loginLabel.text = "Can't load information"
+                }
+                return
+            }
+            guard let userData = try? JSONDecoder().decode(UserData.self, from: data) else { return }
             OperationQueue.main.addOperation {
-                self?.loginLabel.text = gists.first?.owner.login
+                self?.loginLabel.text = userData.login
             }
         }.resume()
+    }
+    
+    struct UserData: Codable {
+        let login: String
     }
     
     func handleTokenChanged(newToken: String) {

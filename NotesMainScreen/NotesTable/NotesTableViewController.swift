@@ -30,7 +30,9 @@ class NotesTableViewController: UITableViewController, UIGestureRecognizerDelega
                                                     backendQueue: OperationQueue(),
                                                     dbQueue: OperationQueue())
         loadNotesOperation.completionBlock = { [weak self] in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
         OperationQueue().addOperation(loadNotesOperation)
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(showLeftMenu))

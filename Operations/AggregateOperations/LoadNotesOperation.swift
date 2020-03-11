@@ -28,18 +28,18 @@ class LoadNotesOperation: AsyncOperation {
 
         super.init()
         
-        
         loadNotesBackendOperation.completionBlock = {
             [weak self] in
-            switch self!.loadNotesBackendOperation.result! {
+            guard let _self = self else { return }
+            switch _self.loadNotesBackendOperation.result! {
                 case .success:
                     self?.result = true
                     dbQueue.addOperation( self!.loadNotesBackendOperation.notebook.saveToFile )
                 case .failure:
                    self?.result = false
                    dbQueue.addOperation(LoadNotesDBOperation(notebook: notebook))
-                   self?.finish()
             }
+            self?.finish()
         }
     }
     

@@ -32,7 +32,7 @@ class AuthorizationViewController: UIViewController {
         }
         urlComponents.queryItems = [
             URLQueryItem(name: "client_id", value: "6f41c208445449d28196"),
-            URLQueryItem(name: "scope", value: "gist user repo")
+            URLQueryItem(name: "scope", value: "gist user")
         ]
         guard let url = urlComponents.url else { return nil }
         return URLRequest(url: url)
@@ -63,8 +63,9 @@ extension AuthorizationViewController: WKNavigationDelegate {
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        URLSession.shared.dataTask(with: request) { [weak self]
-            (data, response, error) in
+        let urlSession = URLSession(configuration: .ephemeral)
+        urlSession.dataTask(with: request) {
+            [weak self] (data, response, error) in
             guard let accessToken = try? JSONDecoder().decode(AccessToken.self, from: data!) else { return }
             OperationQueue.main.addOperation {
                 self?.delegate?.handleTokenChanged(newToken: accessToken.access_token)

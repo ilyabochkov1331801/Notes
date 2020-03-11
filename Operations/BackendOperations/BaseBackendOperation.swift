@@ -9,7 +9,7 @@
 import Foundation
 
 class BaseBackendOperation: AsyncOperation {
-    let notebook: FileNotebook
+    var notebook: FileNotebook
     let token: String?
 
     init(notebook: FileNotebook, token: String?) {

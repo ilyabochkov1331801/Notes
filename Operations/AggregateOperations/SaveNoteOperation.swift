@@ -32,15 +32,6 @@ class SaveNoteOperation: AsyncOperation {
                 return
             }
             let saveToBackend = SaveNotesBackendOperation(notebook: notebook, token: tokenString)
-            saveToBackend.completionBlock = {
-                switch saveToBackend.result! {
-                case .success:
-                    self?.result = true
-                case .failure:
-                    self?.result = false
-                }
-                self?.finish()
-            }
             guard !saveToBackend.isCancelled else {
                 self?.finish()
                 return

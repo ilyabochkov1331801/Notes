@@ -27,28 +27,15 @@ class RemoveNoteOperation: AsyncOperation {
         let token = Token()
         token.loadTokenFromFile()
         
-        removeFromDb.completionBlock = { [weak self] in
-            
+        removeFromDb.completionBlock = {
+            [weak self] in
             guard let token = token.token else {
                 self?.finish()
                 return
             }
-            
             let saveToBackend = SaveNotesBackendOperation(notebook: notebook, token: token)
-            saveToBackend.completionBlock = {
-                switch saveToBackend.result! {
-                case .success:
-                    self?.result = true
-                case .failure:
-                    self?.result = false
-                }
-                self?.finish()
-            }
-            guard !saveToBackend.isCancelled else {
-                self?.finish()
-                return
-            }
             self?.backendQueue.addOperation(saveToBackend)
+            self?.finish()
         }
     }
         

@@ -13,6 +13,10 @@ class FileNotebook {
         return noteCollection
     }
     
+    func removeAll() {
+        noteCollection.removeAll()
+    }
+    
     public func add(_ note: Note) throws {
         for (index, element) in noteCollection.enumerated() {
             if element.uid == note.uid {
@@ -146,81 +150,6 @@ class FileNotebook {
         }
         
         semaphote.wait()
-        return flag
-    }
-    
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public func loadFromBackend(token: String) -> Bool {
-        guard let url = URL(string: "https://api.github.com/gists") else {
-            return false
-        }
-        let semaphore = DispatchSemaphore(value: 1) // первый семафор для отслеживания операции получения всех гистов (1)
-        var request = URLRequest(url: url)
-        request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
-        var flag = false
-        let dataTask = URLSession.shared.dataTask(with: request) { // операция получения всех гистов
-            [weak self] (data, response, error) in
-            guard let gists = try? JSONDecoder().decode(Array<Gist>.self, from: data!) else {
-                flag = false
-                semaphore.signal() // 1 ++
-                return
-            }
-            for gist in gists { // поиск необходимого гиста
-                if let file = gist.files["ios-course-notes-db"] {
-                    guard let url = URL(string: file.raw_url) else {
-                        flag = false
-                        semaphore.signal() // 1 ++
-                        return
-                    }
-                    var request = URLRequest(url: url)
-                    request.addValue("token \(token)", forHTTPHeaderField: "Authorization")
-                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                    let urlSessoinSemaphore = DispatchSemaphore(value: 1) // семафор для отслеживания операции загрузки заметок из гиста (2)
-                    let loadNotesDataTask = URLSession.shared.dataTask(with: request) { // операция загрузки заметок
-                        [weak self] (data, response, error) in // в этот хэндлер не заходит (
-                        guard error == nil else {
-                            flag = false
-                            urlSessoinSemaphore.signal() // 2 ++
-                            return
-                        }
-                        guard let response = response as? HTTPURLResponse else {
-                            flag = false
-                            urlSessoinSemaphore.signal() // 2 ++
-                            return
-                        }
-                        switch response.statusCode {
-                        case 200...300:
-                            flag = true
-                        default:
-                            flag = false
-                            urlSessoinSemaphore.signal() // 2 ++
-                            return
-                        }
-                        if let arrayOfJsons = try? JSONSerialization.jsonObject(with: data!, options: []) as? [[String: Any]] {
-                            arrayOfJsons.forEach {
-                                guard let note = Note.parse(json: $0) else {
-                                    flag = false
-                                    urlSessoinSemaphore.signal() // 2 ++
-                                    return
-                                }
-                                do {
-                                    try self?.add(note)
-                                } catch { }
-                            }
-                        }
-                        urlSessoinSemaphore.signal() // 2 ++
-                    }
-                    urlSessoinSemaphore.wait() // 2 --
-                    loadNotesDataTask.resume() // делаем загрузку заметок
-                    urlSessoinSemaphore.wait() // ждем загрузку
-                    break // выходим из цикла
-                }
-            }
-            semaphore.signal() // 1 ++
-        }
-        semaphore.wait() // 1 --
-        dataTask.resume() // получаем все гисты
-        semaphore.wait() // ждем окончания всего
         return flag
     }
     
