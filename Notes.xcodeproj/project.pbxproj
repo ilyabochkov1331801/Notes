@@ -39,6 +39,7 @@
 		EAA52FB623FD0B2C00DDC4C4 /* PhotoNotesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA52FB423FD0B2C00DDC4C4 /* PhotoNotesCollectionViewController.swift */; };
 		EAA52FB923FD0CE700DDC4C4 /* PhotoNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA52FB823FD0CE700DDC4C4 /* PhotoNotebook.swift */; };
 		EAA52FBD23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA52FBB23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift */; };
+		EAA5474B241A6497006C12F6 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA5474A241A6497006C12F6 /* Questions.swift */; };
 		EAB84F1D240C2B8F000543CC /* BaseBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F1C240C2B8F000543CC /* BaseBackendOperation.swift */; };
 		EAB84F1F240C2BDC000543CC /* AsynsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F1E240C2BDC000543CC /* AsynsOperation.swift */; };
 		EAB84F21240C2C01000543CC /* SaveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F20240C2C01000543CC /* SaveNoteOperation.swift */; };
@@ -128,6 +129,7 @@
 		EAA52FB423FD0B2C00DDC4C4 /* PhotoNotesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNotesCollectionViewController.swift; sourceTree = "<group>"; };
 		EAA52FB823FD0CE700DDC4C4 /* PhotoNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNotebook.swift; sourceTree = "<group>"; };
 		EAA52FBB23FD586900DDC4C4 /* PhotoNotesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNotesCollectionCell.swift; sourceTree = "<group>"; };
+		EAA5474A241A6497006C12F6 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		EAA78C8D23E2595000A17131 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EAB84F1C240C2B8F000543CC /* BaseBackendOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBackendOperation.swift; sourceTree = "<group>"; };
 		EAB84F1E240C2BDC000543CC /* AsynsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynsOperation.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		EA1C1FAE23E1A98300529695 = {
 			isa = PBXGroup;
 			children = (
+				EAA5474A241A6497006C12F6 /* Questions.swift */,
 				EAD926B9241765E400BA07E9 /* Gists */,
 				EA7ECE432416741800FB0A47 /* TokenModel */,
 				EAC8CBDA241641AB001A5594 /* NotesMainScreen */,
@@ -591,6 +594,7 @@
 				EAB84F2A240C2DF3000543CC /* LoadNotesBackendOperation.swift in Sources */,
 				EAD1A47F23EEF6D50041C782 /* GradientView.swift in Sources */,
 				EAB84F1D240C2B8F000543CC /* BaseBackendOperation.swift in Sources */,
+				EAA5474B241A6497006C12F6 /* Questions.swift in Sources */,
 				EA393DA824196785000516A1 /* UpdateDataDelegate.swift in Sources */,
 				EA970E8C23FC0D7200FEA447 /* NoteTableCell.swift in Sources */,
 				EAD926B62417652200BA07E9 /* Gists.swift in Sources */,

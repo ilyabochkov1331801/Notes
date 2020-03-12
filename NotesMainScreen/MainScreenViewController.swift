@@ -32,7 +32,6 @@ class MainScreenViewController: UIViewController {
             menuViewController = LeftMenuViewController()
             menuViewController.delegate = self
             if let noteTableViewController = navigationControllerForNotes.viewControllers.first as? UpdateDataDelegate {
-                print("+++")
                 menuViewController.updateDataDelegate = noteTableViewController
             }
             view.insertSubview(menuViewController.view, at: 0)

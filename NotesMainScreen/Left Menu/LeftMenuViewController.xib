@@ -26,43 +26,42 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haN-W6-dAY">
-                    <rect key="frame" x="152.5" y="236.5" width="70" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="FGz-9e-9zM"/>
-                        <constraint firstAttribute="width" constant="70" id="Fk9-HN-nc9"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Exit"/>
-                    <connections>
-                        <action selector="exitButtonTupped:" destination="-1" eventType="touchUpInside" id="bho-jb-nEe"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOW-k2-dqS">
-                    <rect key="frame" x="152.5" y="172.5" width="70" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="70" id="PfM-AP-qrP"/>
-                        <constraint firstAttribute="height" constant="40" id="lTa-XE-Yr3"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Login"/>
-                    <connections>
-                        <action selector="loginButtonTupped:" destination="-1" eventType="touchUpInside" id="e9B-9R-mNu"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="4NT-V5-wYl">
+                    <rect key="frame" x="141" y="158" width="92" height="21"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOW-k2-dqS">
+                            <rect key="frame" x="0.0" y="0.0" width="27" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                            <state key="normal" title="Login" image="icloud.and.arrow.up" catalog="system"/>
+                            <connections>
+                                <action selector="loginButtonTupped:" destination="-1" eventType="touchUpInside" id="e9B-9R-mNu"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haN-W6-dAY">
+                            <rect key="frame" x="66" y="0.0" width="26" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                            <state key="normal" title="Exit" image="icloud.and.arrow.down" catalog="system"/>
+                            <connections>
+                                <action selector="exitButtonTupped:" destination="-1" eventType="touchUpInside" id="bho-jb-nEe"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="FeK-D7-KQv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="1yx-nc-gpS"/>
-                <constraint firstItem="EOW-k2-dqS" firstAttribute="top" secondItem="FeK-D7-KQv" secondAttribute="bottom" constant="52" id="U4x-aH-jlt"/>
+                <constraint firstItem="4NT-V5-wYl" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" constant="-0.5" id="PV1-NJ-Egm"/>
                 <constraint firstItem="FeK-D7-KQv" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="eLb-HP-R2W"/>
-                <constraint firstItem="EOW-k2-dqS" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="jg8-Mi-xjc"/>
+                <constraint firstItem="4NT-V5-wYl" firstAttribute="top" secondItem="FeK-D7-KQv" secondAttribute="bottom" constant="37.5" id="kmi-Jf-R3i"/>
                 <constraint firstItem="FeK-D7-KQv" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="nQ9-7I-bYB"/>
-                <constraint firstItem="haN-W6-dAY" firstAttribute="top" secondItem="EOW-k2-dqS" secondAttribute="bottom" constant="24" id="ux9-Hy-80Y"/>
-                <constraint firstItem="haN-W6-dAY" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="vKT-Lq-Ip5"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="137.68115942028987" y="85.714285714285708"/>
+            <point key="canvasLocation" x="136.80000000000001" y="85.007496251874073"/>
         </view>
     </objects>
+    <resources>
+        <image name="icloud.and.arrow.down" catalog="system" width="64" height="56"/>
+        <image name="icloud.and.arrow.up" catalog="system" width="64" height="52"/>
+    </resources>
 </document>

@@ -81,6 +81,7 @@ class SaveNotesBackendOperation: BaseBackendOperation {
         }
         request.httpBody = dataToWrite
         URLSession.shared.dataTask(with: request).resume()
+        DDLogInfo("Data patched successfully")
     }
     
     func post(token: String) {
@@ -100,5 +101,6 @@ class SaveNotesBackendOperation: BaseBackendOperation {
         }
         request.httpBody = dataToWrite
         URLSession.shared.dataTask(with: request).resume()
+        DDLogInfo("Data posted successfully")
     }
 }

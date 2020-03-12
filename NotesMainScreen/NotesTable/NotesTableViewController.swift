@@ -19,22 +19,19 @@ class NotesTableViewController: UITableViewController, UIGestureRecognizerDelega
         title = "Notes"
         
         navigationItem.leftBarButtonItem = editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(addNote))
+        let addNoteBurButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"),
+                                                   style: .plain,
+                                                   target: self,
+                                                   action: #selector(addNote))
+        let updateDataBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise.icloud"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(updateData))
+        navigationItem.rightBarButtonItems = [ addNoteBurButtonItem, updateDataBarButtonItem ]
         
         tableView.register(UINib(nibName: "NoteTableCell", bundle: nil), forCellReuseIdentifier: "NoteTableCell")
         
-        let loadNotesOperation = LoadNotesOperation(notebook: notebook,
-                                                    backendQueue: OperationQueue(),
-                                                    dbQueue: OperationQueue())
-        loadNotesOperation.completionBlock = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
-        OperationQueue().addOperation(loadNotesOperation)
+        updateData()
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(showLeftMenu))
         swipeRight.delegate = self
         swipeRight.direction =  UISwipeGestureRecognizer.Direction.right
@@ -94,7 +91,7 @@ class NotesTableViewController: UITableViewController, UIGestureRecognizerDelega
 }
 
 extension NotesTableViewController: UpdateDataDelegate {
-    func updateData() {
+    @objc func updateData() {
         let loadNotesOperation = LoadNotesOperation(notebook: notebook,
                                                     backendQueue: OperationQueue(),
                                                     dbQueue: OperationQueue())

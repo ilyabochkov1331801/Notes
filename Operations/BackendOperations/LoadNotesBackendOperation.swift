@@ -25,6 +25,7 @@ class LoadNotesBackendOperation: BaseBackendOperation {
         }
         guard let newNotes = getNotes(token: token) else {
             result = .failure(.unreachable)
+            DDLogInfo("Data not downloaded")
             finish()
             return
         }
@@ -35,6 +36,7 @@ class LoadNotesBackendOperation: BaseBackendOperation {
             } catch { }
         }
         result = .success
+        DDLogInfo("Data downloaded successfully")
         finish()
     }
     

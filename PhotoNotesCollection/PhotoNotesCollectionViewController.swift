@@ -18,7 +18,7 @@ class PhotoNotesCollectionViewController: UICollectionViewController, UIImagePic
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "PhotoNotesCollectionCell", bundle: nil),
                                 forCellWithReuseIdentifier: "PhotoNotesCollectionCell")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"),
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(addPhoto))
