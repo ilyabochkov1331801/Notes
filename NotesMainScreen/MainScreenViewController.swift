@@ -30,6 +30,7 @@ class MainScreenViewController: UIViewController {
     func configureteMenuViewController() {
         if menuViewController == nil {
             menuViewController = LeftMenuViewController()
+            menuViewController.view.frame = UIScreen.main.bounds
             menuViewController.delegate = self
             if let noteTableViewController = navigationControllerForNotes.viewControllers.first as? UpdateDataDelegate {
                 menuViewController.updateDataDelegate = noteTableViewController

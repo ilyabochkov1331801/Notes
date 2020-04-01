@@ -35,6 +35,7 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, Tok
             exitButton.isEnabled = false
         }
     }
+  
     
     @objc func hideLeftMenu() {
         delegate?.toggleMenu()
@@ -48,9 +49,21 @@ class LeftMenuViewController: UIViewController, UIGestureRecognizerDelegate, Tok
     
     @IBAction func exitButtonTupped(_ sender: Any) {
         token.deleteTokenFile()
+        clearCache()
         loginButton.isEnabled = !loginButton.isEnabled
         exitButton.isEnabled = !exitButton.isEnabled
         loginLabel.text = "You aren't logged in"
+    }
+    
+    fileprivate func clearCache() {
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared.diskCapacity = 0
+        URLCache.shared.memoryCapacity = 0
+        let cookieStorage = HTTPCookieStorage.shared
+        guard let cookies = cookieStorage.cookies else { return }
+        for cookie in cookies {
+            cookieStorage.deleteCookie(cookie)
+        }
     }
     
     func getLogin() {

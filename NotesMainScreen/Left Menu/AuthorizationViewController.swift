@@ -35,7 +35,7 @@ class AuthorizationViewController: UIViewController {
             URLQueryItem(name: "scope", value: "gist user")
         ]
         guard let url = urlComponents.url else { return nil }
-        return URLRequest(url: url)
+        return URLRequest(url: url, cachePolicy:NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData)
     }
 }
 
@@ -60,11 +60,10 @@ extension AuthorizationViewController: WKNavigationDelegate {
             URLQueryItem(name: "client_secret", value: "13a0e93f8dbce88e01c400beaedbb2d74075e409"),
             URLQueryItem(name: "code", value: code)
         ]
-        var request = URLRequest(url: urlComponents.url!)
+        var request = URLRequest(url: urlComponents.url!, cachePolicy:NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        let urlSession = URLSession(configuration: .ephemeral)
-        urlSession.dataTask(with: request) {
+        URLSession.shared.dataTask(with: request) {
             [weak self] (data, response, error) in
             guard let accessToken = try? JSONDecoder().decode(AccessToken.self, from: data!) else { return }
             OperationQueue.main.addOperation {
