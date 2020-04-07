@@ -52,6 +52,7 @@
 		EAB84F31240C3125000543CC /* LoadNotesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F30240C3125000543CC /* LoadNotesOperation.swift */; };
 		EAB84F35240C3857000543CC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F34240C3857000543CC /* NetworkError.swift */; };
 		EAB84F37240C389F000543CC /* RemoveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB84F36240C389F000543CC /* RemoveNoteOperation.swift */; };
+		EABF1300243CDD6700B22426 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABF12FF243CDD6700B22426 /* WebKit.framework */; };
 		EAC1AE3123EC40F4005B8765 /* UIColorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */; };
 		EAC1AE3923EC7E1D005B8765 /* ColorComponentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */; };
 		EAC8CBD624163A35001A5594 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC8CBD424163A35001A5594 /* LeftMenuViewController.swift */; };
@@ -143,6 +144,7 @@
 		EAB84F30240C3125000543CC /* LoadNotesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesOperation.swift; sourceTree = "<group>"; };
 		EAB84F34240C3857000543CC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EAB84F36240C389F000543CC /* RemoveNoteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteOperation.swift; sourceTree = "<group>"; };
+		EABF12FF243CDD6700B22426 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		EAC1AE3023EC40F4005B8765 /* UIColorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCellView.swift; sourceTree = "<group>"; };
 		EAC1AE3823EC7E1D005B8765 /* ColorComponentsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponentsList.swift; sourceTree = "<group>"; };
 		EAC8CBD424163A35001A5594 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EABF1300243CDD6700B22426 /* WebKit.framework in Frameworks */,
 				B3DACC799805D18B8657CDF4 /* libPods-Notes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +321,7 @@
 		EAA78C8C23E2595000A17131 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EABF12FF243CDD6700B22426 /* WebKit.framework */,
 				EAA78C8D23E2595000A17131 /* MapKit.framework */,
 				6DDF905ADE1FC54C2A8657E8 /* Pods_NotesTests.framework */,
 				791C33BEC25400921CB58A08 /* libPods-Notes.a */,
